@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<!-- form section start -->
+<section class="w3l-hotair-form">
+    <h1>Report Login Form</h1>
+    <div class="container">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <h2>Log In</h2>
+                    <form action="/Account/CheckDangNhap" method="post">
+                        <input type="text" class="text" name="TenTaiKhoan" placeholder="User name" required="" autofocus>
+                        <input type="password" class="password" name="MatKhau" placeholder="User Password" required="" autofocus>
+                        <button class="btn" type="submit">Log In</button>
+                    </form>
+
+                    <p class="account">Don't have an account? <a href="#signup">Register</a></p>
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <img src="~/Content/imgs/1.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //form -->
+    </div>
+    <!-- copyright-->
+    <div class="copyright text-center">
+
+    </div>
+    <!-- //copyright-->
+</section>
+<!-- //form section start -->

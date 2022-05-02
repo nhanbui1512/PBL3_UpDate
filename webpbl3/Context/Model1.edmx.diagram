@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0b27479965c6486d8e7425e8792b3be2" Name="Diagram1">
+        <EntityTypeShape EntityType="SQL_HotelModel.DatPhong" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_HotelModel.DichVu" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_HotelModel.HinhAnh" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_HotelModel.HoaDon" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_HotelModel.KhachHang" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_HotelModel.LoaiPhong" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_HotelModel.Phong" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_HotelModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_HotelModel.TaiKhoan" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SQL_HotelModel.ViTri" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="SQL_HotelModel.FK_DatPhong_HoaDon" ManuallyRouted="false" />
+        <AssociationConnector Association="SQL_HotelModel.FK_DatPhong_Phong" ManuallyRouted="false" />
+        <AssociationConnector Association="SQL_HotelModel.FK_DatPhong_TaiKhoan" ManuallyRouted="false" />
+        <AssociationConnector Association="SQL_HotelModel.FK_GiaoDich_DichVu" ManuallyRouted="false" />
+        <AssociationConnector Association="SQL_HotelModel.FK_Phong_HinhAnh" ManuallyRouted="false" />
+        <AssociationConnector Association="SQL_HotelModel.FK_KhachHang_TaiKhoan" ManuallyRouted="false" />
+        <AssociationConnector Association="SQL_HotelModel.FK_Phong_LoaiPhong" ManuallyRouted="false" />
+        <AssociationConnector Association="SQL_HotelModel.FK_Phong_ViTri" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

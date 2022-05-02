@@ -1,0 +1,125 @@
+﻿
+@model webpbl3.BUS.DatPhong_BUS
+@{
+    ViewBag.Title = "DanhSachDatPhong";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/assets-admin/css/styles2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            DANH SÁCH ĐƠN ĐẶT PHÒNG
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+
+        <div class="order-container__content-header">
+
+            <div class="">
+                <label for="">
+                    Show
+                    <select class="padding-5-20" name="" id=""></select>
+                    entries
+                </label>
+            </div>
+
+            <div class="">
+                <label for="">
+                    Search:
+                    <input class="padding-5-20" type="text">
+                </label>
+            </div>
+
+        </div>
+
+        <div class="col margin-bottop-10">
+
+            <div class="header-order">
+                <div class="font-18 text-center header-order__item">Thời gian gửi mail</div>
+                <div class="font-18 text-center header-order__item">Họ và tên</div>
+                <div class="font-18 text-center header-order__item">Số điện thoại</div>
+                <div class="font-18 text-center header-order__item">Tên Tài Khoản</div>
+                <div class="font-18 text-center header-order__item">Thời gian thuê phòng</div>
+                <div class="font-18 text-center header-order__item">Tình trạng</div>
+                <div class="font-18 text-center header-order__item"></div>
+            </div>
+            <div class="drop-down white-background"></div>
+
+            @{
+                foreach (var i in Model.DatPhong)
+                {   
+                        <div class="text-center content-order">
+                            <div class="col">@i.BatDau.Value.Day/@i.BatDau.Value.Month/@i.BatDau.Value.Year</div>
+
+                            @foreach (var j in Model.KhachHang)
+                            {
+                                if (i.IDTK == j.IDTaiKhoan)
+                                {
+                                    <div class="col">@j.HoTen</div>
+                                    <div class="col">@j.SDT</div>
+
+                                }
+                            }
+
+                            @foreach (var j in Model.TaiKhoan)
+                            {
+                                if (i.IDTK == j.IDTK)
+                                {
+                                    <div class="col">@j.TenTaiKhoan</div>
+
+                                }
+                            }
+
+                            <div class="col">@i.BatDau.Value.Day/@i.BatDau.Value.Month/@i.BatDau.Value.Year</div>
+                            @{
+                                if (i.TrangThai == true)
+                                {
+                                    <div class="col">Đã Xác Nhận</div>
+
+                                }
+                                else
+                                {
+                                    <div class="col">Chưa Xác Nhận</div>
+
+                                }
+                            }
+
+                            <div class="row">
+
+
+                                @Html.ActionLink("Xem", "XemDon", new { id = i.IDDatPhong} , new { @class = "button" })
+                                <button class="button">Xóa</button>
+                            </div>
+                        </div>
+
+                    <div class="drop-down white-background"></div>
+
+                }
+            }
+
+
+
+
+        </div>
+
+    </div>
+</body>
+</html>

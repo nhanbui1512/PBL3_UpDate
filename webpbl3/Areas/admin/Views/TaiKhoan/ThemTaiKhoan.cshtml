@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Thêm Tài Khoản";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/assets-admin/css/styles2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            THÊM MỚI TÀI KHOẢN
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+        <form action="/Account/CheckSignIn" method="post" class="form-horizontal">
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Tên Đăng Nhập</label>
+                <input required class="form-group__input" type="text" name="TenTaiKhoan">
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Họ và Tên</label>
+                <input required class="form-group__input" type="text" name="HoVaTen">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Giới tính</label>
+                <select class=" form-group__input" data-val="true" data-val-number="The field IDChucVu must be a number." id="IDChucVu" name="IDChucVu" placeholder="Chọn chức vụ">
+                    <option value="2">Nam</option>
+                    <option value="3">Nữ</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Chứng Minh Nhân Dân</label>
+                <input required class="form-group__input" type="number" name="CMND">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Số Điện Thoại</label>
+                <input required class="form-group__input" type="text" name="SoDT">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Ngày Sinh</label>
+                <input required class="form-group__input" type="date" name="NgaySinh">
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Mật Khẩu</label>
+                <input required class="form-group__input" type="text" name="MatKhau">
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Xác Nhận Mật Khẩu</label>
+                <input required class="form-group__input" type="text" name="XacNhanMatKhau">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for=""></label>
+                <div class="form-group__input">
+                    <button type="submit" class="form-group__button">Xác Nhận</button>
+                    <button class="form-group__button">Quay Lại</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

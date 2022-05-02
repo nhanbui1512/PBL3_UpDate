@@ -1,0 +1,6 @@
+G:\webpbl3\DTO\bin\Debug\DTO.dll
+G:\webpbl3\DTO\bin\Debug\DTO.pdb
+G:\webpbl3\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+G:\webpbl3\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+G:\webpbl3\DTO\obj\Debug\DTO.dll
+G:\webpbl3\DTO\obj\Debug\DTO.pdb

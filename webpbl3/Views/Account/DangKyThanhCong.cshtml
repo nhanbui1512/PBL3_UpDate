@@ -1,0 +1,506 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/assets/css/styles.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/Content/assets/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets/fonts/fontawesome-free-6.0.0-web/css/all.css">
+</head>
+<body>
+    <div id="main">
+
+        <div class="bar shadow">
+            <div class="bar-item-container">
+                <a class="bar-item" href="#"><i class=" bar-icon fa-solid fa-house"></i>Home</a>
+                <a class="bar-item" href="#rooms"><i class=" bar-icon fa-solid fa-bed"></i> Rooms</a>
+                <a class="bar-item" href="#service-container"><i class=" bar-icon ti-layout-grid3"></i> Service</a>
+                <a class="bar-item" href="#"><i class=" bar-icon fa-solid fa-phone"></i> contact</a>
+            </div>
+
+            <a onclick="document.getElementById('id01').style.display='block'" class="login-btn"><i class="login-icon fa-solid fa-arrow-right-to-bracket"></i>Login</a>
+            <a onclick="document.getElementById('id03').style.display='block'" class="login-btn">Sign up</a>
+
+            <!-- <a href="" class="search-btn"><i class="ti-search"></i></a> -->
+        </div>
+
+        <header class="header">
+            <img class="header__image" src="~/Content/assets/img/workshop.jpg" alt="">
+        </header>
+
+        <div class="booking-container">
+            <div id="rooms" class="booking-container__header">
+                <h3 class="booking-container__header-title">Rooms</h3>
+                <p class="booking-container__header-status">Make yourself at home is our slogan. We offer the best beds in the industry. Sleep well and rest well.</p>
+            </div>
+            <div class="booking-container__check">
+
+                <div class="booking-container__check-col-four">
+                    <label for="">
+                        <i class="fa-solid fa-calendar-days check-icoon"></i>
+                        Check In
+                    </label>
+                    <input class="check-input" type="text" placeholder="DD MM YYY">
+
+                </div>
+
+                <div class="booking-container__check-col-four">
+                    <label for="">
+                        <i class="fa-solid fa-calendar-days check-icoon"></i>
+                        Check Out
+                    </label>
+                    <input class="check-input" type="text" placeholder="DD MM YYY">
+
+                </div>
+
+                <div class="booking-container__check-col-third">
+                    <label for="">
+                        <i class="fa-solid fa-person check-icoon"></i>
+                        Adaults
+                    </label>
+                    <input class="check-input" type="number" placeholder="1">
+
+                </div>
+
+                <div class="booking-container__check-col-third">
+                    <label for="">
+                        <i class="fa-solid fa-child check-icoon"></i>
+                        Kids
+                    </label>
+                    <input class="check-input" type="number" placeholder="0">
+
+                </div>
+
+                <div class="booking-container__check-col-third">
+                    <label for="">
+                        <i class="fa-solid fa-magnifying-glass check-icoon"></i>
+                        Search
+                    </label>
+                    <div class="check-search-btn button-hover">
+                        Search
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="booking-container__rooms">
+                <div class="booking-container__rooms-item">
+                    <img class="room-img" src="~/Content/assets/img/room_single.jpg" alt="">
+
+                    <div class="room-description">
+                        <h3 class="margin-bottop-10 font-24">
+                            Single Room
+                        </h3>
+                        <h6 class="margin-bottop-10 font-16">
+                            From $99
+                        </h6>
+                        <p class="margin-bottop-15">15m2</p>
+                        <p class="margin-bottop-15">Single bed</p>
+                        <p class="margin-bottop-15">
+                            <i class="fa-solid fa-bath"></i>
+                            <i class="fa-solid fa-phone"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                        </p>
+                        <div onclick="document.getElementById('id02').style.display = 'block'" class="choose-room-btn button-hover">
+                            Choose Room
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-container__rooms-item">
+                    <img class="room-img" src="~/Content/assets/img/room_double.jpg" alt="">
+
+                    <div class="room-description">
+
+                        <h3 class="margin-bottop-10 font-24">
+                            Double Room
+                        </h3>
+                        <h6 class="margin-bottop-10 font-16">
+                            From $149
+                        </h6>
+                        <p class="margin-bottop-15">15m2</p>
+                        <p class="margin-bottop-15">Queen-size bed</p>
+                        <p class="margin-bottop-15">
+                            <i class="fa-solid fa-bath"></i>
+                            <i class="fa-solid fa-phone"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                            <i class="fa-solid fa-tv"></i>
+                        </p>
+                        <div onclick="document.getElementById('id02').style.display = 'block'" class="choose-room-btn button-hover">
+                            Choose Room
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-container__rooms-item">
+                    <img class="room-img" src="~/Content/assets/img/room_deluxe.jpg" alt="">
+
+                    <div class="room-description">
+
+                        <h3 class="margin-bottop-10 font-24">
+                            Delexe Room
+                        </h3>
+                        <h6 class="margin-bottop-10 font-16">
+                            From $199
+                        </h6>
+                        <p class="margin-bottop-15">15m2</p>
+                        <p class="margin-bottop-15">King-size bed</p>
+                        <p class="margin-bottop-15">
+                            <i class="fa-solid fa-bath"></i>
+                            <i class="fa-solid fa-phone"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                            <i class="fa-solid fa-tv"></i>
+                            <i class="fa-solid fa-martini-glass"></i>
+                            <i class="fa-solid fa-utensils"></i>
+                        </p>
+                        <div onclick="document.getElementById('id02').style.display = 'block'" class="choose-room-btn button-hover">
+                            Choose Room
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-container__rooms">
+                <div class="booking-container__rooms-item">
+                    <img class="room-img" src="~/Content/assets/img/room_deluxe.jpg" alt="">
+
+                    <div class="room-description">
+                        <h3 class="margin-bottop-10 font-24">
+                            Master Room
+                        </h3>
+                        <h6 class="margin-bottop-10 font-16">
+                            From $249
+                        </h6>
+                        <p class="margin-bottop-15">15m2</p>
+                        <p class="margin-bottop-15">Single bed</p>
+                        <p class="margin-bottop-15">
+                            <i class="fa-solid fa-bath"></i>
+                            <i class="fa-solid fa-phone"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                            <i class="fa-solid fa-tv"></i>
+                            <i class="fa-solid fa-martini-glass"></i>
+                            <i class="fa-solid fa-utensils"></i>
+                        </p>
+                        <div onclick="document.getElementById('id02').style.display = 'block'" class="choose-room-btn button-hover">
+                            Choose Room
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-container__rooms-item">
+                    <img class="room-img" src="~/Content/assets/img/noi-that-khach-san-hien-dai-8.jpg" alt="">
+
+                    <div class="room-description">
+
+                        <h3 class="margin-bottop-10 font-24">
+                            Luxury Room
+                        </h3>
+                        <h6 class="margin-bottop-10 font-16">
+                            From $149
+                        </h6>
+                        <p class="margin-bottop-15">15m2</p>
+                        <p class="margin-bottop-15">Queen-size bed</p>
+                        <p class="margin-bottop-15">
+                            <i class="fa-solid fa-bath"></i>
+                            <i class="fa-solid fa-phone"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                            <i class="fa-solid fa-tv"></i>
+                            <i class="fa-solid fa-martini-glass"></i>
+                            <i class="fa-solid fa-utensils"></i>
+                        </p>
+                        <div onclick="document.getElementById('id02').style.display = 'block'" class="choose-room-btn button-hover">
+                            Choose Room
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-container__rooms-item">
+                    <img class="room-img" src="~/Content/assets/img/ciputra-deluxe-twin.jpeg" alt="">
+
+                    <div class="room-description">
+
+                        <h3 class="margin-bottop-10 font-24">
+                            Bungalow Room
+                        </h3>
+                        <h6 class="margin-bottop-10 font-16">
+                            From $199
+                        </h6>
+                        <p class="margin-bottop-15">15m2</p>
+                        <p class="margin-bottop-15">King-size bed</p>
+                        <p class="margin-bottop-15">
+                            <i class="fa-solid fa-bath"></i>
+                            <i class="fa-solid fa-phone"></i>
+                            <i class="fa-solid fa-wifi"></i>
+                            <i class="fa-solid fa-tv"></i>
+                            <i class="fa-solid fa-martini-glass"></i>
+                            <i class="fa-solid fa-utensils"></i>
+                        </p>
+                        <div onclick="document.getElementById('id02').style.display = 'block'" class="choose-room-btn button-hover">
+                            Choose Room
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="service-container" class="service-container">
+            <h1 class="service-header">SERVICE</h1>
+
+            <div class="service-detail">
+                <img class="service-detail__image" src="~/Content/assets/img/best-type-of-swimming-pool-for-my-home_2.jpg" alt="">
+                <div class="service-detail__content">
+                    <h2 class="service-detail__content-header1">ROMAN SWIMMING POOL</h2>
+                    <h3 class="service-detail__content-header2">Features</h3>
+                    <p class="service-detail__content-detail">Our beautiful Roman style outdoor pool, including children pool, located on the 1st floor,and open daily from 6:00 AM to 8:00 PM. Towel are available at the pool. Please note that swimming in the pool is entirely at your own risk. Parens must supervise their children at all time. The pool is closed for cleaning after 8:00 PM   </p>
+                </div>
+            </div>
+
+            <div class="service-detail">
+                <div class="service-detail__content">
+                    <h2 class="service-detail__content-header1">FITNESS CENTER</h2>
+                    <h3 class="service-detail__content-header2">Healthy</h3>
+                    <p class="service-detail__content-detail">Location Annex Building - 1st Floor operation hours 6:00 AM - 9:00 PM. Free charge for our hotel guest. With a fully-equipped gym, free fitness roomfor member, you will easy to stay in shape while you're here </p>
+                </div>
+                <img class="service-detail__image" src="~/Content/assets/img/Gym-room-3dsmax-3d-model-2.jpg" alt="">
+
+            </div>
+
+
+            <div class="service-detail">
+                <img class="service-detail__image" src="~/Content/assets/img/tour-la-gi1.jpg" alt="">
+
+                <div class="service-detail__content">
+                    <h2 class="service-detail__content-header1">TOUR</h2>
+                    <h3 class="service-detail__content-header2">Features</h3>
+                    <p class="service-detail__content-detail">Nha Trang is endowed by nature with a template climate, beautiful natural scenery, and a rich history and culture. You just need to choose your descired dates and give us an idea of what you want to do and then let us design a unique and extraordinary adventure of a life time. If you need more infomation or wish to participate in any of the activities, please contact for us</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- footer  -->
+        <footer id="footer" class="center white-color">
+            <a href="" class="home-btn">
+                <i class="ti-arrow-up margin-right-16"></i>
+                To the top
+            </a>
+            <div class="social-icon margin-bottop-18">
+                <a href="" class="icon"> <i class="fa-brands fa-facebook-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-instagram-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-youtube-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-pinterest-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-twitter-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <!-- <p class="margin-bottop-16">Powered by <a class="coppyright" href="">NhanBui</a></p> -->
+        </footer>
+    </div>
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+            <div onclick="document.getElementById('id01').style.display='none'" class="w3-modal-close-btn"><i class="fa-solid fa-xmark"></i></div>
+            <div class="center">
+                <img src="~/Content/assets/img/img_avatar4.png" alt="Avatar" style="width:20%" class="w3-circle login-img">
+            </div>
+
+            <form action="/Account/CheckDangNhap" class="w3-container" method="post">
+                <div class="w3-section">
+
+                    <label><b>Username</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="TenTaiKhoan" required="" autofocus>
+                    <label><b>Password</b></label>
+                    <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="MatKhau" required="" autofocus>
+                    <button class="modal-login-btn" type="submit">Login</button>
+                </div>
+
+                <div class="form-remember">
+                    <input class="w3-check" type="checkbox" checked="checked"> Remember me
+                </div>
+
+            </form>
+
+
+
+            <div class="login-footer">
+                <button onclick="document.getElementById('id01').style.display='none'" type="button" class="cancel-btn">Cancel</button>
+                <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="display:block" id="id03" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+            <div onclick="document.getElementById('id03').style.display='none'" class="w3-modal-close-btn"><i class="fa-solid fa-xmark"></i></div>
+
+            <!-- <div class="center">
+              <img src="./assets/img/img_avatar4.png" alt="Avatar" style="width:20%" class="w3-circle login-img">
+            </div> -->
+
+            <form class="w3-container" action="/Account/CheckSignIn" method="post">
+                <div class="w3-section">
+
+                    <p style="color: rgb(0, 215, 68);"> ĐĂNG KÝ THÀNH CÔNG !</p>
+
+                    <label class=""><b>Họ và Tên</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Nguyen Van A" name="HoVaTen" required>
+
+                    <label class=""><b>Số Điện Thoại</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="0913232323" name="SoDT" required>
+
+                    <label class=""><b>Số Chứng Minh Nhân Dân</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="1919232323" name="CMND" required>
+
+                    <label class=""><b>Ngày Sinh</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="date" placeholder="1/1/2020" name="NgaySinh" required>
+
+                    <label><b>Username</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="TenTaiKhoan" required>
+
+
+                    <label><b>Password</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Password" name="MatKhau" required>
+
+
+                    <label><b>Confirm Password</b></label>
+                    <input class="w3-input w3-border" type="password" placeholder="Confirm Password" name="XacNhanMatKhau" required>
+
+                    <button class="modal-login-btn" type="submit">Đăng ký</button>
+                </div>
+
+            </form>
+
+            <div class="login-footer">
+                <button onclick="document.getElementById('id03').style.display='none'" type="button" class="cancel-btn">Cancel</button>
+                <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="id02" class="w3-modal ">
+        <div class="form-order w3-animate-zoom">
+            <div class="form-order__header">
+                <h2 class="">
+                    <i class="fa-solid fa-bed"></i>
+                    Hotel Name
+                </h2>
+                <div onclick="document.getElementById('id02').style.display = 'none'" class="form-order__close-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+
+            </div>
+            <div class="form-order__content">
+                <div class="check-container">
+                    <div class="check-item">
+                        <label for="">
+                            <i class="check-item-icon fa-solid fa-calendar"></i>
+                            Check in
+                        </label>
+                        <input class="check-item-input" type="date" placeholder="DD MM YYY">
+                    </div>
+
+                    <div class="check-item">
+                        <label for="">
+                            <i class="check-item-icon fa-solid fa-calendar"></i>
+                            Check out
+                        </label>
+                        <input class="check-item-input" type="date" placeholder="DD MM YYY">
+                    </div>
+                </div>
+
+                <div class="check-container-info">
+
+                    <div class="check-container-info__item">
+                        <label for="">
+                            <i class="fa-solid fa-user check-container-info__item-icon"></i>
+                            Họ và tên
+                        </label>
+                        <input class="check-container-info__item-input" type="text" placeholder="Họ và tên">
+                    </div>
+
+                    <div class="check-container-info__item">
+                        <label for="">
+                            <i class="fa-solid fa-envelope check-container-info__item-icon"></i>
+                            Email
+                        </label>
+                        <input class="check-container-info__item-input" type="email" placeholder="Email">
+                    </div>
+
+                    <div class="check-container-info__item">
+                        <label for="">
+                            <i class="fa-solid fa-phone check-container-info__item-icon"></i>
+                            Phone Number
+                        </label>
+                        <input class="check-container-info__item-input" type="text" placeholder="Email">
+
+                    </div>
+
+                    <div class="check-container-info__item">
+                        <label for="">
+                            Chứng minh nhân dân
+                        </label>
+                        <input class="check-container-info__item-input" type="text" placeholder="Chứng minh nhân dân">
+
+                    </div>
+
+                    <div class="padding-righleft-20">
+                        <button class="form-order-send-btn">
+                            SEND
+                        </button>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // const image_btns = document.querySelectorAll('.js-image-btn');
+        // const modal = document.querySelector('.js-modal');
+        // const closebtn = document.querySelector('.js-close-btn');
+
+        // console.log( document.querySelectorAll('.js-image-btn'));
+
+        // function openmodal() {
+        //     modal.classList.add('open');
+        // }
+
+        // function closemodal() {
+        //     modal.classList.remove('open');
+        // }
+
+        // for( const image_btn of image_btns){
+        //     image_btn.addEventListener('click',openmodal)
+        // }
+
+        // closebtn.addEventListener('click',closemodal);
+
+        function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+    </script>
+
+</body>
+</html>
+
