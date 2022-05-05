@@ -141,6 +141,8 @@
     <Compile Include="Areas\admin\Controllers\MatKhauController.cs" />
     <Compile Include="Areas\admin\Controllers\TaiKhoanController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
+    <Compile Include="Areas\Client\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Client\Controllers\HomeController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\BaseController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\NhanVienPageController.cs" />
     <Compile Include="Areas\NhanVien\NhanVienAreaRegistration.cs" />
@@ -197,6 +199,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -4871,6 +4874,9 @@
     <Content Include="Areas\NhanVien\Views\NhanVienPage\Index.cshtml" />
     <Content Include="Areas\admin\Views\MatKhau\DoiMatKhauThanhCong.cshtml" />
     <Content Include="Areas\admin\Views\CaNhan\UpDateThongTinCaNhan.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\Layout.cshtml" />
+    <Content Include="Areas\Client\Views\Home\HomePage.cshtml" />
+    <Content Include="Areas\Client\Views\Home\XemPhong.cshtml" />
     <None Include="Models\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.min.js" />
@@ -4909,11 +4915,11 @@
     <Folder Include="Areas\admin\Data\" />
     <Folder Include="Areas\admin\Views\Account\" />
     <Folder Include="Areas\admin\Views\Base\" />
-    <Folder Include="Areas\Client\Controllers\" />
     <Folder Include="Areas\Client\Data\" />
-    <Folder Include="Areas\Client\Views\Shared\" />
+    <Folder Include="Areas\Client\Views\Base\" />
     <Folder Include="Areas\NhanVien\Data\" />
     <Folder Include="Areas\NhanVien\Views\Base\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\loginregister\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>

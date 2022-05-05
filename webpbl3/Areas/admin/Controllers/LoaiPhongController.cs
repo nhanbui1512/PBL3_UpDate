@@ -9,7 +9,7 @@ namespace webpbl3.Areas.admin.Controllers
 {
     public class LoaiPhongController : BaseController
     {
-        private DBHelper dbHelper = new DBHelper("Data Source = LAPTOP - BFIK942I\\NHANBUI; Initial Catalog = SQL_Hotel; Integrated Security = True");
+        private DBHelper dbHelper = new DBHelper("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
         // GET: admin/LoaiPhong
         public ActionResult DanhSachLoaiPhong()
         {
@@ -21,12 +21,13 @@ namespace webpbl3.Areas.admin.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult AddPhong(FormThemLoaiPhong form)
         {
 
-            string query = "INSERT INTO LoaiPhong VALUES ('"+form.TenLoaiPhong+"', '"+form.GiaPhong+"' )";
+            string query = "INSERT INTO LoaiPhong VALUES (N'"+form.TenLoaiPhong+"','', '"+form.GiaPhong+"' )";
             dbHelper.ExcutedDB(query);
-            return View();
+            return Redirect("/admin/LoaiPhong/DanhSachLoaiPhong");
         }
     }
 }

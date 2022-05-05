@@ -3,7 +3,7 @@ using webpbl3.Context;
 
 namespace webpbl3.Controllers
 {
-    public class HomePageController : Controller
+    public class HomePageController : BaseController
     {
 
         public ActionResult Index()

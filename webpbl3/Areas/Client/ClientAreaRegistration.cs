@@ -17,7 +17,7 @@ namespace webpbl3.Areas.Client
             context.MapRoute(
                 "Client_default",
                 "Client/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "HomePage", id = UrlParameter.Optional }
             );
         }
     }
