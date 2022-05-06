@@ -23,7 +23,8 @@ namespace webpbl3.Context
         public int IDLoaiPhong { get; set; }
         public string TenLoaiPhong { get; set; }
         public string GhiChu { get; set; }
-        public Nullable<long> GiaPhong { get; set; }
+        public string GiaPhong { get; set; }
+        public string LienKetAnh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Phong> Phongs { get; set; }

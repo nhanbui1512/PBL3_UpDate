@@ -14,18 +14,11 @@ namespace webpbl3.Context
     
     public partial class DichVu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DichVu()
-        {
-            this.HoaDons = new HashSet<HoaDon>();
-        }
-    
         public int IDDV { get; set; }
         public string TenDichVu { get; set; }
         public Nullable<long> GiaTien { get; set; }
         public Nullable<bool> TrangThai { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public string DonVi { get; set; }
+        public string GhiChu { get; set; }
     }
 }

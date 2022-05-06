@@ -12,16 +12,11 @@ namespace webpbl3.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class KhachHang
+    public partial class ThongTinHoaDon
     {
-        public int IDKhachHang { get; set; }
-        public Nullable<System.DateTime> NgaySinh { get; set; }
-        public string SDT { get; set; }
-        public string DiaChi { get; set; }
-        public string CMT { get; set; }
-        public string HoTen { get; set; }
-        public Nullable<int> IDTaiKhoan { get; set; }
+        public int IDThongTinHD { get; set; }
+        public Nullable<int> IDHoaDon { get; set; }
     
-        public virtual TaiKhoan TaiKhoan { get; set; }
+        public virtual HoaDon HoaDon { get; set; }
     }
 }

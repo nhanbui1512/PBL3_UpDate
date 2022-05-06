@@ -1,4 +1,4 @@
-﻿@model webpbl3.BUS.DanhSachDichVu_BUS
+﻿@model List<DTO.DSDichVuView>
 @{
     ViewBag.Title = "Dịch Vụ";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
@@ -61,36 +61,30 @@
 
 
             @{
-                foreach (var item in Model.list)
+                foreach (var i in Model)
                 {
-
                     <div class="text-center content-order">
-                        <div class="col">@item.TenDichVu</div>
-                        @{ if (item.TrangThai == true)
-                            {
-                                <div class="col">Sử Dụng</div>
-
-                            }
-                            else
-                            {
-                                <div class="col">Tạm Dừng</div>
-
-                            }
+                        <div class="col">@i.TenDV</div>
+                        @if (i.TrangThai == true)
+                        {
+                            <div class="col">Sử dụng</div>
                         }
-                        <div class="col">@item.GiaTien VNĐ</div>
+                        else
+                        {
+                            <div class="col">Tạm dừng</div>
+                        }
+
+                        <div class="col">@i.GiaDV/@i.DonVi</div>
 
                         <div class="row">
-                            @Html.ActionLink("Sửa", "Sua", "DichVu", new { ID = item.IDDV }, new { @class = "button", data_val = "abc" })
-                            @Html.ActionLink("Xóa", "XoaDichVu", "DichVu", new { ID = item.IDDV }, new { @class = "button"})
-
+                            @Html.ActionLink("Sửa", "Sua", new { ID = i.IDDV }, new { @class = "admin-order-btn button--modify" })
+                            <button class="admin-order-btn button--modify">Xóa</button>
                         </div>
 
                     </div>
                     <div class="drop-down white-background"></div>
 
                 }
-
-
             }
 
 

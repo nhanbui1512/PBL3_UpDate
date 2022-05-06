@@ -1,4 +1,4 @@
-﻿@model webpbl3.BUS.TaiKhoan_BUS
+﻿
 @{
     ViewBag.Title = "Danhsachtaikhoan";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
@@ -59,47 +59,6 @@
             </div>
             <div class="drop-down white-background"></div>
 
-            @{
-                foreach (var item in Model.listKH)
-                {
-                        <div class="text-center content-order">
-                            <div class="col">@item.HoTen</div>
-                            <div class="col">@item.NgaySinh.Value.Date.ToString("dd/MM/yyyy")</div>
-                            @{ foreach (var i in Model.listTk)
-                                {
-                                    if (item.IDTaiKhoan == i.IDTK)
-                                    {
-                                        <div class="col">@i.TenTaiKhoan</div>
-
-                                    }
-                                }
-                            }
-                            <div class="col">@item.SDT</div>
-
-                            <div class="row">
-                                @Html.ActionLink("Sửa", "XemTaiKhoan", "TaiKhoan", new { @class = "button", data_val = "abc" })
-                                @Html.ActionLink("Khôi Phục", "", "TaiKhoan", new { @class = "button", data_val = "abc" })
-                                @Html.ActionLink("Xóa", "", "TaiKhoan", new { @class = "button", data_val = "abc" })
-                            </div>
-                        </div>
-                    <div class="drop-down white-background"></div>
-                }
-            }
-
-
-            @*<div class="text-center content-order">
-            <div class="col">Mai Văn Phố</div>
-            <div class="col">15/12/2002</div>
-            <div class="col">phomai123</div>
-            <div class="col">0913946875</div>
-
-            <div class="row">
-                <button class="admin-order-btn">Sửa</button>
-                <button class="admin-order-btn">Khôi Phục</button>
-                <button class="admin-order-btn">Xóa</button>
-            </div>
-        </div>
-        <div class="drop-down white-background"></div>*@
 
         </div>
 

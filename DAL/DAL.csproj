@@ -41,7 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DBHelper.cs" />
+    <Compile Include="DSBaoCaoDao.cs" />
+    <Compile Include="DSDatPhongDao.cs" />
+    <Compile Include="DSDichVuDao.cs" />
+    <Compile Include="DSHoaDonDao.cs" />
+    <Compile Include="DSKhachHangDao.cs" />
+    <Compile Include="DSLoaiPhongDao.cs" />
+    <Compile Include="DSTaiKhoanNVDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -52,7 +52,7 @@ namespace webpbl3.Models
 
         public DataTable GetAllKhachHang()
         {
-            string query = "SELECT * FROM KhachHang";
+            string query = "SELECT * FROM ThongTinTK";
             SqlCommand cmd = new SqlCommand(query, cnn);
             SqlDataReader r;
 

@@ -41,7 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DSBaoCaoBus.cs" />
+    <Compile Include="DSDatPhongBus.cs" />
+    <Compile Include="DSDichVuBus.cs" />
+    <Compile Include="DSHoaDonBus.cs" />
+    <Compile Include="DSKhachHangBus.cs" />
+    <Compile Include="DSLoaiPhongBus.cs" />
+    <Compile Include="DSTaiKhoanNVBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

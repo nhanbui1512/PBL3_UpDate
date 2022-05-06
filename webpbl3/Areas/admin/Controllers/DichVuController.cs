@@ -7,6 +7,7 @@ using webpbl3.BUS;
 using webpbl3.Context;
 using webpbl3.Models;
 using System.Text;
+using BUS;
 
 namespace webpbl3.Areas.admin.Controllers
 {
@@ -16,11 +17,9 @@ namespace webpbl3.Areas.admin.Controllers
 
         public ActionResult DanhSachDichVu()
         {
-            SQL_HotelEntities1 obj = new SQL_HotelEntities1();
-            var list = obj.DichVus.ToList();
-            DanhSachDichVu_BUS a = new DanhSachDichVu_BUS();
-            a.list = list;
-            return View(a);
+            var list = new DSDichVuBus().GetDSDichVu();
+
+            return View(list);
         }
 
 

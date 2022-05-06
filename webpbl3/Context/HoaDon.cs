@@ -17,19 +17,20 @@ namespace webpbl3.Context
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HoaDon()
         {
-            this.DatPhongs = new HashSet<DatPhong>();
+            this.ThongTinHoaDons = new HashSet<ThongTinHoaDon>();
         }
     
         public int IDHoaDon { get; set; }
-        public Nullable<int> IDDichVu { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public Nullable<System.DateTime> ThoiGianGD { get; set; }
         public Nullable<long> TongTien { get; set; }
         public Nullable<long> GiaPhong { get; set; }
         public Nullable<long> GiaDichVu { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
+        public Nullable<int> IDDatPhong { get; set; }
     
+        public virtual DatPhong DatPhong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DatPhong> DatPhongs { get; set; }
-        public virtual DichVu DichVu { get; set; }
+        public virtual ICollection<ThongTinHoaDon> ThongTinHoaDons { get; set; }
     }
 }

@@ -14,25 +14,14 @@ namespace webpbl3.Context
     
     public partial class Phong
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Phong()
-        {
-            this.DatPhongs = new HashSet<DatPhong>();
-        }
-    
         public int IDPhong { get; set; }
         public string TenPhong { get; set; }
         public Nullable<int> KhongGian { get; set; }
         public Nullable<bool> TrangThai { get; set; }
         public Nullable<int> IDLoaiPhong { get; set; }
-        public Nullable<int> IDViTri { get; set; }
         public Nullable<long> GiaKM { get; set; }
-        public Nullable<int> IDHinhAnh { get; set; }
+        public string TenViTri { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DatPhong> DatPhongs { get; set; }
-        public virtual HinhAnh HinhAnh { get; set; }
         public virtual LoaiPhong LoaiPhong { get; set; }
-        public virtual ViTri ViTri { get; set; }
     }
 }

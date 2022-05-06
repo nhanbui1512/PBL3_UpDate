@@ -27,13 +27,11 @@ namespace webpbl3.Context
     
         public virtual DbSet<DatPhong> DatPhongs { get; set; }
         public virtual DbSet<DichVu> DichVus { get; set; }
-        public virtual DbSet<HinhAnh> HinhAnhs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<LoaiPhong> LoaiPhongs { get; set; }
         public virtual DbSet<Phong> Phongs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
-        public virtual DbSet<ViTri> ViTris { get; set; }
+        public virtual DbSet<ThongTinHoaDon> ThongTinHoaDons { get; set; }
+        public virtual DbSet<ThongTinTK> ThongTinTKs { get; set; }
     }
 }

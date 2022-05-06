@@ -165,7 +165,7 @@ namespace webpbl3.Controllers
                     }
                 }
 
-                helper.ExcutedDB("INSERT INTO KhachHang VALUES ('" + acc.NgaySinh + "' , '" + acc.SoDT + "' , '" + acc.DiaChi + "', '" + acc.CMND + "' , '" + acc.HoVaTen + "' , '" +id+"')");
+                helper.ExcutedDB("INSERT INTO ThongTinTK VALUES ('" + acc.NgaySinh + "' , '" + acc.SoDT + "' , '" + acc.DiaChi + "', '" + acc.CMND + "' , '" + acc.HoVaTen + "' , '" +id+"')");
 
                 return View("DangKyThanhCong");
 
@@ -182,7 +182,7 @@ namespace webpbl3.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return Redirect("/HomePage");
+            return Redirect("/");
         }
 
 

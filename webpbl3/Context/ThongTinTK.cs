@@ -12,12 +12,18 @@ namespace webpbl3.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class ThongTinTK
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int IDTTTK { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
+        public string SDT { get; set; }
+        public string DiaChi { get; set; }
+        public string CMT { get; set; }
+        public string HoTen { get; set; }
+        public Nullable<int> IDTaiKhoan { get; set; }
+        public string GhiChu { get; set; }
+        public Nullable<bool> GioiTinh { get; set; }
+    
+        public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace webpbl3.Context
         public TaiKhoan()
         {
             this.DatPhongs = new HashSet<DatPhong>();
-            this.KhachHangs = new HashSet<KhachHang>();
+            this.ThongTinTKs = new HashSet<ThongTinTK>();
         }
     
         public int IDTK { get; set; }
@@ -29,6 +29,6 @@ namespace webpbl3.Context
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatPhong> DatPhongs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhachHang> KhachHangs { get; set; }
+        public virtual ICollection<ThongTinTK> ThongTinTKs { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace webpbl3.Models
     public class KhachHang_DatPhong
     {
 
-        public List<KhachHang> listkh { get; set; }
+        public List<ThongTinTaiKhoan> listkh { get; set; }
         public List<DatPhong> listdp { get; set; }
         public List<TaiKhoan> listtk { get; set; }
 

@@ -8,15 +8,15 @@ namespace DTO
 {
     public class DatPhong
     {
-        public int IDDatPhong { get; set; }
-        public int IDTaiKhoan { get; set; }
-        public int IDPhong { get; set; }
-        public DateTime ThoiDiemGui { get; set; }
-        public DateTime BatDau { get; set; }
-        public DateTime KetThuc { get; set; }
-        public bool TrangThai { get; set; }
-        public double DonGia { get; set; }
-        public int SoLuong { get; set; }
-
+        public System.Int32 IDDatPhong { get; set; }
+        public TaiKhoan TaiKhoanjoin { get; set; }
+        public System.DateTime ThoiDiemGui { get; set; }
+        public System.DateTime BatDau { get; set; }
+        public System.DateTime KetThuc { get; set; }
+        public System.Boolean TrangThai { get; set; }
+        public System.Int64? DonGia { get; set; }
+        public System.Int32 SoLuong { get; set; }
+        public System.Int32 IDNhanVien { get; set; }
+        public string TenNhanVien { get; set; }
     }
 }
