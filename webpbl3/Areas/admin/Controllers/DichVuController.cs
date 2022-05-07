@@ -46,7 +46,7 @@ namespace webpbl3.Areas.admin.Controllers
             SQL_HotelEntities1 obj = new SQL_HotelEntities1();
             DichVu dv = new DichVu();
             DichVu_BUS bus = new DichVu_BUS();
-
+             
             var list = obj.DichVus.ToList();
             foreach (var item in list)
             {

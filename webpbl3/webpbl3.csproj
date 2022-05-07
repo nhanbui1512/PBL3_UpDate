@@ -143,6 +143,7 @@
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Areas\Client\Controllers\BaseController.cs" />
     <Compile Include="Areas\Client\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Client\Model\FormDatPhong.cs" />
     <Compile Include="Areas\NhanVien\Controllers\BaseController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\NhanVienPageController.cs" />
     <Compile Include="Areas\NhanVien\NhanVienAreaRegistration.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Models\FormAddDichVu.cs" />
     <Compile Include="Models\FormDoiMK.cs" />
     <Compile Include="Models\FormThemLoaiPhong.cs" />
+    <Compile Include="Models\FormThongTinDatPhong.cs" />
     <Compile Include="Models\KhachHang_DatPhong.cs" />
     <Compile Include="Models\FormDK.cs" />
     <Compile Include="Models\ThongTinTaiKhoan.cs" />
@@ -4909,7 +4911,6 @@
     <Folder Include="Areas\admin\Data\" />
     <Folder Include="Areas\admin\Views\Account\" />
     <Folder Include="Areas\admin\Views\Base\" />
-    <Folder Include="Areas\Client\Data\" />
     <Folder Include="Areas\Client\Views\Base\" />
     <Folder Include="Areas\NhanVien\Data\" />
     <Folder Include="Areas\NhanVien\Views\Base\" />

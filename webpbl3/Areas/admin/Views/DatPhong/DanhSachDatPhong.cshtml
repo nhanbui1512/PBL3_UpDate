@@ -74,11 +74,11 @@
                         <div class="col">@i.ThoiGianBD.ToString("dd/MM/yyyy")</div>
                         @if (i.TrangThai == 1)
                         {
-                            <div class="col">Chưa xử lý</div>
+                            <div class="col">Đã Xử Lý</div>
                         }
                         else
                         {
-                            <div class="col">Đã xử lý</div>
+                            <div class="col">Chưa Xử Lý</div>
                         }
                         <div class="row">
                             @Html.ActionLink("Xem", "XemDon", new { ID = i.ID }, new { @class = "button" })
