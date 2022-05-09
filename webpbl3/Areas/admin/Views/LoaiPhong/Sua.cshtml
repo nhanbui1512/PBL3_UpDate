@@ -1,6 +1,6 @@
-﻿
+﻿@model DTO.DSLoaiPhongView
 @{
-    ViewBag.Title = "Thêm Mới Loại Phòng";
+    ViewBag.Title = "Sửa Loại Phòng";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
 
 }
@@ -23,34 +23,39 @@
 <body>
     <div class="order-container__header">
         <h2>
-            THÊM MỚI LOẠI PHÒNG
+            CHỈNH SỬA LOẠI PHÒNG
         </h2>
     </div>
 
     <div class="order-container__content">
 
-        <form class="form-horizontal" action="/LoaiPhong/AddPhong" method="post">
+        <form class="form-horizontal" action="/LoaiPhong/UpDate" method="post">
 
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Tên Loại Phòng</label>
-                <input placeholder="Phòng Gia Đình" class="form-group__input" type="text" name="TenLoaiPhong">
+                <input placeholder="Phòng Gia Đình" class="form-group__input" type="text" name="TenLoaiPhong" value="@Model.TenLoaiPhong">
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Giá Phòng</label>
-                <input placeholder="" class="form-group__input" type="text" name="GiaPhong">
+                <input placeholder="" class="form-group__input" type="text" name="GiaPhong" value="@Model.GiaPhong">
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Ghi Chú</label>
-                <input placeholder="" class="form-group__input" type="text" name="GhiChu">
+                <input placeholder="" class="form-group__input" type="text" name="GhiChu" value="@Model.GhiChu">
+            </div>
+
+            <div class="form-group" style="display: none;">
+                <label class="margin-right-20 text-right form-group__label" for="">ID</label>
+                <input placeholder="" class="form-group__input" type="text" name="IDLoaiPhong" value="@Model.IDLoaiPhong">
             </div>
 
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Ảnh Đại Diện</label>
-                <input placeholder="URL" class="form-group__input" type="text" name="URLAnhDaiDien">
+                <input placeholder="URL" class="form-group__input" type="text" name="URLAnhDaiDien" value="@Model.LienKetAnh">
             </div>
 
             <div class="form-group">
@@ -63,7 +68,7 @@
                 <label class="margin-right-20 text-right form-group__label" for=""></label>
                 <div class="form-group__input">
                     <button type="submit" class="button--modify padding-8">Xác Nhận</button>
-                    <a class="button--modify padding-8">Quay Lại</a>
+                    <a href="/admin/LoaiPhong/DanhSachLoaiPhong" class="button--modify padding-8">Quay Lại</a>
                 </div>
             </div>
         </form>

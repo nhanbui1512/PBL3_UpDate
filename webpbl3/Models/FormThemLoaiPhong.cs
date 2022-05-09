@@ -9,8 +9,10 @@ namespace webpbl3.Models
     {
         public string TenLoaiPhong { get; set; }
         public Double GiaPhong { get; set; }
+        public string GhiChu { get; set; }
         public string URLAnhDaiDien { get; set; }
         public string URLAnhWC { get; set; }
+        public int IDLoaiPhong { get; set; }
 
 
     }

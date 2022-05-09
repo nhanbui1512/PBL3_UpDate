@@ -39,38 +39,43 @@
             @{
                 if (Model.TrangThai == "1")
                 {
-                        <div class="form-group">
-                            <label class="margin-right-20 text-right form-group__label" for="">Trạng Thái</label>
-
-                            @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem>{ new SelectListItem{Text="Sử Dụng", Value="1"},  new SelectListItem{Text="Tạm Dừng", Value="0"}} ,
-                           new { @class = " form-group__input" })
-
-                        </div>
-                }
-                else {
-                        <div class="form-group">
+                    <div class="form-group">
                         <label class="margin-right-20 text-right form-group__label" for="">Trạng Thái</label>
 
-       
-                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem>{ new SelectListItem{Text="Tạm Dừng", Value="0"}, new SelectListItem{Text="Sử Dụng", Value="1"}} ,
+                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Sử Dụng", Value = "1" }, new SelectListItem { Text = "Tạm Dừng", Value = "0" } },
                        new { @class = " form-group__input" })
 
-                        </div>  
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        <label class="margin-right-20 text-right form-group__label" for="">Trạng Thái</label>
+
+
+                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Tạm Dừng", Value = "0" }, new SelectListItem { Text = "Sử Dụng", Value = "1" } },
+                       new { @class = " form-group__input" })
+
+                    </div>
                 }
 
 
             }
 
-           
+
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Giá tiền</label>
                 <input name="GiaTien" class="form-group__input" type="number" value="@Model.GiaTien">
             </div>
 
-            
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Đơn Vị</label>
+                <input name="DonVi" class="form-group__input" type="text" value="@Model.DonVi">
+            </div>
 
-            <div class="form-group" style="display: none;" >
+
+            <div class="form-group" style="display: none;">
                 <label class="margin-right-20 text-right form-group__label" for="">ID</label>
                 <input name="IDDV" value="@Model.IDDV" class="form-group__input" type="text">
             </div>

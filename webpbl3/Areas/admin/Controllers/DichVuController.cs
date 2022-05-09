@@ -22,9 +22,6 @@ namespace webpbl3.Areas.admin.Controllers
             return View(list);
         }
 
-
-        
-
         public ActionResult ThemDichVu()
         {
             return View("ThemDichVu");
@@ -34,7 +31,7 @@ namespace webpbl3.Areas.admin.Controllers
 
         public ActionResult AddDichVu(FormAddDichVu a)
         {
-            string query = "INSERT INTO DichVu VALUES (N'" +a.TenDichVu + "' , '" + a.GiaTien + "', '" + a.TrangThai + "'  )";
+            string query = "INSERT INTO DichVu VALUES (N'" +a.TenDichVu + "' , '" + a.GiaTien + "', '" + a.TrangThai + "', N'"+a.DonVi+"',''  )";
             db.ExcutedDB(query);
             return Redirect("/admin/DichVu/DanhSachDichVu");
         }
@@ -55,7 +52,7 @@ namespace webpbl3.Areas.admin.Controllers
             bus.IDDV = dv.IDDV;
             bus.TenDV = dv.TenDichVu;
             bus.GiaTien = Convert.ToDouble( dv.GiaTien);
-            
+            bus.DonVi = dv.DonVi;
             if(dv.TrangThai == true)
             {
                 bus.TrangThai = "1";
@@ -79,12 +76,20 @@ namespace webpbl3.Areas.admin.Controllers
             //}
             //else trangthai = false;
 
-            string query = "UPDATE DichVu SET GiaTien = '"+dv.GiaTien+"', TrangThai = '"+dv.TrangThai+"', TenDichVu = N'"+dv.TenDV+"' WHERE IDDV = "+dv.IDDV+"";
+            string query = "UPDATE DichVu SET GiaTien = '"+dv.GiaTien+"', TrangThai = '"+dv.TrangThai+"', TenDichVu = N'"+dv.TenDV+"', DonVi = N'"+dv.DonVi+"' WHERE IDDV = "+dv.IDDV+"";
             
             db.ExcutedDB(query);
 
             return Redirect("/admin/DichVu/DanhSachDichVu");
 
         }
+
+        public ActionResult Delete(int ID)
+        {
+            string query = "DELETE FROM DichVu WHERE IDDV = "+ID+"";
+            db.ExcutedDB(query);
+            return Redirect("/admin/DichVu/DanhSachDichVu");
+        }
+
     }
 }

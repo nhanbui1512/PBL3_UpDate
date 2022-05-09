@@ -22,15 +22,25 @@ namespace BUS
                 obj.ID = Convert.ToInt32(i["IDTK"]);
                 obj.TenTaiKhoan = i["TenTaiKhoan"].ToString();
                 obj.HoVaTen = i["HoTen"].ToString();
-                obj.Quyen = Convert.ToInt32(i["Quyen"]);
+                obj.Quyen = (i["Quyen"]).ToString();
                 obj.CMND = i["CMT"].ToString();
                 obj.NgaySinh = Convert.ToDateTime(i["NgaySinh"]);
                 obj.SDT = i["SDT"].ToString();
-                obj.GioiTinh = Convert.ToBoolean(i["GioiTinh"]);
+                obj.GioiTinh = (i["GioiTinh"]).ToString();
                 obj.GhiChu = i["GhiChu"].ToString();
                 lst.Add(obj);
             }
             return lst;
-        }  
+        } 
+        
+        public void UpDateThongTinTK( DSTaiKhoanNVView form)
+        {
+            dao.UpDateThongTinTK(form);
+        }
+       
+        public void ResetMatKhau(int ID)
+        {
+            dao.ResetMatKhau(ID);
+        }
     }
 }

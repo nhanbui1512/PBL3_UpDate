@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DSTaiKhoanNVView
+    public class FormSuaTK
     {
         public int ID { get; set; }
         public string HoVaTen { get; set; }
@@ -17,6 +17,5 @@ namespace DTO
         public string SDT { get; set; }
         public string GhiChu { get; set; }
         public string TenTaiKhoan { get; set; }
-
     }
 }

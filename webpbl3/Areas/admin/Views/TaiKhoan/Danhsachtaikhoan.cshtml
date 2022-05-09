@@ -1,4 +1,4 @@
-﻿
+﻿@model List<DTO.DSTaiKhoanNVView>
 @{
     ViewBag.Title = "Danhsachtaikhoan";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
@@ -58,7 +58,29 @@
                 <div class="font-18 text-center header-order__item"></div>
             </div>
             <div class="drop-down white-background"></div>
+            @{
+                foreach (var i in Model)
+                {
 
+                    if (i.Quyen == "2" || i.Quyen == "1" && i.ID != 1)
+                    {
+                        <div class="text-center content-order">
+                            <div class="col">@i.HoVaTen</div>
+                            <div class="col">@i.NgaySinh.ToString("dd/MM/yyyy")</div>
+                            <div class="col">@i.TenTaiKhoan</div>
+                            <div class="col">@i.SDT</div>
+
+                            <div class="row">
+                                @Html.ActionLink("Sửa", "XemTaiKhoan", new { ID = i.ID }, new { @class = "admin-order-btn button--modify" })
+                                @Html.ActionLink("Khôi Phục", "ResetMatKhau", new { ID = i.ID }, new { @class = "admin-order-btn button--modify" })
+                                <button class="admin-order-btn button--modify">Xóa</button>
+                            </div>
+                        </div>
+                        <div class="drop-down white-background"></div>
+                    }
+
+                }
+            }
 
         </div>
 

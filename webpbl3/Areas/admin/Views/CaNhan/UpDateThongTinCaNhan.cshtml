@@ -1,4 +1,4 @@
-﻿
+﻿@model DTO.DSTaiKhoanNVView
 @{
     ViewBag.Title = "UpDateThongTinCaNhan";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
@@ -26,41 +26,55 @@
     </div>
 
     <div class="order-container__content">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="/CaNhan/UpDate" method="post">
+
+            <div class="form-group" style="display: none">
+                <label class="margin-right-20 text-right form-group__label" for="">ID</label>
+                <input class="form-group__input" type="text" required value="@Model.ID" name="ID">
+            </div>
+
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Họ Và Tên</label>
-                <input class="form-group__input" type="text" required>
+                <input class="form-group__input" type="text" required value="@Model.HoVaTen" name="HoVaTen">
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Giới tính</label>
-                <select class=" form-group__input" data-val="2" data-val-number="2">
-                    <option value="1">Nam</option>
-                    <option value="2">Nữ</option>
-                </select>
+                @{
+                    if (Model.GioiTinh == "True")
+                    {
+                        @Html.DropDownListFor(model => model.GioiTinh, new List<SelectListItem> { new SelectListItem { Text = "Nam", Value = "1" }, new SelectListItem { Text = "Nữ", Value = "0" } },
+                           new { @class = " form-group__input" })
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(model => model.GioiTinh, new List<SelectListItem> { new SelectListItem { Text = "Nữ", Value = "0" }, new SelectListItem { Text = "Nam", Value = "1" } },
+                                                   new { @class = " form-group__input" })
+                    }
+                }
 
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Số chứng minh nhân dân</label>
-                <input  class="form-group__input" type="text" required>
+                <input class="form-group__input" type="text" required value="@Model.CMND" name="CMND">
             </div>
 
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Ngày sinh</label>
-                <input class="form-group__input" type="date" required>
+                <input disabled class="form-group__input" type="datetime" required value="@Model.NgaySinh.ToString("dd/MM/yyyy")">
             </div>
 
-            
+
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Số điện thoại</label>
-                <input class="form-group__input" type="text" required >
+                <input class="form-group__input" type="text" required value="@Model.SDT" name="SDT">
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Ghi chú</label>
-                <input class="form-group__input" type="text">
+                <input class="form-group__input" type="text" value="@Model.GhiChu" name="GhiChu">
             </div>
 
             <div class="form-group">

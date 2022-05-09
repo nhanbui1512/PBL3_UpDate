@@ -15,9 +15,9 @@ namespace BUS
         List<DSLoaiPhongView> list = new List<DSLoaiPhongView>();
         public List<DSLoaiPhongView> GetDSLoaiPhong()
         {
-            DSLoaiPhongView obj = new DSLoaiPhongView();
             foreach (DataRow i in dao.GetAllLoaiPhong().Rows)
             {
+                DSLoaiPhongView obj = new DSLoaiPhongView();
                 obj.IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]);
                 obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                 obj.GhiChu = i["GhiChu"].ToString();

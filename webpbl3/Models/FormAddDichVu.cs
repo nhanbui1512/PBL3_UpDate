@@ -11,6 +11,7 @@ namespace webpbl3.Models
         public string TenDichVu { get; set; }
         public double GiaTien { get; set; }
         public bool TrangThai { get; set; } = true;
+        public string DonVi { get; set; }
         
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model DTO.DSTaiKhoanNVView
 @{
     ViewBag.Title = "XemDanhSach";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
@@ -28,57 +28,88 @@
     </div>
 
     <div class="order-container__content">
-        <div class="form-horizontal">
+        <form class="form-horizontal" action="/TaiKhoan/UpDate" method="post">
+
+            <div class="form-group" style="display : none">
+                <label class="margin-right-20 text-right form-group__label" for="">ID</label>
+                <input class="form-group__input" type="text" name="ID" value="@Model.ID">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Tên Đăng Nhập</label>
+                <input disabled class="form-group__input" type="text" value="@Model.TenTaiKhoan">
+            </div>
+
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Họ Tên Khách Hàng</label>
-                <input class="form-group__input" type="text">
+                <input class="form-group__input" type="text" name="HoVaTen" value="@Model.HoVaTen">
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Giới tính</label>
-                <select class=" form-group__input" data-val="true" data-val-number="The field IDChucVu must be a number." id="IDChucVu" name="IDChucVu" placeholder="Chọn chức vụ">
-                    <option value="2">Nam</option>
-                    <option value="3">Nữ</option>
-                </select>
+
+                @{
+                    if (Model.GioiTinh == "True")
+                    {
+                        @Html.DropDownListFor(model => model.GioiTinh, new List<SelectListItem> { new SelectListItem { Text = "Nam", Value = "1" }, new SelectListItem { Text = "Nữ", Value = "0" } },
+                           new { @class = " form-group__input" })
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(model => model.GioiTinh, new List<SelectListItem> { new SelectListItem { Text = "Nữ", Value = "0" }, new SelectListItem { Text = "Nam", Value = "1" } },
+                                                   new { @class = " form-group__input" })
+                    }
+                }
+
 
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Số chứng minh nhân dân</label>
-                <input class="form-group__input" type="text">
+                <input class="form-group__input" type="text" name="CMND" value="@Model.CMND">
             </div>
 
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Ngày sinh</label>
-                <input class="form-group__input" type="date">
+                <input disabled class="form-group__input" type="text" value="@Model.NgaySinh.ToString("dd/MM/yyyy")">
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Quyền</label>
-                <select class=" form-group__input" data-val="true" data-val-number="The field IDChucVu must be a number." id="IDChucVu" name="IDChucVu" placeholder="Chọn chức vụ">
-                    <option value="2">Admin</option>
-                    <option value="3">Nhân Viên</option>
-                </select>
+
+                @{
+                    if (Model.Quyen == "2")
+                    {
+                        @Html.DropDownListFor(model => model.Quyen, new List<SelectListItem> { new SelectListItem { Text = "Nhân Viên", Value = "2" }, new SelectListItem { Text = "Admin", Value = "1" } },
+                                   new { @class = " form-group__input" })
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(model => model.Quyen, new List<SelectListItem> { new SelectListItem { Text = "Admin", Value = "1" }, new SelectListItem { Text = "Nhân Viên", Value = "2" } },
+                                   new { @class = " form-group__input" })
+                    }
+                }
+
             </div>
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Số điện thoại</label>
-                <input class="form-group__input" type="text">
+                <input class="form-group__input" type="text" name="SDT" value="@Model.SDT">
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Ghi chú</label>
-                <input class="form-group__input" type="text">
+                <input class="form-group__input" type="text" name="GhiChu" value="@Model.GhiChu">
             </div>
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for=""></label>
                 <div class="form-group__input">
-                    @Html.ActionLink("Hoàn Thành", "", "TaiKhoan", new { @class = "button--modify padding-8", data_val = "abc" })
+                    <button type="submit" class="button--modify padding-8">Hoàn Thành</button>
                     <a class="button--modify padding-8" href="/admin/Taikhoan/DanhSachTaiKhoan">Quay Lại</a>
                 </div>
             </div>
-        </div>
+        </form>
 
     </div>
 

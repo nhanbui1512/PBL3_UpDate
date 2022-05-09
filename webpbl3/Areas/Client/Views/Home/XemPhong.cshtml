@@ -39,7 +39,7 @@
             <h3>from $99</h3>
             <h6>per night</h6>
             <hr>
-            <form action="/action_page.php" target="_blank">
+            <form action="" target="_blank">
                 <p><label><i class="fa fa-calendar-check-o"></i> Check In</label></p>
                 <input class="w3-input w3-border" type="text" placeholder="DD MM YYYY" name="CheckIn" required>
                 <p><label><i class="fa fa-calendar-o"></i> Check Out</label></p>
@@ -165,12 +165,13 @@
             <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
             <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
             <p>Questions? Go ahead, ask them:</p>
-            <form action="/action_page.php" method="post">
+            <form action="/Home/DatPhong" method="post">
                 <p>Check In</p>
                 <p><input class="w3-input w3-border" type="date" required name="CheckIn"></p>
                 <p>Check Out</p>
                 <p><input class="w3-input w3-border" type="date" required name="CheckOut"></p>
                 <p><input class="w3-input w3-border" type="text" placeholder="Số Điện Thoại" required name="SoDT"></p>
+                <p><input  class="w3-input w3-border" type="text" placeholder="ID Loai Phong" value="1" required name="IDLoaiPhong"></p>
                 <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
                 <button type="submit" class="w3-button w3-red w3-third">SEND</button>
             </form>

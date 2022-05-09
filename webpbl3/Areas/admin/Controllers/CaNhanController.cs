@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using webpbl3.Models;
-using webpbl3.BUS;
 using webpbl3.Common;
+using BUS;
+using DTO;
 
 namespace webpbl3.Areas.admin.Controllers
 {
@@ -15,11 +16,28 @@ namespace webpbl3.Areas.admin.Controllers
         // GET: admin/CaNhan
         public ActionResult UpDateThongTinCaNhan()
         {
-            ThongTinCaNhan tt = new ThongTinCaNhan();
             var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
+            DSTaiKhoanNVView view = new DSTaiKhoanNVView();
+            var list = new DSTaiKhoanNVBus().DSTaiKhoan();
+            foreach (var item in list)
+            {
+                if(item.ID == sess.UserID)
+                {
+                    view = item;
+                    break;
+                }
 
+            }
+            
 
-            return View();
+            return View(view);
+        }
+        [HttpPost]
+        public ActionResult UpDate(DSTaiKhoanNVView form)
+        {
+            var obj = new DSTaiKhoanNVBus();
+            obj.UpDateThongTinTK(form);
+            return Redirect("/admin");
         }
     }
 }
