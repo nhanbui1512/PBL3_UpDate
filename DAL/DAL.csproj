@@ -48,6 +48,7 @@
     <Compile Include="DSHoaDonDao.cs" />
     <Compile Include="DSKhachHangDao.cs" />
     <Compile Include="DSLoaiPhongDao.cs" />
+    <Compile Include="DSPhongDaDatDao.cs" />
     <Compile Include="DSTaiKhoanNVDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -52,7 +52,9 @@ a {
 .margin-bottop-18 {
     margin: 18px 0px !important;
 }
-
+.margin-left-70 {
+    margin-left: 70px !important;
+}
 .pading-boptop-16 {
     padding: 16px 0px !important;
 }
@@ -408,7 +410,7 @@ a {
 
 .order-container__content-header {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 
 .order-container__content {

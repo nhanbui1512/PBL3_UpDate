@@ -61,5 +61,21 @@ namespace BUS
             }
             return obj;
         }
+
+        public List<PhongDaDat> GetAllPhongDaDat()
+        {
+            DataTable data = new DSPhongDaDatDao().GetALLPhong();
+
+            List<PhongDaDat> list = new List<PhongDaDat>();
+            foreach(DataRow i in data.Rows)
+            {
+                list.Add(new PhongDaDat { IDPhong = Convert.ToInt32(i["IDPhong"]),
+                    BatDau = Convert.ToDateTime(i["BatDau"]),
+                    KetThuc = Convert.ToDateTime(i["KetThu"]),
+                    TrangThai = Convert.ToInt32(i["TrangThai"])
+                });
+            }
+            return list;
+        }
     }
 }

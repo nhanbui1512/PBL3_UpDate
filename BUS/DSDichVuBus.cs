@@ -53,5 +53,11 @@ namespace BUS
             obj.UpDateDichVu(dv);
         }
 
+        public void DeleteDichVu(int ID)
+        {
+            var obj = new DSDichVuDao();
+            obj.DeleteDichVu(ID);
+        }
+
     }
 }

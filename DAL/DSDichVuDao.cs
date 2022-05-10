@@ -23,5 +23,12 @@ namespace DAL
             string query = "UPDATE DichVu SET GiaTien = '" + dv.GiaTien + "', TrangThai = '" + dv.TrangThai + "', TenDichVu = N'" + dv.TenDV + "', DonVi = N'" + dv.DonVi + "' WHERE IDDV = " + dv.IDDV + "";
             db.ExcutedDB(query);
         }
+
+        public void DeleteDichVu(int ID)
+        {
+            dbHelper db = new dbHelper();
+            string query = "DELETE FROM DichVu WHERE IDDV = " + ID + "";
+            db.ExcutedDB(query);
+        }
     }
 }

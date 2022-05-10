@@ -71,17 +71,7 @@ namespace webpbl3.Areas.admin.Controllers
         [HttpPost]
         public ActionResult UpdateDV (FormDichVu dv)  
         {
-            //bool trangthai = true;
-
-            //if (dv.TrangThai == "1")
-            //{
-            //    trangthai = true;
-            //}
-            //else trangthai = false;
-
-            //string query = "UPDATE DichVu SET GiaTien = '"+dv.GiaTien+"', TrangThai = '"+dv.TrangThai+"', TenDichVu = N'"+dv.TenDV+"', DonVi = N'"+dv.DonVi+"' WHERE IDDV = "+dv.IDDV+"";
-
-            //db.ExcutedDB(query);
+            
             bus.UpDateDichVu(dv);
 
             return Redirect("/admin/DichVu/DanhSachDichVu");
@@ -90,10 +80,10 @@ namespace webpbl3.Areas.admin.Controllers
 
         public ActionResult Delete(int ID)
         {
-            //string query = "DELETE FROM DichVu WHERE IDDV = "+ID+"";
+            //string query = "DELETE FROM DichVu WHERE IDDV = " + ID + "";
             //db.ExcutedDB(query);
 
-            
+            bus.DeleteDichVu(ID);
             return Redirect("/admin/DichVu/DanhSachDichVu");
         }
 
