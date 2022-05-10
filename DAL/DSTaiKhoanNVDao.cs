@@ -24,7 +24,7 @@ namespace DAL
 
         public void UpDateThongTinTK( DSTaiKhoanNVView form)
         {
-            string query = "UPDATE ThongTinTK SET SDT = '" + form.SDT + "', CMT = '" + form.CMND + "', HoTen = N'" + form.HoVaTen + "', GioiTinh = '" + form.GioiTinh + "' WHERE IDTaiKhoan = " + form.ID + ""; 
+            string query = "UPDATE ThongTinTK SET SDT = '" + form.SDT + "', GhiChu = '"+form.GhiChu+"' , CMT = '" + form.CMND + "', HoTen = N'" + form.HoVaTen + "', GioiTinh = '" + form.GioiTinh + "' WHERE IDTaiKhoan = " + form.ID + ""; 
             dbHelper.ExcutedDB(query);
             string query2 = "UPDATE TaiKhoan SET Quyen = '" + form.Quyen + "' WHERE IDTK = " + form.ID + "";
             dbHelper.ExcutedDB(query2);

@@ -8,12 +8,14 @@ using webpbl3.Context;
 using webpbl3.Models;
 using System.Text;
 using BUS;
+using DTO;
 
 namespace webpbl3.Areas.admin.Controllers
 {
     public class DichVuController : BaseController
     {
         DBHelper db = new DBHelper("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
+        public DSDichVuBus bus = new DSDichVuBus();
 
         public ActionResult DanhSachDichVu()
         {
@@ -40,33 +42,34 @@ namespace webpbl3.Areas.admin.Controllers
        
         public ActionResult Sua(int ID)
         {
-            SQL_HotelEntities1 obj = new SQL_HotelEntities1();
-            DichVu dv = new DichVu();
-            DichVu_BUS bus = new DichVu_BUS();
-             
-            var list = obj.DichVus.ToList();
-            foreach (var item in list)
-            {
-                if (ID == item.IDDV) dv = item;
-            }
-            bus.IDDV = dv.IDDV;
-            bus.TenDV = dv.TenDichVu;
-            bus.GiaTien = Convert.ToDouble( dv.GiaTien);
-            bus.DonVi = dv.DonVi;
-            if(dv.TrangThai == true)
-            {
-                bus.TrangThai = "1";
-            }
-            else
-            {
-                bus.TrangThai="0";
-            }
+            //SQL_HotelEntities1 obj = new SQL_HotelEntities1();
+            //DichVu dv = new DichVu();
+            //DichVu_BUS bus = new DichVu_BUS();
 
-            return View(bus);
+            //var list = obj.DichVus.ToList();
+            //foreach (var item in list)
+            //{
+            //    if (ID == item.IDDV) dv = item;
+            //}
+            //bus.IDDV = dv.IDDV;
+            //bus.TenDV = dv.TenDichVu;
+            //bus.GiaTien = Convert.ToDouble( dv.GiaTien);
+            //bus.DonVi = dv.DonVi;
+            //if(dv.TrangThai == true)
+            //{
+            //    bus.TrangThai = "1";
+            //}
+            //else
+            //{
+            //    bus.TrangThai="0";
+            //}
+            var obj = new DSDichVuBus().GetIDDSDichVu(ID);
+
+            return View(obj);
         }
 
         [HttpPost]
-        public ActionResult UpdateDV (DichVu_BUS dv)  
+        public ActionResult UpdateDV (FormDichVu dv)  
         {
             //bool trangthai = true;
 
@@ -76,9 +79,10 @@ namespace webpbl3.Areas.admin.Controllers
             //}
             //else trangthai = false;
 
-            string query = "UPDATE DichVu SET GiaTien = '"+dv.GiaTien+"', TrangThai = '"+dv.TrangThai+"', TenDichVu = N'"+dv.TenDV+"', DonVi = N'"+dv.DonVi+"' WHERE IDDV = "+dv.IDDV+"";
-            
-            db.ExcutedDB(query);
+            //string query = "UPDATE DichVu SET GiaTien = '"+dv.GiaTien+"', TrangThai = '"+dv.TrangThai+"', TenDichVu = N'"+dv.TenDV+"', DonVi = N'"+dv.DonVi+"' WHERE IDDV = "+dv.IDDV+"";
+
+            //db.ExcutedDB(query);
+            bus.UpDateDichVu(dv);
 
             return Redirect("/admin/DichVu/DanhSachDichVu");
 
@@ -86,8 +90,10 @@ namespace webpbl3.Areas.admin.Controllers
 
         public ActionResult Delete(int ID)
         {
-            string query = "DELETE FROM DichVu WHERE IDDV = "+ID+"";
-            db.ExcutedDB(query);
+            //string query = "DELETE FROM DichVu WHERE IDDV = "+ID+"";
+            //db.ExcutedDB(query);
+
+            
             return Redirect("/admin/DichVu/DanhSachDichVu");
         }
 

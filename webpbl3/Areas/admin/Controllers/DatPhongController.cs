@@ -32,11 +32,12 @@ namespace webpbl3.Areas.admin.Controllers
             form.HoVaTen = obj.HoVaTen;
             form.SDT = obj.SDT;
             form.TenPhong = obj.TenPhong;
-            form.GhiChu = obj.GhiChu;
             form.TinNhan = obj.TinNhan;
             form.TenTaiKhoan = obj.TenTaiKhoan;
             form.ThoiGianBD = obj.ThoiGianBD;
             form.ThoiGianKT = obj.ThoiGianKT;
+            form.TenLoaiPhong = obj.TenLoaiPhong;
+            form.DonGia = obj.DonGia;
             if (obj.TrangThai == 1) form.TrangThai = "1";
             else form.TrangThai = "0";
             return View(form);

@@ -21,7 +21,7 @@ namespace BUS
                 v.IDDV = Convert.ToInt32(i["IDDV"]);
                 v.TenDV = i["TenDichVu"].ToString();
                 v.GiaDV = Convert.ToDouble(i["GiaTien"]);
-                v.TrangThai = Convert.ToBoolean(i["TrangThai"]);
+                v.TrangThai = (i["TrangThai"]).ToString();
                 v.DonVi = i["DonVi"].ToString();
                 v.GhiChu = i["GhiChu"].ToString();
                 list.Add (v);
@@ -38,13 +38,19 @@ namespace BUS
                     v.IDDV = Convert.ToInt32(i["IDDV"]);
                     v.TenDV = i["TenDichVu"].ToString();
                     v.GiaDV = Convert.ToDouble(i["GiaTien"]);
-                    v.TrangThai = Convert.ToBoolean(i["TrangThai"]);
+                    v.TrangThai = (i["TrangThai"]).ToString();
                     v.DonVi = i["DonVi"].ToString();
                     v.GhiChu = i["GhiChu"].ToString();
                     break;
                 }
             }
             return v;
+        }
+
+        public void UpDateDichVu(FormDichVu dv)
+        {
+            var obj =  new DSDichVuDao();
+            obj.UpDateDichVu(dv);
         }
 
     }

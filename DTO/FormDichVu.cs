@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DSDichVuView
+    public class FormDichVu
     {
         public int IDDV { get; set; }
         public string TenDV { get; set; }
+        public double GiaTien { get; set; }
         public string TrangThai { get; set; }
-        public double GiaDV { get; set; }
         public string DonVi { get; set; }
-        public string GhiChu { get; set; }
-
     }
 }

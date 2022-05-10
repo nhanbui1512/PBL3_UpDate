@@ -22,36 +22,44 @@ namespace BUS
                 obj.ID = Convert.ToInt32(i["IDDatPhong"]);
                 obj.HoVaTen = i["HoTen"].ToString();
                 obj.TenTaiKhoan = i["TenTaiKhoan"].ToString();
-                obj.SDT = i["SDT"].ToString();
+                obj.SDT = i["SoDT"].ToString();
                 obj.TenPhong = i["TenPhong"].ToString();
-                obj.SoLuong = Convert.ToInt32(i["SoLuong"]);
                 obj.ThoiGianBD = Convert.ToDateTime(i["BatDau"]);
                 obj.ThoiGianKT = Convert.ToDateTime(i["KetThuc"]);
                 obj.TrangThai = Convert.ToInt32(i["TrangThai"]);
+                obj.TinNhan = i["TinNhan"].ToString();
+                obj.TenLoaiPhong = i["TenLoaiPhong"].ToString() ;
+                obj.NgayGui = Convert.ToDateTime(i["NgayGui"]);
+                obj.DonGia = Convert.ToDouble(i["DonGia"]);
+
                 lst.Add(obj);
             }
             return lst;
         }
         public DSDatPhongView GetIDDatPhong(int ID)
         {
-            DSDatPhongView obj1 = new DSDatPhongView();
+            DSDatPhongView obj = new DSDatPhongView();
             foreach (DataRow i in dao.GetAllDSDatPhong().Rows)
             {
                 if(ID == Convert.ToInt32( i["IDDatPhong"]))
                 {
-                    obj1.ID = Convert.ToInt32(i["IDDatPhong"]);
-                    obj1.HoVaTen = i["HoTen"].ToString();
-                    obj1.TenTaiKhoan = i["TenTaiKhoan"].ToString();
-                    obj1.SDT = i["SDT"].ToString();
-                    obj1.TenPhong = i["TenPhong"].ToString();
-                    obj1.SoLuong = Convert.ToInt32(i["SoLuong"]);
-                    obj1.ThoiGianBD = Convert.ToDateTime(i["BatDau"]);
-                    obj1.ThoiGianKT = Convert.ToDateTime(i["KetThuc"]);
-                    obj1.TrangThai = Convert.ToInt32(i["TrangThai"]);
+                    obj.ID = Convert.ToInt32(i["IDDatPhong"]);
+                    obj.HoVaTen = i["HoTen"].ToString();
+                    obj.TenTaiKhoan = i["TenTaiKhoan"].ToString();
+                    obj.SDT = i["SoDT"].ToString();
+                    obj.TenPhong = i["TenPhong"].ToString();
+                    obj.ThoiGianBD = Convert.ToDateTime(i["BatDau"]);
+                    obj.ThoiGianKT = Convert.ToDateTime(i["KetThuc"]);
+                    obj.TrangThai = Convert.ToInt32(i["TrangThai"]);
+                    obj.TinNhan = i["TinNhan"].ToString();
+                    obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
+                    obj.NgayGui = Convert.ToDateTime(i["NgayGui"]);
+                    obj.DonGia = Convert.ToDouble(i["DonGia"]);
+
                     break;
                 }
             }
-            return obj1;
+            return obj;
         }
     }
 }

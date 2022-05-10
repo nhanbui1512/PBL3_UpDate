@@ -50,6 +50,7 @@
     <Compile Include="DSKhachHangView.cs" />
     <Compile Include="DSLoaiPhongView.cs" />
     <Compile Include="DSTaiKhoanNVView.cs" />
+    <Compile Include="FormDichVu.cs" />
     <Compile Include="FormSuaTK.cs" />
     <Compile Include="HoaDon.cs" />
     <Compile Include="KhachHang.cs" />

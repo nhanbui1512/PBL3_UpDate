@@ -12,16 +12,12 @@ namespace DAL
         public DataTable GetAllDSDatPhong()
         {
             dbHelper dbHelper = new dbHelper();
-            var query = " SELECT DP.IDDatPhong, TT.HoTen, TK.TenTaiKhoan, TT.SDT, P.TenPhong, DP.SoLuong, DP.BatDau, DP.KetThuc, DP.TrangThai " +
+            var query = " SELECT DP.IDDatPhong, TT.HoTen, TK.TenTaiKhoan, DP.SoDT, DP.TenPhong, DP.BatDau, DP.KetThuc, DP.TrangThai, DP.TenLoaiPhong, DP.TinNhan, DP.DonGia, DP.NgayGui " +
                 "FROM DatPhong DP " +
                 "INNER JOIN TaiKhoan TK " +
                 "ON DP.IDTK = TK.IDTK " +
                 "INNER JOIN ThongTinTK TT " +
-                "ON DP.IDTK = TT.IDTaiKhoan " +
-                "INNER JOIN Phong_DatPhong PDP " +
-                "ON DP.IDDatPhong = PDP.IDDatPhong " +
-                "INNER JOIN Phong P " +
-                "ON PDP.IDPhong = P.IDPhong ";
+                "ON DP.IDTK = TT.IDTaiKhoan ";
             return dbHelper.GetRecord(query);
 
         }

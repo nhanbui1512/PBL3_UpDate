@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
 
 namespace DAL
 {
@@ -16,6 +17,11 @@ namespace DAL
             return db.GetRecord(query);
         }
         
-        
+        public void UpDateDichVu(FormDichVu dv)
+        {
+            dbHelper db = new dbHelper();
+            string query = "UPDATE DichVu SET GiaTien = '" + dv.GiaTien + "', TrangThai = '" + dv.TrangThai + "', TenDichVu = N'" + dv.TenDV + "', DonVi = N'" + dv.DonVi + "' WHERE IDDV = " + dv.IDDV + "";
+            db.ExcutedDB(query);
+        }
     }
 }
