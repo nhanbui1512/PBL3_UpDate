@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace webpbl3.Areas.Client.Model
+namespace DTO
 {
     public class FormDatPhong
     {
+        public int IDTK { get; set; }
+        public double DonGia { get; set; }
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
         public string SoDT { get; set; }

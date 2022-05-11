@@ -10,7 +10,7 @@ namespace webpbl3.Areas.admin.Controllers
 {
     public class LoaiPhongController : BaseController
     {
-        private DBHelper dbHelper = new DBHelper("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
+        private DBHelper dbHelper = new DBHelper();
         // GET: admin/LoaiPhong
         public ActionResult DanhSachLoaiPhong()
         {

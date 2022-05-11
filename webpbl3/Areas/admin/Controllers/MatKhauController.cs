@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using webpbl3.Common;
 using webpbl3.Models;
+using BUS;
 
 namespace webpbl3.Areas.admin.Controllers
 {
@@ -17,39 +18,41 @@ namespace webpbl3.Areas.admin.Controllers
             return View("DoiMatKhau");
         }
 
+
+
         [HttpPost]
-        public ActionResult UpDate(FormDoiMK form)
+        public ActionResult ThayDoi(FormDoiMK form)
         {
             var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
             int id = sess.UserID;
-            DBHelper db = new DBHelper("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
-            
-             
-            foreach(DataRow i in db.GetAllTK().Rows)
+            DBHelper db = new DBHelper();
+            TaiKhoanBUS TkBus = new TaiKhoanBUS();
+
+            bool ketqua = false;
+
+
+            foreach (DataRow i in db.GetAllTK().Rows)
             {
                 if (id == Convert.ToInt32(i["ID"]))
                 {
-                    if (i["MatKhau"].ToString() != form.MatKhauCu)
+                    if (form.MatKhauCu == i["MatKhau"].ToString() && form.MatKhauCu != form.MatKhauMoi && form.MatKhauMoi == form.XacNhanMatKhau)
                     {
-                        return View();
-                        
-                    }
-                    else
-                    {
-                        if(form.MatKhauMoi == form.XacNhanMatKhau)
-                        {
-                            string query = "UPDATE TaiKhoan  SET MatKhau = '"+form.MatKhauMoi+"' WHERE IDTK = "+sess.UserID+" ";
-                            db.ExcutedDB(query);
-                            return Redirect("/admin");
-                        }
-                        else
-                        {
-                            return Redirect("");
-                        }
+                        ketqua = true;
                     }
                     break;
                 }
             }
+            if (ketqua == true)
+            {
+                TkBus.UpDateMatKhau(form.MatKhauMoi, id);
+                ViewBag.ketqua = "1";
+                
+            }
+            else
+            {
+                ViewBag.ketqua = "0";
+            }
+
             return View();
         }
     }

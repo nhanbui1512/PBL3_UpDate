@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatPhongHelper.cs" />
     <Compile Include="DSBaoCaoBus.cs" />
     <Compile Include="DSDatPhongBus.cs" />
     <Compile Include="DSDichVuBus.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="DSLoaiPhongBus.cs" />
     <Compile Include="DSTaiKhoanNVBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaiKhoanBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

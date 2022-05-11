@@ -9,11 +9,13 @@ namespace DTO
     public class DSKhachHangView
     {
         public int ID { get; set; }
+        public string TenTaiKhoan { get; set; }
         public string HoVaTen { get; set; }
         public DateTime NgaySinh { get; set; }
         public string CMND { get; set; }
         public string SDT { get; set; }
         public string DiaChi { get; set; }
+        public string GioiTinh { get; set; }
 
     }
 }

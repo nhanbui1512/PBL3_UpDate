@@ -14,7 +14,7 @@ namespace webpbl3.Areas.admin.Controllers
 {
     public class DichVuController : BaseController
     {
-        DBHelper db = new DBHelper("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
+        DBHelper db = new DBHelper();
         public DSDichVuBus bus = new DSDichVuBus();
 
         public ActionResult DanhSachDichVu()

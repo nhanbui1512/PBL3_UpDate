@@ -12,7 +12,7 @@ namespace DAL
         public DataTable GetAllKH()
         {
             dbHelper db = new dbHelper();
-            var query = "SELECT IDTaiKhoan, HoTen, NgaySinh, CMT, SDT, DiaChi FROM ThongTinTK";
+            var query = "select IDTaiKhoan,TenTaiKhoan , HoTen , NgaySinh , DiaChi , SDT , CMT, GioiTinh from TaiKhoan, ThongTinTK where TaiKhoan.IDTK = ThongTinTK.IDTaiKhoan and TaiKhoan.Quyen = 3";
             return db.GetRecord(query);
         }
     }

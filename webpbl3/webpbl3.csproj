@@ -143,7 +143,6 @@
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Areas\Client\Controllers\BaseController.cs" />
     <Compile Include="Areas\Client\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Client\Model\FormDatPhong.cs" />
     <Compile Include="Areas\NhanVien\Controllers\BaseController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\NhanVienPageController.cs" />
     <Compile Include="Areas\NhanVien\NhanVienAreaRegistration.cs" />
@@ -4860,7 +4859,6 @@
     <Content Include="Areas\NhanVien\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\Client\Views\web.config" />
     <Content Include="Areas\NhanVien\Views\NhanVienPage\Index.cshtml" />
-    <Content Include="Areas\admin\Views\MatKhau\DoiMatKhauThanhCong.cshtml" />
     <Content Include="Areas\admin\Views\CaNhan\UpDateThongTinCaNhan.cshtml" />
     <Content Include="Areas\Client\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\Client\Views\Home\HomePage.cshtml" />
@@ -4873,6 +4871,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\admin\Views\LoaiPhong\Sua.cshtml" />
+    <Content Include="Areas\admin\Views\MatKhau\UpDate.cshtml" />
+    <Content Include="Areas\admin\Views\MatKhau\ThayDoi.cshtml" />
+    <Content Include="Areas\admin\Views\KhachHang\Search.cshtml" />
+    <Content Include="Areas\admin\Views\KhachHang\XemThongTin.cshtml" />
     <None Include="Models\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.min.js" />
@@ -4911,6 +4913,7 @@
     <Folder Include="Areas\admin\Data\" />
     <Folder Include="Areas\admin\Views\Account\" />
     <Folder Include="Areas\admin\Views\Base\" />
+    <Folder Include="Areas\Client\Model\" />
     <Folder Include="Areas\Client\Views\Base\" />
     <Folder Include="Areas\NhanVien\Data\" />
     <Folder Include="Areas\NhanVien\Views\Base\" />

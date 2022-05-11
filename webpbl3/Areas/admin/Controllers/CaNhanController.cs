@@ -12,7 +12,7 @@ namespace webpbl3.Areas.admin.Controllers
 {
     public class CaNhanController : BaseController
     {
-        private DBHelper db = new DBHelper("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
+        private DBHelper db = new DBHelper();
         // GET: admin/CaNhan
         public ActionResult UpDateThongTinCaNhan()
         {

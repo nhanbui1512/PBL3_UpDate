@@ -53,7 +53,7 @@ namespace webpbl3.Controllers
         [HttpPost]
         public ActionResult CheckLogin(Account acc)
         {
-            DBHelper helper = new DBHelper("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
+            DBHelper helper = new DBHelper();
             bool ketqua = false;
             foreach (DataRow i in helper.GetAllTK().Rows)
             {
@@ -86,7 +86,7 @@ namespace webpbl3.Controllers
         [HttpPost]
         public ActionResult CheckDangNhap(Account acc)
         {
-            DBHelper helper = new DBHelper("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
+            DBHelper helper = new DBHelper();
             
             bool ketqua = false;
 
@@ -139,7 +139,7 @@ namespace webpbl3.Controllers
         [HttpPost]
         public ActionResult CheckSignIn(FormDK acc)
         {
-            DBHelper helper = new DBHelper("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
+            DBHelper helper = new DBHelper();
             bool ketqua = false;
             foreach (DataRow i in helper.GetAllTK().Rows)
             {

@@ -10,9 +10,9 @@ namespace webpbl3.Models
     public class DBHelper
     {
         private static SqlConnection cnn;
-        public DBHelper(string s)
+        public DBHelper()
         {
-            cnn = new SqlConnection(s);
+            cnn = new SqlConnection("Data Source=LAPTOP-BFIK942I\\NHANBUI;Initial Catalog=SQL_Hotel;Integrated Security=True");
         }
 
         public void ExcutedDB(string query)

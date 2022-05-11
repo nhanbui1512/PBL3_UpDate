@@ -24,6 +24,8 @@ namespace BUS
                 obj.CMND = i["CMT"].ToString();
                 obj.SDT = i["SDT"].ToString();
                 obj.DiaChi = i["DiaChi"].ToString();
+                obj.GioiTinh = i["GioiTinh"].ToString();
+                obj.TenTaiKhoan = i["TenTaiKhoan"].ToString();
                 lst.Add(obj);
             }
             return lst;
