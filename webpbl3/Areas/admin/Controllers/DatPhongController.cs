@@ -42,5 +42,17 @@ namespace webpbl3.Areas.admin.Controllers
             else form.TrangThai = "0";
             return View(form);
         }
+
+        public void XacNhanDon()
+        {
+
+        }
+
+        public  ActionResult Xoa(int ID)
+        {
+            var obj = new DatPhongHelper();
+            obj.XoaDonDatPhong(ID);
+            return Redirect("/admin/DatPhong/DanhSachDatPhong");
+        }
     }
 }

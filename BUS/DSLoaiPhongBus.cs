@@ -22,7 +22,8 @@ namespace BUS
                 obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                 obj.GhiChu = i["GhiChu"].ToString();
                 obj.GiaPhong = Convert.ToDouble(i["GiaPhong"]);
-                obj.LienKetAnh = i["LienKetAnh"].ToString();
+                obj.LienKetAnhDaiDien = i["LienKetAnhDaiDien"].ToString();
+                obj.LienKetAnhWC = i["LienKetAnhWC"].ToString();
                 list.Add(obj);
             }
             return list;
@@ -38,7 +39,8 @@ namespace BUS
                     obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                     obj.GhiChu = i["GhiChu"].ToString();
                     obj.GiaPhong = Convert.ToDouble(i["GiaPhong"]);
-                    obj.LienKetAnh = i["LienKetAnh"].ToString();
+                    obj.LienKetAnhDaiDien = i["LienKetAnhDaiDien"].ToString();
+                    obj.LienKetAnhWC = i["LienKetAnhWC"].ToString();
                 }
                 
             }

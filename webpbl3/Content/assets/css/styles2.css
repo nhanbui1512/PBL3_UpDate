@@ -226,6 +226,8 @@ html, body {
 .room-description {
     background-color: #fff;
     padding: 0px 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 .room-img {

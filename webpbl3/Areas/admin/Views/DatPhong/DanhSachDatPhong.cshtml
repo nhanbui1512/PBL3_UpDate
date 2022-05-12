@@ -71,7 +71,7 @@
                         <div class="col">@i.HoVaTen</div>
                         <div class="col">@i.TenTaiKhoan</div>
                         <div class="col">@i.SDT</div>
-                        <div class="col">@i.ThoiGianBD.ToString("dd/MM/yyyy")</div>
+                        <div class="col">@i.ThoiGianBD.ToString("dd/MM") - @i.ThoiGianKT.ToString("dd/MM")</div>
                         @if (i.TrangThai == 1)
                         {
                             <div class="col">Đã Xử Lý</div>
@@ -82,7 +82,8 @@
                         }
                         <div class="row">
                             @Html.ActionLink("Xem", "XemDon", new { ID = i.ID }, new { @class = "button" })
-                            <button class=" button">Xóa</button>
+                            @Html.ActionLink("Xóa", "Xoa", new { ID = i.ID }, new { @class = "button" })
+                            @*<button class=" button">Xóa</button>*@
                         </div>
                     </div>
                 }

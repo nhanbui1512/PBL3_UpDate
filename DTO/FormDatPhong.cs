@@ -15,5 +15,7 @@ namespace DTO
         public string SoDT { get; set; }
         public string Message { get; set; }
         public int IDLoaiPhong { get; set; }
+        public string TenLoaiPhong { get; set; }
+
     }
 }

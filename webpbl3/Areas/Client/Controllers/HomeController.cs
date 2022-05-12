@@ -16,12 +16,25 @@ namespace webpbl3.Areas.Client.Controllers
         // GET: Client/Home
         public ActionResult HomePage()
         {
-            return View();
+            var ListPhong = new DSLoaiPhongBus().GetDSLoaiPhong();
+            var tong = ListPhong.Count;
+            ViewBag.tong = tong;
+            if (tong % 3 > 0)
+            {
+                ViewBag.Dem = 3 * (tong / 3) + 1;
+            }
+            else
+            {
+                ViewBag.Dem = 3 * (tong / 3);
+            }
+            return View(ListPhong);
         }
         
-        public ActionResult XemPhong()
+        public ActionResult XemPhong(int ID)
         {
-            return View();
+            var obj = new DSLoaiPhongBus().GetIDDSLoaiPhong(ID);
+
+            return View(obj);
         }
 
         [HttpPost]
@@ -32,7 +45,9 @@ namespace webpbl3.Areas.Client.Controllers
 
             var loaiphong = new DSLoaiPhongBus().GetIDDSLoaiPhong(form.IDLoaiPhong);
 
+            form.TenLoaiPhong = loaiphong.TenLoaiPhong;
             form.DonGia = loaiphong.GiaPhong;
+
             form.IDTK = ID;
 
             DatPhongHelper datphong = new DatPhongHelper();

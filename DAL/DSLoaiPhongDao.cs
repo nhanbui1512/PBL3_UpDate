@@ -12,7 +12,7 @@ namespace DAL
         public DataTable GetAllLoaiPhong()
         {
             dbHelper db = new dbHelper();
-            string query = " SELECT IDLoaiPhong, TenLoaiPhong, GhiChu, GiaPhong, LienKetAnh FROM LoaiPhong";
+            string query = " SELECT * FROM LoaiPhong";
             return db.GetRecord(query);
         }
     }

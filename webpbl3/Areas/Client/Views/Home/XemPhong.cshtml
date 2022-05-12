@@ -1,4 +1,4 @@
-﻿
+﻿@model DTO.DSLoaiPhongView
 @{
     Layout = null;
 }
@@ -36,7 +36,7 @@
                 </div>
             </a>
             <h3>Rental</h3>
-            <h3>from $99</h3>
+            <h3>from $@Model.GiaPhong</h3>
             <h6>per night</h6>
             <hr>
             <form action="" target="_blank">
@@ -75,20 +75,20 @@
 
         <!-- Slideshow Header -->
         <div class="w3-container" id="apartment">
-            <h2 class="w3-text-black">The Apartment</h2>
+            <h2 class="w3-text-black">@Model.TenLoaiPhong</h2>
             <div class="w3-display-container mySlides height-457">
-                <img src="~/Content/assets/img/RCPHILA_00119.jpg" style="width:100%;margin-bottom:-6px">
+                <img src="~/Content/assets/img/@Model.LienKetAnhDaiDien" style="width:100%;margin-bottom:-6px">
                 <div class="w3-display-bottomleft w3-container w3-black">
                     <p>Living Room</p>
                 </div>
             </div>
             <div class="w3-display-container mySlides height-457">
-                <img src="~/Content/assets/img/a4b2b328a310ddc9fa218fea3f372ffc.jpg" style="width:100%;margin-bottom:-6px">
+                <img src="~/Content/assets/img/@Model.LienKetAnhWC" style="width:100%;margin-bottom:-6px">
                 <div class="w3-display-bottomleft w3-container w3-black">
                     <p>Dining Room</p>
                 </div>
             </div>
-            <div class="w3-display-container mySlides height-457">
+            @*<div class="w3-display-container mySlides height-457">
                 <img src="~/Content/assets/img/room_single.jpg" style="width:100%;margin-bottom:-6px">
                 <div class="w3-display-bottomleft w3-container w3-black">
                     <p>Bedroom</p>
@@ -99,21 +99,21 @@
                 <div class="w3-display-bottomleft w3-container w3-black">
                     <p>Bathroom</p>
                 </div>
-            </div>
+            </div>*@
         </div>
         <div class="w3-row-padding w3-section">
             <div class="w3-col s3 height-106">
-                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Content/assets/img/RCPHILA_00119.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)" title="Living room">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Content/assets/img/@Model.LienKetAnhDaiDien" style="width:100%;cursor:pointer" onclick="currentDiv(1)" title="Living room">
             </div>
             <div class="w3-col s3 height-106">
-                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Content/assets/img/a4b2b328a310ddc9fa218fea3f372ffc.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)" title="Dining room">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="~/Content/assets/img/@Model.LienKetAnhWC" style="width:100%;cursor:pointer" onclick="currentDiv(2)" title="Dining room">
             </div>
-            <div class="w3-col s3 height-106">
+            @*<div class="w3-col s3 height-106">
                 <img class="demo w3-opacity w3-hover-opacity-off" src="~/Content/assets/img/room_single.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)" title="Bedroom">
             </div>
             <div class="w3-col s3 height-106">
                 <img class="demo w3-opacity w3-hover-opacity-off" src="~/Content/assets/img/master-bathroom-design-ideas-4129362-hero-d896a889451341dfaa59c5b2beacf02d.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(4)" title="Second Living Room">
-            </div>
+            </div>*@
         </div>
 
         <div class="w3-container">
@@ -171,7 +171,7 @@
                 <p>Check Out</p>
                 <p><input class="w3-input w3-border" type="date" required name="CheckOut"></p>
                 <p><input class="w3-input w3-border" type="text" placeholder="Số Điện Thoại" required name="SoDT"></p>
-                <p><input  class="w3-input w3-border" type="text" placeholder="ID Loai Phong" value="1" required name="IDLoaiPhong"></p>
+                <p style="display: none;"><input  class="w3-input w3-border" type="text" placeholder="ID Loai Phong" value="@Model.IDLoaiPhong" required name="IDLoaiPhong"></p>
                 <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
                 <button type="submit" class="w3-button w3-red w3-third">SEND</button>
             </form>

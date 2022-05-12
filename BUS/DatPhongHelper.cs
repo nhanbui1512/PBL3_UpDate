@@ -15,5 +15,11 @@ namespace BUS
             var datphongdao = new DAL.DatPhongHelper();
             datphongdao.DatPhong(form);
         }
+
+        public void XoaDonDatPhong(int ID)
+        {
+            var datphongdao = new DAL.DatPhongHelper();
+            datphongdao.XoaDonDatPhong(ID);
+        }
     }
 }
