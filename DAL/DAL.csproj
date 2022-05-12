@@ -50,6 +50,7 @@
     <Compile Include="DSKhachHangDao.cs" />
     <Compile Include="DSLoaiPhongDao.cs" />
     <Compile Include="DSPhongDaDatDao.cs" />
+    <Compile Include="DSPhongDao.cs" />
     <Compile Include="DSTaiKhoanNVDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanDao.cs" />

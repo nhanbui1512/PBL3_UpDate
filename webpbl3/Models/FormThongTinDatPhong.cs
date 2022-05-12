@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using DTO;
 
 namespace webpbl3.Models
 {
@@ -19,5 +20,6 @@ namespace webpbl3.Models
         public string TrangThai { get; set; }
         public string TenLoaiPhong { get; set; } = string.Empty;
         public double DonGia { get; set; } = 0;
+        public List<Phong> DSPhongTrong { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace webpbl3.Areas.admin.Controllers
         public ActionResult AddPhong(FormThemLoaiPhong form)
         {
 
-            string query = "INSERT INTO LoaiPhong VALUES (N'"+form.TenLoaiPhong+"',N'"+form.GhiChu+"', '"+form.GiaPhong+"' , '"+form.URLAnhDaiDien+"' )";
+            string query = "INSERT INTO LoaiPhong VALUES (N'"+form.TenLoaiPhong+"',N'"+form.GhiChu+"', '"+form.GiaPhong+"' , '"+form.URLAnhDaiDien+"', '"+form.URLAnhWC+"', '' )";
             dbHelper.ExcutedDB(query);
             return Redirect("/admin/LoaiPhong/DanhSachLoaiPhong");
         }
@@ -41,7 +41,7 @@ namespace webpbl3.Areas.admin.Controllers
 
         public ActionResult UpDate(FormThemLoaiPhong form)
         {
-            string query = "UPDATE LoaiPhong SET TenLoaiPhong = N'" + form.TenLoaiPhong + "', GhiChu = N'" + form.GhiChu + "', GiaPhong = '" + form.GiaPhong + "', LienKetAnh = '" + form.URLAnhDaiDien + "' WHERE IDLoaiPhong = " + form.IDLoaiPhong + "";
+            string query = "UPDATE LoaiPhong SET TenLoaiPhong = N'" + form.TenLoaiPhong + "', GhiChu = N'" + form.GhiChu + "', GiaPhong = '" + form.GiaPhong + "', LienKetAnhDaiDien = '" + form.URLAnhDaiDien + "' , LienKetAnhWC = '"+form.URLAnhWC+"' WHERE IDLoaiPhong = " + form.IDLoaiPhong + "";
             dbHelper.ExcutedDB(query);
             return Redirect("/admin/LoaiPhong/DanhSachLoaiPhong");
         }

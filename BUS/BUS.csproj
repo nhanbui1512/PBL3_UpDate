@@ -48,6 +48,7 @@
     <Compile Include="DSHoaDonBus.cs" />
     <Compile Include="DSKhachHangBus.cs" />
     <Compile Include="DSLoaiPhongBus.cs" />
+    <Compile Include="DSPhongBUS.cs" />
     <Compile Include="DSTaiKhoanNVBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanBUS.cs" />

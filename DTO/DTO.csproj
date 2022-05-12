@@ -53,6 +53,7 @@
     <Compile Include="FormDatPhong.cs" />
     <Compile Include="FormDichVu.cs" />
     <Compile Include="FormSuaTK.cs" />
+    <Compile Include="FormXacNhanDatPhong.cs" />
     <Compile Include="HoaDon.cs" />
     <Compile Include="KhachHang.cs" />
     <Compile Include="LoaiPhong.cs" />

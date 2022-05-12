@@ -40,6 +40,9 @@ namespace webpbl3.Areas.admin.Controllers
             form.DonGia = obj.DonGia;
             if (obj.TrangThai == 1) form.TrangThai = "1";
             else form.TrangThai = "0";
+            
+            var listphong = new DSPhongBUS().GetDSPhongByIDLoaiPhong(obj.ID);
+
             return View(form);
         }
 
