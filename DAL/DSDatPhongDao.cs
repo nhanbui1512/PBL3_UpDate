@@ -12,7 +12,7 @@ namespace DAL
         public DataTable GetAllDSDatPhong()
         {
             dbHelper dbHelper = new dbHelper();
-            var query = " SELECT DP.IDDatPhong, TT.HoTen, TK.TenTaiKhoan, DP.SoDT, DP.TenPhong, DP.BatDau, DP.KetThuc, DP.TrangThai, DP.TenLoaiPhong, DP.TinNhan, DP.DonGia, DP.NgayGui " +
+            var query = " SELECT DP.IDDatPhong, TT.HoTen, TK.TenTaiKhoan, DP.SoDT, DP.TenPhong, DP.BatDau, DP.KetThuc, DP.TrangThai, DP.TenLoaiPhong, DP.TinNhan, DP.DonGia, DP.NgayGui, DP.IDLoaiPhong " +
                 "FROM DatPhong DP " +
                 "INNER JOIN TaiKhoan TK " +
                 "ON DP.IDTK = TK.IDTK " +

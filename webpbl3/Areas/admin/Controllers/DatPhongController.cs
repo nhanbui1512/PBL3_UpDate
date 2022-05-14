@@ -38,10 +38,13 @@ namespace webpbl3.Areas.admin.Controllers
             form.ThoiGianKT = obj.ThoiGianKT;
             form.TenLoaiPhong = obj.TenLoaiPhong;
             form.DonGia = obj.DonGia;
+            form.IDLoaiPhong = obj.IDLoaiPhong;
             if (obj.TrangThai == 1) form.TrangThai = "1";
             else form.TrangThai = "0";
-            
-            var listphong = new DSPhongBUS().GetDSPhongByIDLoaiPhong(obj.ID);
+
+            var listphong = new DSPhongBUS().GetDSPhongByIDLoaiPhong(obj.IDLoaiPhong);
+
+            form.DSPhongTrong = listphong;
 
             return View(form);
         }

@@ -35,7 +35,58 @@
         </div>
 
         <header class="header">
-            <img class="header__image" src="~/Content/assets/img/workshop.jpg" alt="">
+            <!--image slider start-->
+            <div class="slider">
+                <div class="slides">
+                    <!--radio buttons start-->
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <!--radio buttons end-->
+                    <!--slide images start-->
+
+                    <div class="slide first">
+                        <img src="~/Content/assets/img/19168732.png" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="~/Content/assets/img/pexels-asad-photo-maldives-3155666.jpg" />
+                    </div>
+
+
+
+                    <div class="slide">
+                        <img src="~/Content/assets/img/four-seasons-tamarindo.jpg" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="~/Content/assets/img/pexels-pixabay-221457.jpg" />
+                    </div>
+
+                    <!-- <div class="slide">
+                <img src="./assets/img/Gym-room-3dsmax-3d-model-2.jpg" alt="">
+            </div> -->
+                    <!--slide images end-->
+                    <!--automatic navigation start-->
+                    <div class="navigation-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4"></div>
+                    </div>
+                    <!--automatic navigation end-->
+                </div>
+                <!--manual navigation start-->
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                </div>
+                <!--manual navigation end-->
+            </div>
+            <!--image slider end-->
         </header>
 
         <div class="booking-container">
@@ -102,30 +153,31 @@
                             {
                                 if (j < ViewBag.tong)
                                 {
-                                    <div class="booking-container__rooms-item">
-                                        <img class="room-img" src="~/Content/assets/img/@Model[j].LienKetAnhDaiDien" alt="">
+                            <div class="booking-container__rooms-item">
+                                <img class="room-img" src="~/Content/assets/img/@Model[j].LienKetAnhDaiDien" alt="">
 
-                                        <div class="room-description">
-                                            <h3 class="margin-bottop-10 font-24">
-                                                @Model[j].TenLoaiPhong
-                                            </h3>
-                                            <h6 class="margin-bottop-10 font-16">
-                                                From @Model[j].GiaPhong 
-                                            </h6>
-                                            <p class="margin-bottop-15">15m2</p>
-                                            <p class="margin-bottop-15">Single bed</p>
-                                            <p class="margin-bottop-15">
-                                                <i class="fa-solid fa-bath"></i>
-                                                <i class="fa-solid fa-phone"></i>
-                                                <i class="fa-solid fa-wifi"></i>
-                                                <i class="fa-solid fa-tv"></i>
-                                                <i class="fa-solid fa-utensils"></i>
-                                            </p>
-                                            @Html.ActionLink("Choose Room" , "XemPhong" , new {ID = Model[j].IDLoaiPhong} , new {@class = "choose-room-btn button-hover" })
-                                            
+                                <div class="room-description">
+                                    <h3 class="margin-bottop-10 font-24">
+                                        @Model[j].TenLoaiPhong
+                                    </h3>
+                                    <h6 class="margin-bottop-10 font-16">
+                                        From @Model[j].GiaPhong
+                                    </h6>
+                                    <p class="margin-bottop-15">15m2</p>
+                                    <p class="margin-bottop-15">Single bed</p>
+                                    <p class="margin-bottop-15">
+                                        <i class="fa-solid fa-bath"></i>
+                                        <i class="fa-solid fa-phone"></i>
+                                        <i class="fa-solid fa-wifi"></i>
+                                        <i class="fa-solid fa-tv"></i>
+                                        <i class="fa-solid fa-utensils"></i>
+                                    </p>
+                                    @Html.ActionLink("Choose Room", "XemPhong", new { ID = Model[j].IDLoaiPhong }, new { @class = "choose-room-btn button-hover" })
 
-                                        </div>
-                                    </div>
+
+                                </div>
+                            </div>
+                                    
                                 }
                                 else
                                 {
@@ -152,7 +204,7 @@
             <h1 class="service-header">SERVICE</h1>
 
             <div class="service-detail">
-                <img class="service-detail__image" src="~/Content/assets/img/best-type-of-swimming-pool-for-my-home_2.jpg" alt="">
+                <img class="service-detail__image" src="~/Content/assets/img/40.jpg" alt="">
                 <div class="service-detail__content">
                     <h2 class="service-detail__content-header1">ROMAN SWIMMING POOL</h2>
                     <h3 class="service-detail__content-header2">Features</h3>
@@ -362,25 +414,15 @@
 
 
     <script>
-        // const image_btns = document.querySelectorAll('.js-image-btn');
-        // const modal = document.querySelector('.js-modal');
-        // const closebtn = document.querySelector('.js-close-btn');
 
-        // console.log( document.querySelectorAll('.js-image-btn'));
-
-        // function openmodal() {
-        //     modal.classList.add('open');
-        // }
-
-        // function closemodal() {
-        //     modal.classList.remove('open');
-        // }
-
-        // for( const image_btn of image_btns){
-        //     image_btn.addEventListener('click',openmodal)
-        // }
-
-        // closebtn.addEventListener('click',closemodal);
+        var counter = 1;
+        setInterval(function () {
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if (counter > 4) {
+                counter = 1;
+            }
+        }, 5000);
 
         function onClick(element) {
         document.getElementById("img01").src = element.src;

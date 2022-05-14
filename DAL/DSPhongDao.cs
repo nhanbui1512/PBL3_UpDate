@@ -14,7 +14,7 @@ namespace DAL
         public DataTable GetDSPhongByIDLoaiPhong(int ID)
         {
             DataTable data = new DataTable();
-            string query = "select * from Phong where phong.IDLoaiPhong = "+ID+"";
+            string query = "SELECT * FROM Phong WHERE IDLoaiPhong = "+ID+"";
             data = dbHelper.GetRecord(query);
             return data;
         }

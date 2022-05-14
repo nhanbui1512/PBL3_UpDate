@@ -9,6 +9,7 @@ namespace DTO
     public class DSDatPhongView
     {
         public int ID { get; set; }
+        public int IDLoaiPhong { get; set; }
         public DateTime NgayGui { get; set; }
         public string HoVaTen { get; set; }
         public string TenTaiKhoan { get; set; }

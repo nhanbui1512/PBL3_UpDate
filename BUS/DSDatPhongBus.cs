@@ -31,7 +31,7 @@ namespace BUS
                 obj.TenLoaiPhong = i["TenLoaiPhong"].ToString() ;
                 obj.NgayGui = Convert.ToDateTime(i["NgayGui"]);
                 obj.DonGia = Convert.ToDouble(i["DonGia"]);
-
+                obj.IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]);
                 lst.Add(obj);
             }
             return lst;
@@ -55,7 +55,7 @@ namespace BUS
                     obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                     obj.NgayGui = Convert.ToDateTime(i["NgayGui"]);
                     obj.DonGia = Convert.ToDouble(i["DonGia"]);
-
+                    obj.IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]);
                     break;
                 }
             }
