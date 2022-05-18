@@ -28,7 +28,7 @@ namespace webpbl3.Areas.admin.Controllers
 
             foreach(var item in data)
             {
-                if(item.HoVaTen.Contains(Input) == true)
+                if(item.HoVaTen.Contains(Input) == true || item.CMND.Contains(Input))
                 {
                     list.Add(item);
                 }

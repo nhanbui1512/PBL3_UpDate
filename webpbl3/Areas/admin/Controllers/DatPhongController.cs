@@ -25,32 +25,46 @@ namespace webpbl3.Areas.admin.Controllers
 
         public ActionResult XemDon(int ID)
         {
+
             var obj = new DSDatPhongBus().GetIDDatPhong(ID);
-            FormThongTinDatPhong form = new FormThongTinDatPhong();
-            form.ID = obj.ID;
-            form.NgayGui = obj.NgayGui;
-            form.HoVaTen = obj.HoVaTen;
-            form.SDT = obj.SDT;
-            form.TenPhong = obj.TenPhong;
-            form.TinNhan = obj.TinNhan;
-            form.TenTaiKhoan = obj.TenTaiKhoan;
-            form.ThoiGianBD = obj.ThoiGianBD;
-            form.ThoiGianKT = obj.ThoiGianKT;
-            form.TenLoaiPhong = obj.TenLoaiPhong;
-            form.DonGia = obj.DonGia;
-            form.IDLoaiPhong = obj.IDLoaiPhong;
-            if (obj.TrangThai == 1) form.TrangThai = "1";
-            else form.TrangThai = "0";
+            
 
             var listphong = new DSPhongBUS().GetDSPhongByIDLoaiPhong(obj.IDLoaiPhong);
 
-            form.DSPhongTrong = listphong;
 
-            return View(form);
+            if (obj.TrangThai == "1")
+            {
+                foreach(var i in listphong)
+                {
+                    if(Convert.ToInt32(obj.IDPhong) == i.IDPhong)
+                    {
+                        obj.TenPhong = i.TenPhong;
+                    }
+                }
+
+            }
+
+            obj.DSPhongTrong = listphong;
+
+            return View(obj);
         }
 
-        public void XacNhanDon()
+        [HttpPost]
+        public ActionResult XacNhanDon(FormXacNhanDatPhong form)
         {
+            var obj = new DatPhongHelper();
+            
+            obj.XacNhanDon(form);
+
+            if (form.TrangThai == "2")
+            {
+                DSDatPhongView bus = new DSDatPhongBus().GetIDDatPhong(form.IDDatPhong);
+                var taikhoan = new DSTaiKhoanNVBus().GetTKByTenTk(bus.TenTaiKhoan);
+                bus.IDTK = taikhoan.ID;
+                obj.XacNhanVaoO(bus);
+            }
+
+            return Redirect("/admin/DatPhong/DanhSachDatPhong");
 
         }
 

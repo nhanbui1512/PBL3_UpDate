@@ -1,4 +1,4 @@
-﻿@model webpbl3.Models.FormThongTinDatPhong
+﻿@model DTO.DSDatPhongView
 
 @{
     ViewBag.Title = "XemDonDatPhong";
@@ -29,7 +29,13 @@
     </div>
 
     <div class="order-container__content">
-        <div class="form-horizontal">
+        <form class="form-horizontal" action="/DatPhong/XacNhanDon" method="post">
+
+            <div style="display:none" class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">IDDatPhong</label>
+                <input name="IDDatPhong" class="form-group__input" value="@Model.ID" />
+            </div>
+
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Ngày Gửi</label>
                 <label class="form-group__input" for="">@Model.NgayGui</label>
@@ -85,14 +91,14 @@
                     if (Model.TrangThai == "1")
                     {
 
-                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Đã Xử Lý", Value = "1" }, new SelectListItem { Text = "Chưa Xử Lý", Value = "0" } },
+                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Đã Xử Lý", Value = "1" }, new SelectListItem { Text = "Chưa Xử Lý", Value = "0" }, new SelectListItem { Text = "Vào Ở", Value = "2" } },
                         new { @class = " form-group__input" })
 
                     }
                     if (Model.TrangThai == "0")
                     {
 
-                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Chưa Xử Lý", Value = "0" }, new SelectListItem { Text = "Đã Xử Lý", Value = "1" } },
+                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Chưa Xử Lý", Value = "0" }, new SelectListItem { Text = "Đã Xử Lý", Value = "1" }, new SelectListItem { Text = "Vào Ở", Value = "2" } },
                         new { @class = " form-group__input" })
 
                     }
@@ -104,15 +110,15 @@
             </div>
 
             @*<div class="form-group">
-        <label class="margin-right-20 text-right form-group__label" for="">Phòng Khả Dụng</label>
-        @Html.DropDownListFor(model => model.DSPhongTrong, new SelectList( Model.DSPhongTrong , "IDPhong", "TenPhong") , new {@class = "form-group__input" })
+            <label class="margin-right-20 text-right form-group__label" for="">Phòng Khả Dụng</label>
+            @Html.DropDownListFor(model => model.DSPhongTrong, new SelectList( Model.DSPhongTrong , "IDPhong", "TenPhong") , new {@class = "form-group__input" })
 
-        </div>*@
+            </div>*@
 
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Danh Sách Phòng Trống</label>
-                <select class="form-group__input" name="PhongTrong">
+                <select class="form-group__input" name="IDPhong">
                     @foreach (var i in Model.DSPhongTrong)
                     {
                         <option value="@i.IDPhong">@i.TenPhong</option>
@@ -122,19 +128,20 @@
 
             </div>
 
-        </div>
-
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for=""></label>
                 <div class="form-group__input">
-                    <button class="form-group__button button--modify">Hoàn Thành</button>
+                    <button type="submit" class="form-group__button button--modify">Hoàn Thành</button>
                     <a href="/admin/DatPhong/DanhSachDatPhong" class="form-group__button button--modify">Quay lại</a>
-                    
+
                 </div>
             </div>
-        </div>
 
-        <div class="padding-15"></div>
+        </form>
+    </div>
+
+
+    <div class="padding-15"></div>
 
     </div>
 </body>

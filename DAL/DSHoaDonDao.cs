@@ -32,5 +32,12 @@ namespace DAL
                  "ON tthddv.IDDV = dv.IDDV ";
             return dbHelper.GetRecord(query);
         }
+
+
+//        select ThongTinHoaDonDV.Soluong, DichVu.TenDichVu , DichVu.GiaTien
+//from DichVu, ThongTinHoaDonDV , HoaDon
+//where DichVu.IDDV = ThongTinHoaDonDV.IDDV and ThongTinHoaDonDV.IDHoaDon = HoaDon.IDHoaDon
+
+
     }
 }

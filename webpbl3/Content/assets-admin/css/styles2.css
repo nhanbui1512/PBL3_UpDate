@@ -231,10 +231,17 @@ a {
     background-color: #ccc;
 }
 
+
+
 .nav-second-level2__item:hover {
     background-color: #fff;
 }
 
+
+.nav-hover:hover{
+    background-color: #fff;
+    cursor:pointer;
+}
 
 
 #footer {
@@ -342,7 +349,7 @@ a {
 .admin-nav__list-item {
     padding: 10px 15px;
     border: 1px solid #ccc;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
     .admin-nav__list-item a {

@@ -45,7 +45,7 @@ namespace webpbl3.Areas.Client.Controllers
 
             var loaiphong = new DSLoaiPhongBus().GetIDDSLoaiPhong(form.IDLoaiPhong);
 
-            form.TenLoaiPhong = loaiphong.TenLoaiPhong;
+            
             form.DonGia = loaiphong.GiaPhong;
 
             form.IDTK = ID;

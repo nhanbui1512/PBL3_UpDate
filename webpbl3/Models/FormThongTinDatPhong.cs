@@ -15,6 +15,7 @@ namespace webpbl3.Models
         public string TenTaiKhoan { get; set; }
         public string SDT { get; set; }
         public string TinNhan { get; set; } = string.Empty;
+        public int IDPhong { get; set; } = 0;
         public string TenPhong { get; set; } = string.Empty;
         public DateTime ThoiGianBD { get; set; }
         public DateTime ThoiGianKT { get; set; }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using webpbl3.Models;
 using BUS;
+using DTO;
 
 namespace webpbl3.Areas.admin.Controllers
 {
@@ -52,5 +53,41 @@ namespace webpbl3.Areas.admin.Controllers
             dbHelper.ExcutedDB(query);
             return Redirect("/admin/LoaiPhong/DanhSachLoaiPhong");
         }
+
+        [HttpPost]
+        public ActionResult Search(FormSearchDichVu form)
+        {
+            DSLoaiPhongBus data = new DSLoaiPhongBus();
+            var Listsorted = data.Sort(data.GetDSLoaiPhong());
+            if(form.Input == null)
+            {
+                form.Input = "";
+            }
+            
+            List<DSLoaiPhongView> list = new List<DSLoaiPhongView>();
+
+            if (form.ID == "2")
+            {
+                foreach (var i in Listsorted)
+                {
+                    if (i.TenLoaiPhong.Contains(form.Input) == true || i.GiaPhong.ToString().Contains(form.Input) == true )
+                    {
+                        list.Add(i);
+                    }
+                }
+            }
+
+            else 
+            {
+                Listsorted.Reverse();
+                foreach (var i in Listsorted)
+                {
+                    if(i.TenLoaiPhong.Contains(form.Input) == true || i.GiaPhong.ToString().Contains(form.Input) == true ) { list.Add(i); }
+                }
+            }
+            return View(list);
+        }
+
+
     }
 }

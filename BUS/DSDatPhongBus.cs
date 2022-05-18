@@ -23,15 +23,16 @@ namespace BUS
                 obj.HoVaTen = i["HoTen"].ToString();
                 obj.TenTaiKhoan = i["TenTaiKhoan"].ToString();
                 obj.SDT = i["SoDT"].ToString();
-                obj.TenPhong = i["TenPhong"].ToString();
                 obj.ThoiGianBD = Convert.ToDateTime(i["BatDau"]);
                 obj.ThoiGianKT = Convert.ToDateTime(i["KetThuc"]);
-                obj.TrangThai = Convert.ToInt32(i["TrangThai"]);
+                obj.TrangThai = (i["TrangThai"]).ToString();
                 obj.TinNhan = i["TinNhan"].ToString();
                 obj.TenLoaiPhong = i["TenLoaiPhong"].ToString() ;
                 obj.NgayGui = Convert.ToDateTime(i["NgayGui"]);
                 obj.DonGia = Convert.ToDouble(i["DonGia"]);
                 obj.IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]);
+                obj.IDPhong = i["IDPhong"].ToString();
+
                 lst.Add(obj);
             }
             return lst;
@@ -47,15 +48,16 @@ namespace BUS
                     obj.HoVaTen = i["HoTen"].ToString();
                     obj.TenTaiKhoan = i["TenTaiKhoan"].ToString();
                     obj.SDT = i["SoDT"].ToString();
-                    obj.TenPhong = i["TenPhong"].ToString();
                     obj.ThoiGianBD = Convert.ToDateTime(i["BatDau"]);
                     obj.ThoiGianKT = Convert.ToDateTime(i["KetThuc"]);
-                    obj.TrangThai = Convert.ToInt32(i["TrangThai"]);
+                    obj.TrangThai = (i["TrangThai"]).ToString();
                     obj.TinNhan = i["TinNhan"].ToString();
                     obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                     obj.NgayGui = Convert.ToDateTime(i["NgayGui"]);
                     obj.DonGia = Convert.ToDouble(i["DonGia"]);
                     obj.IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]);
+                    obj.IDPhong = i["IDPhong"].ToString();
+
                     break;
                 }
             }

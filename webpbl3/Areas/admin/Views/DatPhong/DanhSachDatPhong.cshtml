@@ -36,7 +36,15 @@
             <div class="">
                 <label for="">
                     Show
-                    <select class="padding-5-20" name="" id=""></select>
+                    <select class="padding-5-20" name="" id="">
+                        <option>
+                            Ngày Tháng
+                        </option>
+
+                        <option>
+                            Họ Và Tên
+                        </option>
+                    </select>
                     entries
                 </label>
             </div>
@@ -47,6 +55,8 @@
                     <input class="padding-5-20" type="text">
                 </label>
             </div>
+
+            <button class="add-class-btn margin-left-70"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
 
         </div>
 
@@ -72,7 +82,7 @@
                         <div class="col">@i.TenTaiKhoan</div>
                         <div class="col">@i.SDT</div>
                         <div class="col">@i.ThoiGianBD.ToString("dd/MM") - @i.ThoiGianKT.ToString("dd/MM")</div>
-                        @if (i.TrangThai == 1)
+                        @if (i.TrangThai == "1")
                         {
                             <div class="col">Đã Xử Lý</div>
                         }

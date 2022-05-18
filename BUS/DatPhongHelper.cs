@@ -44,6 +44,16 @@ namespace BUS
             return phonglist;
         }
 
-       
+        public void XacNhanDon(FormXacNhanDatPhong form)
+        {
+            var datphongdao = new DAL.DatPhongHelper();
+            datphongdao.XacNhanDon(form);
+
+        }
+        public void XacNhanVaoO(DSDatPhongView from)
+        {
+            var xacnhandao = new DAL.DatPhongHelper();
+            xacnhandao.XacNhanVaoO(from);
+        }
     }
 }

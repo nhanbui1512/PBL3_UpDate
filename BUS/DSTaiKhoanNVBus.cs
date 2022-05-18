@@ -42,5 +42,20 @@ namespace BUS
         {
             dao.ResetMatKhau(ID);
         }
+
+        public DSKhachHangView GetTKByTenTk(string TenTK)
+        {
+            DSKhachHangBus tk = new DSKhachHangBus();
+            DSKhachHangView dSKhachHangView = new DSKhachHangView();
+            foreach(var i in tk.DSKhachHang())
+            {
+                if(i.TenTaiKhoan == TenTK)
+                {
+                    dSKhachHangView = i;
+                }
+            }
+            return dSKhachHangView;
+        }
+
     }
 }

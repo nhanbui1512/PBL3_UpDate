@@ -16,6 +16,7 @@ namespace webpbl3.Models
         public string DiaChi { get; set; } = "";
         public string SoDT { get; set; } = "";
         public int Quyen { get; set; } = 3;
+        public string GioiTinh { get; set; } = "1";
 
 
     }

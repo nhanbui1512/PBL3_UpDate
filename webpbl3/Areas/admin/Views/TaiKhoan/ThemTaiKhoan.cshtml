@@ -27,7 +27,7 @@
     </div>
 
     <div class="order-container__content">
-        <form action="/Account/CheckSignIn" method="post" class="form-horizontal">
+        <form action="/TaiKhoan/ThemTaiKhoan" method="post" class="form-horizontal">
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Tên Đăng Nhập</label>
@@ -42,9 +42,9 @@
 
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Giới tính</label>
-                <select class=" form-group__input" data-val="true" data-val-number="The field IDChucVu must be a number." id="IDChucVu" name="IDChucVu" placeholder="Chọn chức vụ">
-                    <option value="2">Nam</option>
-                    <option value="3">Nữ</option>
+                <select class=" form-group__input" name="GioiTinh">
+                    <option value="1">Nam</option>
+                    <option value="0">Nữ</option>
                 </select>
 
             </div>
@@ -57,6 +57,11 @@
             <div class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">Số Điện Thoại</label>
                 <input required class="form-group__input" type="text" name="SoDT">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Địa Chỉ</label>
+                <input required class="form-group__input" type="text" name="DiaChi">
             </div>
 
             <div class="form-group">

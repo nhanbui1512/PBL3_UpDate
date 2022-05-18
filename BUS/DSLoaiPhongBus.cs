@@ -46,5 +46,23 @@ namespace BUS
             }
             return obj;
         }
+
+        public List<DSLoaiPhongView> Sort(List<DSLoaiPhongView> list)
+        {
+            DSLoaiPhongView temp = new DSLoaiPhongView();
+            for(int i = 0; i < list.Count - 1; i++)
+            {
+                for(int j = i + 1; j < list.Count; j++)
+                {
+                    if(list[i].GiaPhong < list[j].GiaPhong)
+                    {
+                        temp = list[i];
+                        list[i] = list[j];
+                        list[j] = temp;
+                    }
+                }
+            }
+            return list; 
+        }
     }
     }

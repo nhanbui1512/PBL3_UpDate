@@ -32,38 +32,39 @@
 
             </a>
 
-            <ul id="js-admin-list" class="admin-list shadow js-admin-list " style="display: none;">
+            <div id="js-admin-list" class="admin-list shadow js-admin-list " style="display: none;">
 
-                <li class="admin-list__item">
+                <div class="admin-list__item">
                     <a class="admin-list__item-name" href="/admin/CaNhan/UpdateThongTinCaNhan"><i class="fa-solid fa-user"></i> Đổi thông tin cá nhân</a>
-                </li>
-                <li class="admin-list__item">
+                </div>
+                <div class="admin-list__item">
                     <a class="admin-list__item-name" href="/admin/MatKhau/DoiMatKhau"><i class="fa fa-gear fa-fw"></i> Đổi mật khẩu</a>
-                </li>
+                </div>
                 <div class="drop-down"></div>
-                <li class="admin-list__item">
+
+                <div class="admin-list__item">
                     <a class="admin-list__item-name" href="/Account/Logout"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a>
-                </li>
-            </ul>
+                </div>
+            </div>
 
         </div>
 
         <div class="container">
             <div class="admin-nav">
-                <ul class="admin-nav__list">
-                    <li class="admin-nav__list-item">
+                <div class="admin-nav__list">
+                    <div class="admin-nav__list-item">
                         <a href="">
                             <i class="admin-nav__list-icon fa-solid fa-hotel"></i>
                             Khách sạn
                         </a>
-                    </li>
+                    </div>
 
                     <a href="/admin/KhachHang/DanhSachKhachHang" class="black-color ">
-                        <li class="admin-nav__list-item">
+                        <div class="admin-nav__list-item nav-hover">
                             <i class="admin-nav__list-icon fa-solid fa-user"></i>
                             Khách hàng
 
-                        </li>
+                        </div>
                     </a>
 
 
@@ -74,34 +75,34 @@
                         </a>
                     </li>*@
 
-                    <li class="admin-nav__list-item">
+                    <div class="admin-nav__list-item">
                         <a href="">
                             <i class="admin-nav__list-icon fa-solid fa-house"></i>
                             Đặt phòng
                         </a>
                         <div class="drop-down white-background"></div>
 
-                        <ul class="admin-nav-level2">
+                        <div class="admin-nav-level2">
 
-                            <li class="nav-second-level2__item"><a href="/admin/DatPhong/DanhSachDatPhong"><i class="nav-second-level2__item-icon fa fa-envelope"></i> Danh sách đặt phòng</a></li>
-                        </ul>
-                    </li>
+                            <a href="/admin/DatPhong/DanhSachDatPhong"><div class="nav-second-level2__item"><i class="nav-second-level2__item-icon fa fa-envelope"></i> Danh sách đặt phòng</div></a>
+                        </div>
+                    </div>
 
-                    <li class="admin-nav__list-item">
+                    <div class="admin-nav__list-item">
                         <a href="">
                             <i class="admin-nav__list-icon fa-solid fa-list"></i>
                             Danh mục
                         </a>
                         <div class="drop-down white-background"></div>
 
-                        <ul class="admin-nav-level2">
+                        <div class="admin-nav-level2">
+                            <a href="/admin/DichVu/DanhSachDichVu"><div class="nav-second-level2__item"><i class="nav-second-level2__item-icon fa fa-recycle"></i>Dịch vụ</div></a>
+                            <a href="/admin/LoaiPhong/DanhSachLoaiPhong"><div class="nav-second-level2__item"><i class="nav-second-level2__item-icon fa fa-home"></i>Loại phòng</div></a>
+                            <a href="#"> <div class="nav-second-level2__item"><i class="fa-solid fa-house-user"></i> Danh Sách Phòng</div> </a>
+                        </div>
+                    </div>
 
-                            <li class="nav-second-level2__item"><a href="/admin/DichVu/DanhSachDichVu"><i class="nav-second-level2__item-icon fa fa-recycle"></i>Dịch vụ</a></li>
-                            <li class="nav-second-level2__item"><a href="/admin/LoaiPhong/DanhSachLoaiPhong"><i class="nav-second-level2__item-icon fa fa-home"></i>Loại phòng</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="admin-nav__list-item">
+                    <div class="admin-nav__list-item">
                         <a href="">
                             <i class="admin-nav__list-icon fa-solid fa-book"></i>
                             Báo cáo thống kê
@@ -113,23 +114,23 @@
                             <li class="nav-second-level2__item"><a href="/admin/HoaDon/DanhSachHoaDon"><i class="nav-second-level2__item-icon fa-solid fa-money-bill"></i>Danh sách hóa đơn</a></li>
                             <li class="nav-second-level2__item"><a href=""><i class="nav-second-level2__item-icon fa fa-envelope"></i>Đặt phòng qua email</a></li>
                         </ul>
-                    </li>
+                    </div>
 
-                    <li class="admin-nav__list-item">
+                    <div class="admin-nav__list-item">
                         <a href="">
                             <i class="admin-nav__list-icon fa fa-cog fa-fw"></i>
                             Hệ thống
                         </a>
                         <div class="drop-down white-background"></div>
-                        <ul class="admin-nav-level2">
+                        <div class="admin-nav-level2">
 
-                            <li class="nav-second-level2__item"><a href="/admin/Taikhoan/Danhsachtaikhoan"><i class="nav-second-level2__item-icon fa fa-user"></i>Tài khoản nhân viên</a></li>
-                        </ul>
-                    </li>
+                            <a href="/admin/Taikhoan/Danhsachtaikhoan"><div class="nav-second-level2__item"><i class="nav-second-level2__item-icon fa fa-user"></i>Tài khoản nhân viên</div></a>
+                        </div>
+                    </div>
 
 
 
-                </ul>
+                </div>
             </div>
 
             <div class="admin-content js-admin-content">
