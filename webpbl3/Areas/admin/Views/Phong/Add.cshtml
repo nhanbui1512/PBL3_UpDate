@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/assets-admin/css/styles2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            THÊM PHÒNG
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+
+        <form class="form-horizontal" action="/admin/Phong/Add" method="post">
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Tên Phòng</label>
+                <input required class="form-group__input" type="text" name="TenPhong">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Tên Loại Phòng</label>
+                <select class=" form-group__input" name="IDLoaiPhong">
+                    @foreach (var i in ViewBag.listloaiphong)
+                    {
+                        <option value="@i.IDLoaiPhong"> @i.TenLoaiPhong</option>
+                    }
+                </select>
+
+            </div>
+
+            @{
+                if (ViewBag.Ketqua == 0)
+                {
+                    <div class="form-group">
+                        <label class="margin-right-20 text-right form-group__label" for="">Kết Quả</label>
+                        <p class="form-group__input">Tên Phòng Đã Được Sử Dụng</p>
+                    </div>
+                }
+
+                if (ViewBag.KetQua == 1)
+                {
+                    <div class="form-group">
+                        <label class="margin-right-20 text-right form-group__label" for="">Kết Quả</label>
+                        <p class="form-group__input">Thêm Phòng Thành Công</p>
+                    </div>
+                }
+
+
+            }
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for=""></label>
+                <div class="form-group__input">
+                    <button type="submit" class="button--modify padding-8 ">Xác Nhận</button>
+                    <a href="/admin/Phong/DanhSachPhong" class="button--modify padding-8">Quay Lại</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
+

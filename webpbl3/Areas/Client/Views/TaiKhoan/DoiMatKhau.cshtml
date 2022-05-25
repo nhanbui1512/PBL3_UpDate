@@ -1,0 +1,59 @@
+﻿@model DTO.DSKhachHangView
+@{
+    Layout = "~/Areas/Client/Views/Shared/LayoutClient.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/assets-admin/css/styles2.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Layout</title>
+</head>
+<body>
+
+    <div class="order-container__header">
+        <h2>
+            ĐỔI MẬT KHẨU
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+        <form class="form-horizontal" action="" method="post">
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Mật Khẩu Cũ</label>
+                <input name="MatKhauCu" class="form-group__input" type="password" required>
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Mật Khẩu Mới</label>
+                <input name="MatKhauMoi" class="form-group__input" type="password" required>
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Xác Nhận Mật Khẩu Mới</label>
+                <input name="XacNhanMatKhau" class="form-group__input" type="password" required>
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for=""></label>
+                <div class="form-group__input">
+                    <button type="submit" class="button--modify padding-8">Xác Nhận</button>
+                    <a href="/Client" class="button--modify padding-8">Quay Lại</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

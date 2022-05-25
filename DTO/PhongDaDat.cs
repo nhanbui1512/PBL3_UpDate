@@ -11,7 +11,6 @@ namespace DTO
         public int IDPhong { get; set; }
         public DateTime BatDau { get; set; }
         public DateTime KetThuc { get; set; }
-        public int TrangThai { get; set; }
-
+        public string TenPhong { get; set; }
     }
 }

@@ -139,10 +139,12 @@
     <Compile Include="Areas\admin\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\admin\Controllers\LoaiPhongController.cs" />
     <Compile Include="Areas\admin\Controllers\MatKhauController.cs" />
+    <Compile Include="Areas\admin\Controllers\PhongController.cs" />
     <Compile Include="Areas\admin\Controllers\TaiKhoanController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Areas\Client\Controllers\BaseController.cs" />
     <Compile Include="Areas\Client\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Client\Controllers\TaiKhoanController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\BaseController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\NhanVienPageController.cs" />
     <Compile Include="Areas\NhanVien\NhanVienAreaRegistration.cs" />
@@ -4877,7 +4879,7 @@
     <Content Include="Areas\Client\Views\web.config" />
     <Content Include="Areas\NhanVien\Views\NhanVienPage\Index.cshtml" />
     <Content Include="Areas\admin\Views\CaNhan\UpDateThongTinCaNhan.cshtml" />
-    <Content Include="Areas\Client\Views\Shared\Layout.cshtml" />
+    <Content Include="Areas\Client\Views\Shared\LayoutClient.cshtml" />
     <Content Include="Areas\Client\Views\Home\HomePage.cshtml" />
     <Content Include="Areas\Client\Views\Home\XemPhong.cshtml" />
     <EntityDeploy Include="Context\Model1.edmx">
@@ -4894,6 +4896,14 @@
     <Content Include="Areas\admin\Views\KhachHang\XemThongTin.cshtml" />
     <Content Include="Areas\admin\Views\TaiKhoan\Search.cshtml" />
     <Content Include="Areas\admin\Views\LoaiPhong\Search.cshtml" />
+    <Content Include="Areas\admin\Views\Phong\DanhSachPhong.cshtml" />
+    <Content Include="Areas\Client\Views\TaiKhoan\ThongTinCaNhan.cshtml" />
+    <Content Include="Areas\admin\Views\Phong\Search.cshtml" />
+    <Content Include="Areas\Client\Views\TaiKhoan\DoiMatKhau.cshtml" />
+    <Content Include="Areas\admin\Views\Phong\ThemPhong.cshtml" />
+    <Content Include="Areas\admin\Views\Phong\Add.cshtml" />
+    <Content Include="Areas\Client\Views\TaiKhoan\ThongTinDatPhong.cshtml" />
+    <Content Include="Areas\admin\Views\DatPhong\Search.cshtml" />
     <None Include="Models\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.min.js" />

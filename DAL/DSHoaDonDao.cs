@@ -12,27 +12,27 @@ namespace DAL
         public DataTable GetAllDSHoaDon()
         {
             dbHelper dbHelper = new dbHelper();
-            var query = "SELECT tthd.IDThongTinHD, tt.HoTen, tt.SDT, tt.CMT, dp.BatDau, dp.KetThuc, dp.TenNhanVien, hd.GiaPhong, dv.TenDichVu, hd.GiaDichVu, hd.TrangThai, P.TenPhong, hd.TongTien " +
-                 "FROM ThongTinHoaDon tthd " +
+            var query = "SELECT cthd.IDHoaDon, cthd.HoVaTen, cthd.SDT, cthd.CMND, cthd.BatDau, cthd.KetThuc, tt.HoTen, cthd.GiaHDPhong, hd.TrangThai, dp.TenLoaiPhong, P.TenPhong, cthd.TongTien " +
+                 "FROM ChiTietHoaDon cthd " +
                  "INNER JOIN HoaDon hd " +
-                 "ON tthd.IDHoaDon = hd.IDHoaDon " +
+                 "ON cthd.IDHoaDon = hd.IDHoaDon " +
                  "INNER JOIN DatPhong dp " +
                  "ON hd.IDDatPhong = dp.IDDatPhong " +
                  "INNER JOIN TaiKhoan tk " +
                  "ON dp.IDTK = TK.IDTK " +
                  "INNER JOIN ThongTinTK tt " +
                  "ON dp.IDTK = tt.IDTaiKhoan " +
-                 "INNER JOIN ThongTinHoaDonPhong tthdp " +
-                 "ON hd.IDHoaDon = tthdp.IDHoaDon " +
                  "INNER JOIN Phong P " +
-                 "ON tthdp.IDPhong = P.IDPhong " +
-                 "INNER JOIN ThongTinHoaDonDV tthddv " +
-                 "ON hd.IDHoaDon = tthddv.IDHoaDon " +
-                 "INNER JOIN DichVu dv " +
-                 "ON tthddv.IDDV = dv.IDDV ";
+                 "ON dp.IDPhong = P.IDPhong ";
             return dbHelper.GetRecord(query);
         }
 
+        public DataTable GetAllDSDichVuByIDHoaDon(int ID)
+        {
+            dbHelper dbHelper=new dbHelper();
+            var query = "SELECT * FROM ThongTinHoaDonDV WHERE IDHoaDon = " + ID + " ";
+            return dbHelper.GetRecord(query);
+        }
 
 //        select ThongTinHoaDonDV.Soluong, DichVu.TenDichVu , DichVu.GiaTien
 //from DichVu, ThongTinHoaDonDV , HoaDon

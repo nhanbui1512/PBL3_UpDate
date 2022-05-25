@@ -1,4 +1,4 @@
-﻿
+﻿@model List<DTO.DSHoaDonView>
 @{
     ViewBag.Title = "Danh Sách Hóa Đơn";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
@@ -57,35 +57,35 @@
             </div>
             <div class="drop-down white-background"></div>
 
-            <div class="text-center content-order">
-                <div class="col">203</div>
-                <div class="col">10/2/2022</div>
-                <div class="col">12/2/2022</div>
-                <div class="col">Bùi Thiện Nhân</div>
-                <div class="col">2.000.000 VNĐ</div>
-                <div class="col">Chưa Thanh Toán</div>
-                <div class="row">
-                    @Html.ActionLink("Xem Hóa Đơn", "XemHoaDon", "HoaDon", new { @class = "button" })
+            @{
+                foreach (var i in Model)
+                {
+                        <div class="text-center content-order">
+                            <div class="col">@i.TenPhong</div>
+                            <div class="col">@i.BatDau.ToString("dd/MM/yyyy")</div>
+                            <div class="col">@i.KetThuc.ToString("dd/MM/yyyy")</div>
+                            <div class="col">@i.HoVaTen</div>
+                            <div class="col">@i.TongTien</div>
+                            @if (i.TrangThai == true)
+                            {
 
-                </div>
-            </div>
+                                <div class="col">Đã Thanh Toán</div>
 
-            <div class="drop-down white-background"></div>
+                            }
+                            else
+                            {
+                                <div class="col">Chưa Thanh Toán</div>
 
-            <div class="text-center content-order">
-                <div class="col">203</div>
-                <div class="col">10/2/2022</div>
-                <div class="col">12/2/2022</div>
-                <div class="col">Bùi Thiện Nhân</div>
-                <div class="col">2.000.000 VNĐ</div>
-                <div class="col">Đã Thanh Toán</div>
-                <div class="row">
-                    @*<button class="button">Xem Hóa Đơn</button>*@
-                    @Html.ActionLink("Xem Hóa Đơn", "XemHoaDon", "HoaDon" , new { @class = "button" })
-                </div>
-            </div>
+                            }
+                            <div class="row">
+                               <a class="button" href="/admin/HoaDon/XemHoaDon/@i.ID">Xem Hóa Đơn</a>
+                            </div>
+                        </div>
 
-            <div class="drop-down white-background"></div>
+                    <div class="drop-down white-background"></div>
+                }
+            }
+
 
 
 

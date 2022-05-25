@@ -32,6 +32,7 @@ namespace BUS
                 obj.DonGia = Convert.ToDouble(i["DonGia"]);
                 obj.IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]);
                 obj.IDPhong = i["IDPhong"].ToString();
+                obj.CMND = i["CMT"].ToString();
 
                 lst.Add(obj);
             }
@@ -50,14 +51,14 @@ namespace BUS
                     obj.SDT = i["SoDT"].ToString();
                     obj.ThoiGianBD = Convert.ToDateTime(i["BatDau"]);
                     obj.ThoiGianKT = Convert.ToDateTime(i["KetThuc"]);
-                    obj.TrangThai = (i["TrangThai"]).ToString();
+                    obj.TrangThai = i["TrangThai"].ToString();
                     obj.TinNhan = i["TinNhan"].ToString();
                     obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                     obj.NgayGui = Convert.ToDateTime(i["NgayGui"]);
                     obj.DonGia = Convert.ToDouble(i["DonGia"]);
                     obj.IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]);
                     obj.IDPhong = i["IDPhong"].ToString();
-
+                    obj.CMND = i["CMT"].ToString();
                     break;
                 }
             }
@@ -73,8 +74,8 @@ namespace BUS
             {
                 list.Add(new PhongDaDat { IDPhong = Convert.ToInt32(i["IDPhong"]),
                     BatDau = Convert.ToDateTime(i["BatDau"]),
-                    KetThuc = Convert.ToDateTime(i["KetThu"]),
-                    TrangThai = Convert.ToInt32(i["TrangThai"])
+                    KetThuc = Convert.ToDateTime(i["KetThu"])
+                 
                 });
             }
             return list;

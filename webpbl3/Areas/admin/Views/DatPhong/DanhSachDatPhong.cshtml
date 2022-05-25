@@ -1,10 +1,11 @@
-﻿
-@model List<DTO.DSDatPhongView>
+﻿@model List<DTO.DSDatPhongView>
+
 @{
     ViewBag.Title = "DanhSachDatPhong";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
-
 }
+
+
 
 
 <!DOCTYPE html>
@@ -31,34 +32,34 @@
 
     <div class="order-container__content">
 
-        <div class="order-container__content-header">
+        <form class="order-container__content-header" action="/admin/DatPhong/Search" method="post">
 
-            <div class="">
+            @*<div class="">
                 <label for="">
                     Show
-                    <select class="padding-5-20" name="" id="">
-                        <option>
-                            Ngày Tháng
+                    <select class="padding-5-20" name="ID" id="">
+                        <option value="1">
+                            Tên Đăng Nhập
                         </option>
 
-                        <option>
+                        <option value="2">
                             Họ Và Tên
                         </option>
                     </select>
                     entries
                 </label>
-            </div>
+            </div>*@
 
-            <div class="margin-left-70">
+            <div class="">
                 <label for="">
                     Search:
-                    <input class="padding-5-20" type="text">
+                    <input name="Input" class="padding-5-20" type="text">
                 </label>
             </div>
 
-            <button class="add-class-btn margin-left-70"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+            <button type="submit" class="add-class-btn margin-left-70"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
 
-        </div>
+        </form>
 
         <div class="col margin-bottop-10">
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,20 +24,47 @@ namespace DAL
             dbHelper.ExcutedDB("DELETE FROM DatPhong WHERE IDDatPhong = "+IDDatPhong+"");
         }
 
-        public void XacNhanDon(FormXacNhanDatPhong form)
+        public void ThayDoiTrangThai(int IDDatPhong)
         {
-            string query = "UPDATE DatPhong SET TrangThai = '"+form.TrangThai+"', IDPhong = '"+form.IDPhong+"' WHERE IDDatPhong = "+form.IDDatPhong+"";
-            dbHelper.ExcutedDB(query);
-        }
-        public void XacNhanVaoO(DSDatPhongView form)
-        {
-            string query = "insert into HoaDon (IDTK , IDPhong, BatDau , KetThuc , GiaPhong, TrangThai , TenLoaiPhong ,SoDT) values ('"+form.IDTK+"','"+form.IDPhong+"','"+form.ThoiGianBD+"' , '"+form.ThoiGianKT+"' , '"+form.DonGia+"' , '0' , '"+form.TenLoaiPhong+"' , '"+form.SDT+"')";
-            string query2 = "UPDATE [dbo].[Phong] SET [TrangThai] = '2' WHERE IDPhong = '"+form.IDPhong+"' ";
-            dbHelper.ExcutedDB(query);
-            dbHelper.ExcutedDB(query2);
-            XoaDonDatPhong(form.ID);
+            dbHelper.ExcutedDB("UPDATE DatPhong SET TrangThai = '0' , IDPhong = null , IDNhanVien = null WHERE IDDatPhong = " + IDDatPhong + "");
         }
 
+        public void XacNhanDon(FormXacNhanDatPhong form)
+        {
+            string query = "UPDATE DatPhong SET TrangThai = '"+form.TrangThai+"', IDPhong = '"+form.IDPhong+"' , IDNhanVien = '"+form.IDNhanVien+"' WHERE IDDatPhong = "+form.IDDatPhong+"";
+            dbHelper.ExcutedDB(query);
+        }
+        public void XacNhanVaoO(DSDatPhongView form , int IDNV)
+        {
+    
+            string query2 = "UPDATE [dbo].[Phong] SET [TrangThai] = '1' WHERE IDPhong = '"+form.IDPhong+"' ";
+            dbHelper.ExcutedDB(query2);
+            dbHelper.ExcutedDB("UPDATE DatPhong SET TrangThai = '2' WHERE IDDatPhong = "+form.ID+" ");
+            dbHelper.ExcutedDB("insert into HoaDon values ('"+IDNV+"' ,'0' ,'"+form.ID+"')");
+
+            int IDHoaDon = 0;
+            foreach(DataRow i in dbHelper.GetRecord("select HoaDon.IDHoaDon from HoaDon where HoaDon.IDDatPhong = "+form.ID+" ").Rows)
+            {
+                IDHoaDon = Convert.ToInt32(i["IDHoaDon"]);
+            }
+            
+            dbHelper.ExcutedDB("insert into ChiTietHoaDon (IDHoaDon , BatDau , KetThuc , GiaHDPhong , HoVaTen , SDT , CMND , TongTien) values ('" +IDHoaDon+ "' , '"+form.ThoiGianBD+ "', '" + form.ThoiGianKT + "' , '" + form.DonGia+ "', N'" + form.HoVaTen + "' , '" + form.SDT + "' , '"+form.CMND+"', '"+form.DonGia+"' )");
+
+        }
+
+
+        public DataTable GetAllPhongDaDat(int IDLoaiPhong )
+        {
+            dbHelper dbHelper = new dbHelper();
+            return dbHelper.GetRecord("select DatPhong.BatDau , DatPhong.KetThuc , Phong.IDPhong , Phong.TenPhong from DatPhong , Phong where(DatPhong.TrangThai = 1 or DatPhong.TrangThai = 2) and DatPhong.IDPhong = Phong.IDPhong and DatPhong.IDLoaiPhong = "+IDLoaiPhong+"");
+        }
+
+        // Lấy ra tất cả các phòng đã được đặt thuộc loại phòng nào đó
+        public DataTable GetAllPhongOfLoaiPhong(int IDLoaiPhong)
+        {
+            dbHelper db = new dbHelper();
+            return db.GetRecord("select distinct Phong.TenPhong , DatPhong.IDPhong from DatPhong , Phong where DatPhong.IDLoaiPhong = "+IDLoaiPhong+" and DatPhong.IDPhong = Phong.IDPhong ");
+        }
         
     }
 }

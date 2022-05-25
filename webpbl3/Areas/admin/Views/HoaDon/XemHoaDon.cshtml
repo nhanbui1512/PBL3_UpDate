@@ -1,4 +1,4 @@
-﻿
+﻿@model DTO.DSHoaDonView
 @{
     ViewBag.Title = "XemHoaDon";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
@@ -49,37 +49,37 @@
                     <tbody>
                         <tr>
                             <td>Họ Và Tên Khách Hàng</td>
-                            <td>Bùi Thiện Nhân</td>
+                            <td>@Model.HoVaTen</td>
                         </tr>
 
                         <tr>
                             <td>Số Điện Thoại</td>
-                            <td>0913946875</td>
+                            <td>@Model.SDT</td>
                         </tr>
 
                         <tr>
                             <td>Số CMND</td>
-                            <td>102200061</td>
+                            <td>@Model.CMND</td>
                         </tr>
 
                         <tr>
                             <td>Nhận Phòng Lúc</td>
-                            <td>10/2/2022</td>
+                            <td>@Model.BatDau.ToString("dd/MM/yyyy")</td>
                         </tr>
 
                         <tr>
                             <td>Trả Phòng Lúc</td>
-                            <td>12/2/2022</td>
+                            <td>@Model.KetThuc.ToString("dd/MM/yyyy")</td>
                         </tr>
 
                         <tr>
                             <td>Tổng Thời Gian Thuê Phòng</td>
-                            <td>2 Ngày</td>
+                            <td>@Model.TongTG</td>
                         </tr>
 
                         <tr>
                             <td>Nhân Viên Thanh Toán</td>
-                            <td>Nguyễn Văn A</td>
+                            <td>@Model.TenNV</td>
                         </tr>
 
                     </tbody>
@@ -105,38 +105,31 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Phòng</td>
-                            <td>2.000.000 VNĐ</td>
-                            <td>2 Ngày</td>
-                            <td>4.000.000 VNĐ</td>
+                            <td>@Model.TenLoaiPhong</td>
+                            <td>@Model.GiaPhong VNĐ</td>
+                            <td>@Model.TongTG</td>
+                            <td>@(Model.TongTG*Model.GiaPhong) VNĐ</td>
 
                         </tr>
 
-                        <tr>
-                            <td>Massage</td>
-                            <td>200.000 VNĐ</td>
-                            <td>1</td>
-                            <td>200.000 VNĐ</td>
+                        @foreach (var i in ViewBag.listhoadon)
+                        {
+                            <tr>
+                                <td>@i.TenDV</td>
+                                <td>@i.GiaDV VNĐ</td>
+                                <td>@i.SoLuong</td>
+                                <td>@i.ThanhTien VNĐ</td>
 
-                        </tr>
+                            </tr>
+                        }
 
-                        <tr>
-                            <td>Ăn Sáng</td>
-                            <td>50.000 VNĐ</td>
-                            <td>1</td>
-                            <td>50.000 VNĐ</td>
-
-                        </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td>Tổng Tiền</td>
-                            <td>4.250.000 VNĐ</td>
+                            <td>@Model.TongTien VNĐ</td>
 
                         </tr>
-
-
-
 
 
                     </tbody>
@@ -146,8 +139,8 @@
 
         <div class="form-group__input padding-righleft-200">
             <button class="form-group__button button--modify">Thanh Toán</button>
-            <button class="form-group__button button--modify">Quay lại</button>
-            <button class="form-group__button button--modify">Quay về trang quản lý</button>
+            <a href="/admin/HoaDon/DanhSachHoaDon" class="form-group__button button--modify">Quay lại</a>
+            <a href="/admin" class="form-group__button button--modify">Quay về trang quản lý</a>
         </div>
     </div>
 </body>
