@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SQL_HotelModelStoreContainer" CdmEntityContainer="SQL_HotelEntities1">
+    <EntitySetMapping Name="DatPhongs">
+      <EntityTypeMapping TypeName="SQL_HotelModel.DatPhong">
+        <MappingFragment StoreEntitySet="DatPhong">
+          <ScalarProperty Name="IDDatPhong" ColumnName="IDDatPhong" />
+          <ScalarProperty Name="IDTK" ColumnName="IDTK" />
+          <ScalarProperty Name="BatDau" ColumnName="BatDau" />
+          <ScalarProperty Name="KetThuc" ColumnName="KetThuc" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="IDNhanVien" ColumnName="IDNhanVien" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DichVus">
+      <EntityTypeMapping TypeName="SQL_HotelModel.DichVu">
+        <MappingFragment StoreEntitySet="DichVu">
+          <ScalarProperty Name="IDDV" ColumnName="IDDV" />
+          <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDons">
+      <EntityTypeMapping TypeName="SQL_HotelModel.HoaDon">
+        <MappingFragment StoreEntitySet="HoaDon">
+          <ScalarProperty Name="IDHoaDon" ColumnName="IDHoaDon" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="ThoiGianGD" ColumnName="ThoiGianGD" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="GiaPhong" ColumnName="GiaPhong" />
+          <ScalarProperty Name="GiaDichVu" ColumnName="GiaDichVu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="IDDatPhong" ColumnName="IDDatPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiPhongs">
+      <EntityTypeMapping TypeName="SQL_HotelModel.LoaiPhong">
+        <MappingFragment StoreEntitySet="LoaiPhong">
+          <ScalarProperty Name="IDLoaiPhong" ColumnName="IDLoaiPhong" />
+          <ScalarProperty Name="TenLoaiPhong" ColumnName="TenLoaiPhong" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="GiaPhong" ColumnName="GiaPhong" />
+          <ScalarProperty Name="LienKetAnh" ColumnName="LienKetAnh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phongs">
+      <EntityTypeMapping TypeName="SQL_HotelModel.Phong">
+        <MappingFragment StoreEntitySet="Phong">
+          <ScalarProperty Name="IDPhong" ColumnName="IDPhong" />
+          <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+          <ScalarProperty Name="KhongGian" ColumnName="KhongGian" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="IDLoaiPhong" ColumnName="IDLoaiPhong" />
+          <ScalarProperty Name="GiaKM" ColumnName="GiaKM" />
+          <ScalarProperty Name="TenViTri" ColumnName="TenViTri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="SQL_HotelModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="IDTK" ColumnName="IDTK" />
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="Quyen" ColumnName="Quyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongTinHoaDons">
+      <EntityTypeMapping TypeName="SQL_HotelModel.ThongTinHoaDon">
+        <MappingFragment StoreEntitySet="ThongTinHoaDon">
+          <ScalarProperty Name="IDThongTinHD" ColumnName="IDThongTinHD" />
+          <ScalarProperty Name="IDHoaDon" ColumnName="IDHoaDon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongTinTKs">
+      <EntityTypeMapping TypeName="SQL_HotelModel.ThongTinTK">
+        <MappingFragment StoreEntitySet="ThongTinTK">
+          <ScalarProperty Name="IDTTTK" ColumnName="IDTTTK" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="CMT" ColumnName="CMT" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="IDTaiKhoan" ColumnName="IDTaiKhoan" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

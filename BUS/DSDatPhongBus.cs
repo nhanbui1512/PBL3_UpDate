@@ -33,7 +33,7 @@ namespace BUS
                 obj.IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]);
                 obj.IDPhong = i["IDPhong"].ToString();
                 obj.CMND = i["CMT"].ToString();
-
+            
                 lst.Add(obj);
             }
             return lst;

@@ -30,7 +30,8 @@ namespace BUS
                 obj.TenPhong = i["TenPhong"].ToString();
                 obj.TrangThai = Convert.ToBoolean(i["TrangThai"]);
                 obj.TongTien = Convert.ToDouble(i["TongTien"]);
-                obj.TongTG = 2;
+                TimeSpan Temp = Convert.ToDateTime(i["KetThuc"]) - Convert.ToDateTime(i["BatDau"]);
+                obj.TongTG = Temp.Days;
                 list.Add(obj);
             }
             return list;
@@ -42,18 +43,20 @@ namespace BUS
             {
                 if (id == Convert.ToInt32(i["IDHoaDon"]))
                 {
+                    obj.ID = Convert.ToInt32(i["IDHoaDon"]);
                     obj.HoVaTen = i["HoTen"].ToString();
                     obj.SDT = i["SDT"].ToString();
                     obj.CMND = i["CMND"].ToString();
                     obj.BatDau = Convert.ToDateTime(i["BatDau"]);
                     obj.KetThuc = Convert.ToDateTime(i["KetThuc"]);
-                    obj.TenNV = i["HoTen"].ToString();
+                    //obj.TenNV = i["HoTen"].ToString();
                     obj.GiaPhong = Convert.ToDouble(i["GiaHDPhong"]);
                     obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                     obj.TrangThai = Convert.ToBoolean(i["TrangThai"]);
                     obj.TenPhong = i["TenPhong"].ToString();
                     obj.TongTien = Convert.ToDouble(i["TongTien"]);
-                    obj.TongTG = 2;
+                    TimeSpan Temp = Convert.ToDateTime(i["KetThuc"]) - Convert.ToDateTime(i["BatDau"]);
+                    obj.TongTG = Temp.Days;
                     break;
                 }
             }
@@ -80,6 +83,36 @@ namespace BUS
                 
             }
             return data;
+        }
+
+        public void ThemHoaDonDV(FormThemHoaDonDV form)
+        {
+            DSHoaDonDao dao = new DSHoaDonDao();
+            dao.ThemHoaDonDV(form);
+        }
+
+        public void ThemHoaDonDVCoSan(FormThemHoaDonDV form)
+        {
+            DSHoaDonDao dao = new DSHoaDonDao();
+            dao.ThemHoaDonDVCoSan(form);
+        }
+
+        public void UpDateHoaDon()
+        {
+            DSHoaDonDao dao = new DSHoaDonDao();
+            dao.UpDateHoaDon();
+        }
+
+        public void ThanhToanHoaDon(int IDHoaDon , int UserID, double TongTien)
+        {
+            DSHoaDonDao dao = new DSHoaDonDao();
+            dao.ThanhToanHoaDon(IDHoaDon , UserID, TongTien);
+        }
+
+        public void XoaHoaDonDV(int IDDV, int IDHoaDon)
+        {
+            DSHoaDonDao dao = new DSHoaDonDao();
+            dao.XoaHoaDonDV(IDDV, IDHoaDon);
         }
     }
 }

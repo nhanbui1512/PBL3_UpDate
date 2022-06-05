@@ -1,0 +1,95 @@
+﻿@model DTO.DSDichVuView
+
+@{
+    ViewBag.Title = "Sửa Dịch Vụ";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/assets-admin/css/styles2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            CHỈNH SỬA DỊCH VỤ
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+        <form class="form-horizontal" action="/DichVu/UpdateDV" method="post">
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Tên Dịch Vụ</label>
+                <input name="TenDV" placeholder="Khăn Mặt" class="form-group__input" type="text" value="@Model.TenDV">
+            </div>
+            
+
+            @{
+                if (Model.TrangThai == "True")
+                {
+                    <div class="form-group">
+                        <label class="margin-right-20 text-right form-group__label" for="">Trạng Thái</label>
+
+                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Sử Dụng", Value = "1" }, new SelectListItem { Text = "Tạm Dừng", Value = "0" } },
+                       new { @class = " form-group__input" })
+
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        <label class="margin-right-20 text-right form-group__label" for="">Trạng Thái</label>
+
+
+                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Tạm Dừng", Value = "0" }, new SelectListItem { Text = "Sử Dụng", Value = "1" } },
+                       new { @class = " form-group__input" })
+
+                    </div>
+                }
+
+
+            }
+
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Giá tiền</label>
+                <input name="GiaTien" class="form-group__input" type="number" value="@Model.GiaDV">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Đơn Vị</label>
+                <input name="DonVi" class="form-group__input" type="text" value="@Model.DonVi">
+            </div>
+
+
+            <div class="form-group" style="display: none;">
+                <label class="margin-right-20 text-right form-group__label" for="">ID</label>
+                <input name="IDDV" value="@Model.IDDV" class="form-group__input" type="text">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for=""></label>
+                <div class="form-group__input">
+                    <button type="submit" class="button--modify padding-8">Xác Nhận</button>
+                    <a href="/admin/DichVu/DanhSachDichVu" class="button--modify padding-8">Quay Lại</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
+

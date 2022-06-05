@@ -29,7 +29,7 @@
     </div>
 
     <div class="order-container__content">
-        <form class="form-horizontal" action="/DatPhong/XacNhanDon" method="post">
+        <form class="form-horizontal" action="/admin/DatPhong/XacNhanDon" method="post">
 
             <div style="display:none" class="form-group">
                 <label class="margin-right-20 text-right form-group__label" for="">IDDatPhong</label>
@@ -104,7 +104,7 @@
                     if (Model.TrangThai == "0")
                     {
 
-                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Chưa Xử Lý", Value = "0" }, new SelectListItem { Text = "Đã Xử Lý", Value = "1" }, new SelectListItem { Text = "Vào Ở", Value = "2" } },
+                        @Html.DropDownListFor(model => model.TrangThai, new List<SelectListItem> { new SelectListItem { Text = "Chưa Xử Lý", Value = "0" }, new SelectListItem { Text = "Đã Xử Lý", Value = "1" } },
                         new { @class = " form-group__input" })
 
                     }
@@ -149,7 +149,6 @@
 
     <div class="padding-15"></div>
 
-    </div>
 </body>
 </html>
 

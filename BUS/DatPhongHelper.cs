@@ -173,6 +173,24 @@ namespace BUS
             return data;
         }
 
+        public void CheckThoiGianVaoO()
+        {
+            DateTime now = DateTime.Now;
+
+            var list = new DSDatPhongBus().DSDatPhong();
+
+            TimeSpan timeSpan = new System.TimeSpan(0, 11, 0, 0);
+            
+            foreach(var i in list)
+            {
+                DateTime BatDau = i.ThoiGianBD.Add(timeSpan);
+                if (DateTime.Compare(BatDau , now) < 0 && i.TrangThai != "2" )
+                {
+                    XoaDonDatPhong(i.ID); 
+                }
+            }
+        }
+
 
 
     }

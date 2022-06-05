@@ -1,0 +1,188 @@
+﻿@model DTO.DSHoaDonView
+@{
+    ViewBag.Title = "XemHoaDon";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/assets-admin/css/styles2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            HÓA ĐƠN THANH TOÁN
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+
+        <div class="bill-container">
+            <div class="bill-container__header padding-15">
+                Thông Tin Khách Hàng
+            </div>
+
+            <div class="bill-container__body padding-15">
+                <table class=" table">
+                    <thead>
+                        <tr>
+                            <td>
+                                Thông Tin Khách Hàng
+                            </td>
+                            <td>
+                                Giá Trị
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Họ Và Tên Khách Hàng</td>
+                            <td>@Model.HoVaTen</td>
+                        </tr>
+
+                        <tr>
+                            <td>Số Điện Thoại</td>
+                            <td>@Model.SDT</td>
+                        </tr>
+
+                        <tr>
+                            <td>Số CMND</td>
+                            <td>@Model.CMND</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nhận Phòng Lúc</td>
+                            <td>@Model.BatDau.ToString("dd/MM/yyyy")</td>
+                        </tr>
+
+                        <tr>
+                            <td>Trả Phòng Lúc</td>
+                            <td>@Model.KetThuc.ToString("dd/MM/yyyy")</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tổng Thời Gian Thuê Phòng</td>
+                            <td>@Model.TongTG Ngày</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nhân Viên Thanh Toán</td>
+                            <td>@Model.TenNV</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="bill-container" id="DichVu">
+            <div class="bill-container__header padding-15">
+                Các Dịch Vụ Sử Dụng
+            </div>
+
+            <div class="bill-container__body padding-15">
+                <table class=" table">
+                    <thead>
+                        <tr>
+                            <td>Thông Tin</td>
+                            <td>Đơn Giá</td>
+                            <td>Số Lượng</td>
+                            <td>Thành Tiền</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.TenLoaiPhong</td>
+                            <td>@Model.GiaPhong VNĐ</td>
+                            <td>@Model.TongTG</td>
+                            <td>@(Model.TongTG*Model.GiaPhong) VNĐ</td>
+
+                        </tr>
+
+                        @foreach (var i in ViewBag.listhoadon)
+                        {
+                            <tr>
+                                <td>@i.TenDV</td>
+                                <td>@i.GiaDV VNĐ</td>
+                                <td>@i.SoLuong</td>
+                                <td>@i.ThanhTien VNĐ</td>
+
+                            </tr>
+                        }
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Tổng Tiền</td>
+                            <td>@ViewBag.TongTien VNĐ</td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <form action="/admin/HoaDon/ThemHoaDonDichVu" method="post" class="order-container__content-header padding-15">
+
+            <div class="">
+                <label for="">
+                    Dịch Vụ
+                    <select class="padding-5-20" name="IDDV">
+
+                        @{
+                            foreach (var i in ViewBag.DSDichVu)
+                            {
+                                <option value="@i.IDDV">@i.TenDV</option>
+                            }
+                        }
+
+                    </select>
+
+                </label>
+            </div>
+
+            <div class="margin-left-70">
+                <label for="">
+                    Số Lượng
+                    <input name="SoLuong" min="0" required class="padding-5-20" type="number">
+                </label>
+            </div>
+
+            <div style="display: none;" class="margin-left-70">
+                <label for="">
+                    IDHoaDon
+                    <input name="IDHoaDon" required class="padding-5-20" type="number" value="@Model.ID">
+                </label>
+            </div>
+
+
+            <button class="add-class-btn margin-left-70"><i class="fa-solid fa-plus"></i> Add</button>
+
+        </form>
+
+        <div class="form-group__input padding-righleft-200">
+            <button class="form-group__button button--modify">Thanh Toán</button>
+            <a href="/admin/HoaDon/DanhSachHoaDon" class="form-group__button button--modify">Quay lại</a>
+            <a href="/admin" class="form-group__button button--modify">Quay về trang quản lý</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

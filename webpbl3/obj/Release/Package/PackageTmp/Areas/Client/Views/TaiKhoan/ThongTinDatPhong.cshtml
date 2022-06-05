@@ -1,0 +1,117 @@
+﻿@model DTO.DSDatPhongView
+@{
+    Layout = "~/Areas/Client/Views/Shared/LayoutClient.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/assets-admin/css/styles2.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Layout</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            ĐƠN ĐẶT PHÒNG
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+        <form class="form-horizontal" action="/DatPhong/XacNhanDon" method="post">
+
+            <div style="display:none" class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">IDDatPhong</label>
+                <input name="IDDatPhong" class="form-group__input" value="@Model.ID" />
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Ngày Gửi</label>
+                <label class="form-group__input" for="">@Model.NgayGui</label>
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Họ và Tên</label>
+                <label class="form-group__input" for="">@Model.HoVaTen</label>
+
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Tên Đăng Nhập</label>
+                <label class="form-group__input" for="">@Model.TenTaiKhoan</label>
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Số Điện Thoại</label>
+                <label class="form-group__input" for="">@Model.SDT</label>
+
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Tin Nhắn</label>
+                <label class="form-group__input" for="">@Model.TinNhan</label>
+
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Loại Phòng</label>
+                <label class="form-group__input" for="">@Model.TenLoaiPhong</label>
+
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Phòng</label>
+                <label class="form-group__input" for="">@Model.TenPhong</label>
+
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Thời Gian Thuê</label>
+                <label class="form-group__input" for="">@Model.ThoiGianBD.ToString("dd/MM/yyyy") - @Model.ThoiGianKT.ToString("dd/MM/yyyy")</label>
+
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Trạng Thái Xử Lý</label>
+
+                @{
+
+                    if (Model.TrangThai == "0")
+                    {
+
+                        <label class="form-group__input" for="">Chưa Xử Lý</label>
+                    }
+                    else
+                    {
+                        <label class="form-group__input" for="">Đã Xử Lý</label>
+
+                    }
+
+                }
+
+
+            </div>
+   
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for=""></label>
+                <div class="form-group__input">
+                    <a href="/Client" class="form-group__button button--modify">Quay lại</a>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

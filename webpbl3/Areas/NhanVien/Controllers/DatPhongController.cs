@@ -1,0 +1,116 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DTO;
+using BUS;
+using webpbl3.Common;
+
+namespace webpbl3.Areas.NhanVien.Controllers
+{
+    public class DatPhongController : BaseController
+    {
+        // GET: NhanVien/DatPhong
+        public ActionResult DanhSachDatPhong()
+        {
+            var list = new DSDatPhongBus().DSDatPhong();
+
+            List<DSDatPhongView> data = new List<DSDatPhongView>();
+
+            foreach (var i in list)
+            {
+                if (i.TrangThai == "0" || i.TrangThai == "1")
+                {
+                    data.Add(i);
+                }
+            }
+
+            return View(data);
+        }
+
+        public ActionResult XemDon(int ID)
+        {
+
+            var obj = new DSDatPhongBus().GetIDDatPhong(ID);
+
+            var listphong1 = new DSPhongBUS().GetDSPhongByIDLoaiPhong(obj.IDLoaiPhong);
+            var listphong = new DatPhongHelper().GetAllPhongCoTheDat(obj.IDLoaiPhong, obj);
+
+
+            if (obj.TrangThai == "1")
+            {
+                foreach (var i in listphong1)
+                {
+                    if (Convert.ToInt32(obj.IDPhong) == i.IDPhong)
+                    {
+                        obj.TenPhong = i.TenPhong;
+                    }
+                }
+
+            }
+
+            obj.DSPhongTrong = listphong;
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        public ActionResult XacNhanDon(FormXacNhanDatPhong form)
+        {
+            var obj = new DatPhongHelper();
+
+            if (form.TrangThai == "1")
+            {
+                var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
+                form.IDNhanVien = sess.UserID;
+                obj.XacNhanDon(form);
+            }
+
+            if (form.TrangThai == "2")
+            {
+                DSDatPhongView dondatphong = new DSDatPhongBus().GetIDDatPhong(form.IDDatPhong);
+
+                var taikhoan = new DSTaiKhoanNVBus().GetTKByTenTk(dondatphong.TenTaiKhoan);
+                dondatphong.IDTK = taikhoan.ID;
+                var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
+
+                obj.XacNhanVaoO(dondatphong, sess.UserID);
+            }
+
+            if (form.TrangThai == "0")
+            {
+                obj.ThayDoiTrangThai(form.IDDatPhong);
+            }
+
+            return Redirect("/NhanVien/DatPhong/DanhSachDatPhong");
+
+        }
+
+        public ActionResult Xoa(int ID)
+        {
+            var obj = new DatPhongHelper();
+            obj.XoaDonDatPhong(ID);
+            return Redirect("/NhanVien/DatPhong/DanhSachDatPhong");
+        }
+
+        public ActionResult Search(string Input)
+        {
+            DSDatPhongBus bus = new DSDatPhongBus();
+            List<DSDatPhongView> list = new List<DSDatPhongView>();
+
+            foreach (var i in bus.DSDatPhong())
+            {
+                if ((i.TenTaiKhoan.Contains(Input) || i.HoVaTen.Contains(Input)) && i.TrangThai != "2")
+                {
+                    list.Add(i);
+                }
+
+            }
+
+            return View(list);
+        }
+
+
+    }
+}

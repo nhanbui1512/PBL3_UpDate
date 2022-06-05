@@ -81,3 +81,9 @@ G:\webpbl3\webpbl3\obj\Release\webpbl3.csproj.CoreCompileInputs.cache
 G:\webpbl3\webpbl3\obj\Release\webpbl3.csproj.CopyComplete
 G:\webpbl3\webpbl3\obj\Release\webpbl3.dll
 G:\webpbl3\webpbl3\obj\Release\webpbl3.pdb
+G:\webpbl3\webpbl3\bin\BUS.dll
+G:\webpbl3\webpbl3\bin\DTO.dll
+G:\webpbl3\webpbl3\bin\DAL.dll
+G:\webpbl3\webpbl3\bin\BUS.pdb
+G:\webpbl3\webpbl3\bin\DTO.pdb
+G:\webpbl3\webpbl3\bin\DAL.pdb

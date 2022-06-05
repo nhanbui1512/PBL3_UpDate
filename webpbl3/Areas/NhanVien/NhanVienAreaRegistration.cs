@@ -17,7 +17,7 @@ namespace webpbl3.Areas.NhanVien
             context.MapRoute(
                 "NhanVien_default",
                 "NhanVien/{controller}/{action}/{id}",
-                new { controller = "NhanVienPage", action = "Index", id = UrlParameter.Optional }
+                new { controller = "DatPhong", action = "DanhSachDatPhong", id = UrlParameter.Optional }
             );
         }
     }

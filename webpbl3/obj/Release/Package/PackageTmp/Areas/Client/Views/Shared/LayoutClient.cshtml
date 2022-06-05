@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/assets-admin/css/styles2.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Booking Hotel</title>
+</head>
+<body>
+    <div id="main js-main">
+
+        <div class="bar shadow">
+            <div class="bar-item-container">
+                <a class="bar-item" href="/Client"><i class=" bar-icon fa-solid fa-house"></i>Home</a>
+            </div>
+
+            <a id="adminbtn" class="admin-btn js-admin-btn" style="display: block;">
+                <i class="fa-solid fa-user admin-icon"></i>
+                ADMIN
+                <i class="fa-solid fa-angle-down admin-icon"></i>
+
+            </a>
+
+            <div id="js-admin-list" class="admin-list shadow js-admin-list " style="display: none;">
+
+                <div class="admin-list__item">
+                    <a class="admin-list__item-name" href="/Client/TaiKhoan/ThongTinCaNhan"><i class="fa-solid fa-user"></i> Đổi thông tin cá nhân</a>
+                </div>
+                <div class="admin-list__item">
+                    <a class="admin-list__item-name" href="/Client/TaiKhoan/DoiMatKhau"><i class="fa fa-gear fa-fw"></i> Đổi mật khẩu</a>
+                </div>
+                <div class="drop-down"></div>
+
+                <div class="admin-list__item">
+                    <a class="admin-list__item-name" href="/Account/Logout"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <div class="admin-content js-admin-content">
+                @RenderBody()
+            </div>
+        </div>
+
+        <!-- footer  -->
+        <footer id="footer" class="center white-color">
+            <a href="" class="home-btn">
+                <i class="ti-arrow-up margin-right-16"></i>
+                To the top
+            </a>
+            <div class="social-icon margin-bottop-18">
+                <a href="" class="icon"> <i class="fa-brands fa-facebook-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-instagram-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-youtube-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-pinterest-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-twitter-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <!-- <p class="margin-bottop-16">Powered by <a class="coppyright" href="">NhanBui</a></p> -->
+        </footer>
+    </div>
+
+    <script>
+        // const image_btns = document.querySelectorAll('.js-image-btn');
+        // const modal = document.querySelector('.js-modal');
+        // const closebtn = document.querySelector('.js-close-btn');
+        const adminbtn = document.querySelector('.js-admin-btn');
+        const adminlist = document.querySelector('.js-admin-list');
+        const admin_content = document.querySelector('.js-admin-content');
+
+        var admin = document.getElementById('adminbtn').style.display;
+
+
+        function openadminlist() {
+            var adminlist1 = document.getElementById('js-admin-list').style.display;
+
+            if (adminlist1 == 'none') {
+                document.getElementById('js-admin-list').style.display = 'block'
+            }
+            else {
+                document.getElementById('js-admin-list').style.display = 'none'
+
+            }
+
+        }
+
+        function closeadminlist() {
+            var adminlist1 = document.getElementById('js-admin-list').style.display;
+
+            if (adminlist1 == 'block') {
+                document.getElementById('js-admin-list').style.display = 'none'
+            }
+        }
+
+
+        adminbtn.addEventListener('click', openadminlist);
+        admin_content.addEventListener('click', closeadminlist);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/assets-admin/css/styles2.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Booking Hotel</title>
+</head>
+<body>
+    <div id="main js-main">
+
+        <div class="bar shadow">
+            <div class="bar-item-container">
+                <a class="bar-item" href="/admin"><i class=" bar-icon fa-solid fa-house"></i>Home</a>
+            </div>
+
+            <a id="adminbtn" class="admin-btn js-admin-btn" style="display: block;">
+                <i class="fa-solid fa-user-gear"></i>
+                ADMIN
+                <i class="fa-solid fa-angle-down admin-icon"></i>
+
+            </a>
+
+            <div id="js-admin-list" class="admin-list shadow js-admin-list " style="display: none;">
+
+                <div class="admin-list__item">
+                    <a class="admin-list__item-name" href="/admin/CaNhan/UpdateThongTinCaNhan"><i class="fa-solid fa-address-card"></i> Đổi thông tin cá nhân</a>
+                </div>
+                <div class="admin-list__item">
+                    <a class="admin-list__item-name" href="/admin/MatKhau/DoiMatKhau"><i class="fa-solid fa-key"></i> Đổi mật khẩu</a>
+                </div>
+                <div class="drop-down"></div>
+
+                <div class="admin-list__item">
+                    <a class="admin-list__item-name" href="/Account/Logout"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="admin-nav">
+                <div class="admin-nav__list">
+                    <div class="admin-nav__list-item">
+                        <a href="">
+                            <i class="admin-nav__list-icon fa-solid fa-hotel"></i>
+                            Khách sạn
+                        </a>
+                    </div>
+
+                    <a href="/admin/KhachHang/DanhSachKhachHang" class="black-color ">
+                        <div class="admin-nav__list-item nav-hover">
+                            <i class="admin-nav__list-icon fa-solid fa-users"></i>
+                            Khách hàng
+
+                        </div>
+                    </a>
+
+
+                    @*<li class="admin-nav__list-item">
+                        <a href="/admin/KhachHang/DanhSachKhachHang">
+                            <i class="admin-nav__list-icon fa-solid fa-user"></i>
+                            Khách hàng
+                        </a>
+                    </li>*@
+
+                    <div class="admin-nav__list-item">
+                        <a href="">
+                            <i class="admin-nav__list-icon fa-solid fa-house"></i>
+                            Đặt phòng
+                        </a>
+                        <div class="drop-down white-background"></div>
+
+                        <div class="admin-nav-level2">
+
+                            <a href="/admin/DatPhong/DanhSachDatPhong"><div class="nav-second-level2__item"><i class="nav-second-level2__item-icon fa-solid fa-rectangle-list"></i> Danh sách đặt phòng</div></a>
+                        </div>
+                    </div>
+
+                    <div class="admin-nav__list-item">
+                        <a href="">
+                            <i class="admin-nav__list-icon fa-solid fa-list"></i>
+                            Danh mục
+                        </a>
+                        <div class="drop-down white-background"></div>
+                        <div class="admin-nav-level2">
+                            <a href="/admin/DichVu/DanhSachDichVu"><div class="nav-second-level2__item"><i class="nav-second-level2__item-icon fa-solid fa-mug-saucer"></i>Dịch vụ</div></a>
+                            <a href="/admin/LoaiPhong/DanhSachLoaiPhong"><div class="nav-second-level2__item"><i class="nav-second-level2__item-icon fa fa-home"></i>Loại phòng</div></a>
+                            <a href="/admin/Phong/DanhSachPhong"> <div class="nav-second-level2__item"><i class="fa-solid fa-house-user"></i> Danh Sách Phòng</div> </a>
+                        </div>
+                    </div>
+
+                    <div class="admin-nav__list-item">
+                        <a href="">
+                            <i class="admin-nav__list-icon fa-solid fa-book"></i>
+                            Báo cáo thống kê
+                        </a>
+                        <div class="drop-down white-background"></div>
+
+                        <ul class="admin-nav-level2">
+                            <li class="nav-second-level2__item"><a href="/admin/DoanhThu/Xem"><i class="nav-second-level2__item-icon fa-solid fa-money-bill-1"></i>Doanh thu</a></li>
+                            <li class="nav-second-level2__item"><a href="/admin/HoaDon/DanhSachHoaDon"><i class="nav-second-level2__item-icon fa-solid fa-money-bill"></i>Danh sách hóa đơn</a></li>
+                            <li class="nav-second-level2__item"><a href=""><i class="nav-second-level2__item-icon fa fa-envelope"></i>Đặt phòng qua email</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="admin-nav__list-item">
+                        <a href="">
+                            <i class="admin-nav__list-icon fa fa-cog fa-fw"></i>
+                            Hệ thống
+                        </a>
+                        <div class="drop-down white-background"></div>
+                        <div class="admin-nav-level2">
+                            <a href="/admin/Taikhoan/Danhsachtaikhoan"><div class="nav-second-level2__item"><i class="nav-second-level2__item-icon fa-solid fa-address-book"></i>Tài khoản nhân viên</div></a>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="admin-content js-admin-content">
+                @RenderBody()
+            </div>
+        </div>
+
+        <!-- footer  -->
+        <footer id="footer" class="center white-color">
+            <a href="" class="home-btn">
+                <i class="ti-arrow-up margin-right-16"></i>
+                To the top
+            </a>
+            <div class="social-icon margin-bottop-18">
+                <a href="" class="icon"> <i class="fa-brands fa-facebook-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-instagram-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-youtube-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-pinterest-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-twitter-square"></i></a>
+                <a href="" class="icon"> <i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <!-- <p class="margin-bottop-16">Powered by <a class="coppyright" href="">NhanBui</a></p> -->
+        </footer>
+    </div>
+
+    <script>
+        // const image_btns = document.querySelectorAll('.js-image-btn');
+        // const modal = document.querySelector('.js-modal');
+        // const closebtn = document.querySelector('.js-close-btn');
+        const adminbtn = document.querySelector('.js-admin-btn');
+        const adminlist = document.querySelector('.js-admin-list');
+        const admin_content = document.querySelector('.js-admin-content');
+
+        var admin = document.getElementById('adminbtn').style.display;
+
+
+        function openadminlist() {
+            var adminlist1 = document.getElementById('js-admin-list').style.display;
+
+            if(adminlist1 == 'none'){
+                document.getElementById('js-admin-list').style.display = 'block'
+            }
+            else{
+                document.getElementById('js-admin-list').style.display = 'none'
+
+            }
+
+        }
+
+        function closeadminlist () {
+            var adminlist1 = document.getElementById('js-admin-list').style.display;
+
+            if(adminlist1 == 'block'){
+                document.getElementById('js-admin-list').style.display = 'none'
+            }
+        }
+
+
+        adminbtn.addEventListener('click',openadminlist);
+        admin_content.addEventListener('click',closeadminlist);
+
+    </script>
+</body>
+</html>

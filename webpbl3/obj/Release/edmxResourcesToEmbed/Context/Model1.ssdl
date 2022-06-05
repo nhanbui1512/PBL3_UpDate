@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SQL_HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DatPhong">
+    <Key>
+      <PropertyRef Name="IDDatPhong" />
+    </Key>
+    <Property Name="IDDatPhong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDTK" Type="int" />
+    <Property Name="BatDau" Type="datetime" />
+    <Property Name="KetThuc" Type="datetime" />
+    <Property Name="TrangThai" Type="int" />
+    <Property Name="DonGia" Type="bigint" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="IDNhanVien" Type="int" />
+    <Property Name="TenNhanVien" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DichVu">
+    <Key>
+      <PropertyRef Name="IDDV" />
+    </Key>
+    <Property Name="IDDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDichVu" Type="nvarchar" MaxLength="100" />
+    <Property Name="GiaTien" Type="bigint" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="DonVi" Type="nvarchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="IDHoaDon" />
+    </Key>
+    <Property Name="IDHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="ThoiGianGD" Type="datetime" />
+    <Property Name="TongTien" Type="bigint" />
+    <Property Name="GiaPhong" Type="bigint" />
+    <Property Name="GiaDichVu" Type="bigint" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="IDDatPhong" Type="int" />
+  </EntityType>
+  <EntityType Name="LoaiPhong">
+    <Key>
+      <PropertyRef Name="IDLoaiPhong" />
+    </Key>
+    <Property Name="IDLoaiPhong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiPhong" Type="nvarchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+    <Property Name="GiaPhong" Type="nvarchar" MaxLength="50" />
+    <Property Name="LienKetAnh" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="IDPhong" />
+    </Key>
+    <Property Name="IDPhong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenPhong" Type="nvarchar" MaxLength="100" />
+    <Property Name="KhongGian" Type="int" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="IDLoaiPhong" Type="int" />
+    <Property Name="GiaKM" Type="bigint" />
+    <Property Name="TenViTri" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'SQL_Hotel.dbo.Phong_DatPhong' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Phong_DatPhong">
+          <Property Name="IDPhong" Type="int" />
+          <Property Name="IDDatPhong" Type="int" />
+        </EntityType>-->
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="IDTK" />
+    </Key>
+    <Property Name="IDTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTaiKhoan" Type="nvarchar" MaxLength="200" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="200" />
+    <Property Name="Quyen" Type="int" />
+  </EntityType>
+  <EntityType Name="ThongTinHoaDon">
+    <Key>
+      <PropertyRef Name="IDThongTinHD" />
+    </Key>
+    <Property Name="IDThongTinHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDHoaDon" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'SQL_Hotel.dbo.ThongTinHoaDonDV' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ThongTinHoaDonDV">
+          <Property Name="IDDV" Type="int" />
+          <Property Name="IDHoaDon" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'SQL_Hotel.dbo.ThongTinHoaDonPhong' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ThongTinHoaDonPhong">
+          <Property Name="IDHoaDon" Type="int" />
+          <Property Name="IDPhong" Type="int" />
+        </EntityType>-->
+  <EntityType Name="ThongTinTK">
+    <Key>
+      <PropertyRef Name="IDTTTK" />
+    </Key>
+    <Property Name="IDTTTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="SDT" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+    <Property Name="CMT" Type="nvarchar" MaxLength="50" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="200" />
+    <Property Name="IDTaiKhoan" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+    <Property Name="GioiTinh" Type="bit" />
+  </EntityType>
+  <Association Name="FK_DatPhong_TaiKhoan">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="IDTK" />
+      </Principal>
+      <Dependent Role="DatPhong">
+        <PropertyRef Name="IDTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_DatPhong">
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatPhong">
+        <PropertyRef Name="IDDatPhong" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="IDDatPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'SQL_Hotel.dbo.Phong_DatPhong' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_Phong_DatPhong_DatPhong1" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'SQL_Hotel.dbo.Phong_DatPhong' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_Phong_DatPhong_Phong" />-->
+  <Association Name="FK_Phong_LoaiPhong">
+    <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="0..1" />
+    <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiPhong">
+        <PropertyRef Name="IDLoaiPhong" />
+      </Principal>
+      <Dependent Role="Phong">
+        <PropertyRef Name="IDLoaiPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThongTinHoaDon_HoaDon">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="0..1" />
+    <End Role="ThongTinHoaDon" Type="Self.ThongTinHoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="IDHoaDon" />
+      </Principal>
+      <Dependent Role="ThongTinHoaDon">
+        <PropertyRef Name="IDHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'SQL_Hotel.dbo.ThongTinHoaDonDV' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_ThongTinHoaDonDV_DichVu" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'SQL_Hotel.dbo.ThongTinHoaDonDV' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_ThongTinHoaDonDV_HoaDon" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'SQL_Hotel.dbo.ThongTinHoaDonPhong' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_ThongTinHoaDonPhong_HoaDon" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'SQL_Hotel.dbo.ThongTinHoaDonPhong' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_ThongTinHoaDonPhong_Phong" />-->
+  <Association Name="FK_ThongTinTK_TaiKhoan">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="ThongTinTK" Type="Self.ThongTinTK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="IDTK" />
+      </Principal>
+      <Dependent Role="ThongTinTK">
+        <PropertyRef Name="IDTaiKhoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SQL_HotelModelStoreContainer">
+    <EntitySet Name="DatPhong" EntityType="Self.DatPhong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiPhong" EntityType="Self.LoaiPhong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThongTinHoaDon" EntityType="Self.ThongTinHoaDon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThongTinTK" EntityType="Self.ThongTinTK" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DatPhong_TaiKhoan" Association="Self.FK_DatPhong_TaiKhoan">
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+      <End Role="DatPhong" EntitySet="DatPhong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_DatPhong" Association="Self.FK_HoaDon_DatPhong">
+      <End Role="DatPhong" EntitySet="DatPhong" />
+      <End Role="HoaDon" EntitySet="HoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
+      <End Role="LoaiPhong" EntitySet="LoaiPhong" />
+      <End Role="Phong" EntitySet="Phong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThongTinHoaDon_HoaDon" Association="Self.FK_ThongTinHoaDon_HoaDon">
+      <End Role="HoaDon" EntitySet="HoaDon" />
+      <End Role="ThongTinHoaDon" EntitySet="ThongTinHoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThongTinTK_TaiKhoan" Association="Self.FK_ThongTinTK_TaiKhoan">
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+      <End Role="ThongTinTK" EntitySet="ThongTinTK" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

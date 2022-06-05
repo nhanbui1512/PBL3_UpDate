@@ -40,6 +40,7 @@ namespace webpbl3.Areas.admin.Controllers
             return View(Phong);
         }
 
+        [HttpPost]
         public ActionResult UpDate(FormThemLoaiPhong form)
         {
             string query = "UPDATE LoaiPhong SET TenLoaiPhong = N'" + form.TenLoaiPhong + "', GhiChu = N'" + form.GhiChu + "', GiaPhong = '" + form.GiaPhong + "', LienKetAnhDaiDien = '" + form.URLAnhDaiDien + "' , LienKetAnhWC = '"+form.URLAnhWC+"' WHERE IDLoaiPhong = " + form.IDLoaiPhong + "";

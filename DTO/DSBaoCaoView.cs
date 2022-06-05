@@ -8,12 +8,20 @@ namespace DTO
 {
     public class DSBaoCaoView
     {
-        public int ID { get; set; }
-        public DateTime NgayTT { get; set; }
+        public int IDHoaDon { get; set; }
         public string HoVaTen { get; set; }
+        public string SoDT { get; set; }
+        public string CMND { get; set; }
+        public DateTime BatDau { get; set; }
+        public DateTime KetThuc { get; set; }
+        public DateTime ThoiGianGiaoDich { get; set; }
+        public double GiaHoaDonPhong { get; set; }
+        public string TenLoaiPhong { get; set; }
         public string TenPhong { get; set; }
-        public string TenDV { get; set; }
-        public double TongTien { get; set; }
+        public double TongThu { get; set; }
+        public int IDNhanVien { get; set; }
+        public int TongThoiGian { get; set; }
+
 
     }
 }

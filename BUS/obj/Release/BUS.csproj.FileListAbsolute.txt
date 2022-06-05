@@ -1,0 +1,11 @@
+G:\webpbl3\BUS\bin\Release\BUS.dll
+G:\webpbl3\BUS\bin\Release\BUS.pdb
+G:\webpbl3\BUS\bin\Release\DAL.dll
+G:\webpbl3\BUS\bin\Release\DTO.dll
+G:\webpbl3\BUS\bin\Release\DAL.pdb
+G:\webpbl3\BUS\bin\Release\DTO.pdb
+G:\webpbl3\BUS\obj\Release\BUS.csproj.AssemblyReference.cache
+G:\webpbl3\BUS\obj\Release\BUS.csproj.CoreCompileInputs.cache
+G:\webpbl3\BUS\obj\Release\BUS.csproj.CopyComplete
+G:\webpbl3\BUS\obj\Release\BUS.dll
+G:\webpbl3\BUS\obj\Release\BUS.pdb

@@ -47,8 +47,8 @@ namespace webpbl3.Areas.Client.Controllers
 
             
             form.DonGia = loaiphong.GiaPhong;
-
             form.IDTK = ID;
+            form.TenLoaiPhong = loaiphong.TenLoaiPhong;
 
             DatPhongHelper datphong = new DatPhongHelper();
 

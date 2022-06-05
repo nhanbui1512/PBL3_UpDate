@@ -74,7 +74,7 @@
 
                         <tr>
                             <td>Tổng Thời Gian Thuê Phòng</td>
-                            <td>@Model.TongTG</td>
+                            <td>@Model.TongTG Ngày</td>
                         </tr>
 
                         <tr>
@@ -88,7 +88,7 @@
         </div>
 
 
-        <div class="bill-container">
+        <div class="bill-container" id="DichVu">
             <div class="bill-container__header padding-15">
                 Các Dịch Vụ Sử Dụng
             </div>
@@ -101,6 +101,7 @@
                             <td>Đơn Giá</td>
                             <td>Số Lượng</td>
                             <td>Thành Tiền</td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -109,27 +110,30 @@
                             <td>@Model.GiaPhong VNĐ</td>
                             <td>@Model.TongTG</td>
                             <td>@(Model.TongTG*Model.GiaPhong) VNĐ</td>
+                            <td></td>
 
                         </tr>
 
                         @foreach (var i in ViewBag.listhoadon)
                         {
-                            <tr>
-                                <td>@i.TenDV</td>
-                                <td>@i.GiaDV VNĐ</td>
-                                <td>@i.SoLuong</td>
-                                <td>@i.ThanhTien VNĐ</td>
+                    <tr>
+                        <td>@i.TenDV</td>
+                        <td>@i.GiaDV VNĐ</td>
+                        <td>@i.SoLuong</td>
+                        <td>@i.ThanhTien VNĐ</td>
+                        <td>@Html.ActionLink("Xóa", "XoaHoaDonDV", new { IDDV = i.IDDV , IDHoaDon = i.IDHD }, new { @class = "padding-8 button--modify" })</td>
 
-                            </tr>
+                    </tr>
                         }
 
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Tổng Tiền</td>
-                            <td>@Model.TongTien VNĐ</td>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Tổng Tiền</td>
+                        <td>@ViewBag.TongTien VNĐ</td>
+                        <td></td>
 
-                        </tr>
+                    </tr>
 
 
                     </tbody>
@@ -137,8 +141,46 @@
             </div>
         </div>
 
+        <form action="/admin/HoaDon/ThemHoaDonDichVu" method="post" class="order-container__content-header padding-15">
+
+            <div class="">
+                <label for="">
+                    Dịch Vụ
+                    <select class="padding-5-20" name="IDDV">
+
+                        @{
+                            foreach (var i in ViewBag.DSDichVu)
+                            {
+                                <option value="@i.IDDV">@i.TenDV</option>
+                            }
+                        }
+
+                    </select>
+
+                </label>
+            </div>
+
+            <div class="margin-left-70">
+                <label for="">
+                    Số Lượng
+                    <input name="SoLuong" min="0" required class="padding-5-20" type="number">
+                </label>
+            </div>
+
+            <div style="display: none;" class="margin-left-70">
+                <label for="">
+                    IDHoaDon
+                    <input name="IDHoaDon" required class="padding-5-20" type="number" value="@Model.ID">
+                </label>
+            </div>
+
+
+            <button class="add-class-btn margin-left-70"><i class="fa-solid fa-plus"></i> Add</button>
+
+        </form>
+
         <div class="form-group__input padding-righleft-200">
-            <button class="form-group__button button--modify">Thanh Toán</button>
+            <a href="/admin/HoaDon/ThanhToanHoaDon/@Model.ID" class="form-group__button button--modify">Thanh Toán</a>
             <a href="/admin/HoaDon/DanhSachHoaDon" class="form-group__button button--modify">Quay lại</a>
             <a href="/admin" class="form-group__button button--modify">Quay về trang quản lý</a>
         </div>

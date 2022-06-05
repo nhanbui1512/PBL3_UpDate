@@ -661,3 +661,7 @@ td {
     color: #fff;
     border-radius: 4px;
 }
+
+.height-full{
+    min-height: 100vh;
+}

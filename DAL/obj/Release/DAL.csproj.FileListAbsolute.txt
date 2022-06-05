@@ -1,0 +1,9 @@
+G:\webpbl3\DAL\bin\Release\DAL.dll
+G:\webpbl3\DAL\bin\Release\DAL.pdb
+G:\webpbl3\DAL\bin\Release\DTO.dll
+G:\webpbl3\DAL\bin\Release\DTO.pdb
+G:\webpbl3\DAL\obj\Release\DAL.csproj.AssemblyReference.cache
+G:\webpbl3\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+G:\webpbl3\DAL\obj\Release\DAL.csproj.CopyComplete
+G:\webpbl3\DAL\obj\Release\DAL.dll
+G:\webpbl3\DAL\obj\Release\DAL.pdb

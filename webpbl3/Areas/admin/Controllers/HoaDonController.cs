@@ -1,9 +1,11 @@
 ﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using webpbl3.Common;
 
 namespace webpbl3.Areas.admin.Controllers
 {
@@ -18,10 +20,103 @@ namespace webpbl3.Areas.admin.Controllers
 
         public ActionResult XemHoaDon(int id)
         {
-            var list = new DSHoaDonBus().GetIDDSHoaDon(id);
-            var listhoadon = new DSHoaDonBus().GetAllDSDichVuByIDHoaDon(id);
-            ViewBag.listhoadon = listhoadon;
-            return View (list);
+            var listdichvu = new DSDichVuBus().GetDSDichVu();
+            var hoadonphong = new DSHoaDonBus().GetIDDSHoaDon(id);
+            var listhoadondv = new DSHoaDonBus().GetAllDSDichVuByIDHoaDon(id);
+            double TongTien = 0;
+
+            foreach( var i in listhoadondv)
+            {
+                TongTien += i.ThanhTien;
+               
+            }
+
+            TongTien += ( hoadonphong.TongTG * hoadonphong.GiaPhong );
+            ViewBag.TongTien = TongTien;
+
+            ViewBag.listhoadon = listhoadondv;
+           
+            ViewBag.DSDichVu = listdichvu;
+            return View (hoadonphong);
         }
+
+        [HttpPost]
+        public ActionResult ThemHoaDonDichVu(FormThemHoaDonDV form)
+        {
+            DSHoaDonBus helper = new DSHoaDonBus();
+
+            var listhoadondv = new DSHoaDonBus().GetAllDSDichVuByIDHoaDon(form.IDHoaDon);
+
+            var DichVu = new DSDichVuBus().GetIDDSDichVu(Convert.ToInt32(form.IDDV));
+
+            form.TenDV = DichVu.TenDV;
+            form.GiaDichVu = DichVu.GiaDV;
+            form.ThanhTien = form.GiaDichVu * form.SoLuong;
+
+            int dem = 0;
+            foreach(var i in listhoadondv)
+            {
+                if(i.IDDV == Convert.ToInt32( form.IDDV ))
+                {
+                    break;
+                }
+                dem++;
+            }
+            
+            if(listhoadondv.Count == 0)
+            {
+                helper.ThemHoaDonDV(form);
+            }
+            else
+            {
+                if (dem >= listhoadondv.Count)
+                {
+                    helper.ThemHoaDonDV(form);
+                    helper.UpDateHoaDon();
+
+                }
+                else
+                {
+                    helper.ThemHoaDonDVCoSan(form);
+                    helper.UpDateHoaDon();
+                }
+            }
+
+            
+
+            return Redirect("/admin/HoaDon/XemHoaDon/"+form.IDHoaDon+ "/#DichVu");
+        }
+
+
+        public ActionResult ThanhToanHoaDon(int ID)
+        {
+            var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
+
+            var hoadonphong = new DSHoaDonBus().GetIDDSHoaDon(ID);
+            var listhoadondv = new DSHoaDonBus().GetAllDSDichVuByIDHoaDon(ID);
+            double TongTien = 0;
+            foreach (var i in listhoadondv)
+            {
+                TongTien += i.ThanhTien;
+
+            }
+
+            TongTien += (hoadonphong.TongTG * hoadonphong.GiaPhong);
+
+
+            new DSHoaDonBus().ThanhToanHoaDon(ID, sess.UserID , TongTien);
+
+            return Redirect("/admin/HoaDon/DanhSachHoaDon");
+        }
+
+
+        public ActionResult XoaHoaDonDV(int IDDV, int IDHoaDon)
+        {
+            new DSHoaDonBus().XoaHoaDonDV(IDDV, IDHoaDon);
+            return Redirect("/admin/HoaDon/XemHoaDon/"+IDHoaDon+ "/#DichVu");
+        }
+
+
+
     }
 }

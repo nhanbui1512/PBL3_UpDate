@@ -42,7 +42,6 @@ namespace webpbl3.Areas.admin.Controllers
             var listphong1 = new DSPhongBUS().GetDSPhongByIDLoaiPhong(obj.IDLoaiPhong);
             var listphong = new DatPhongHelper().GetAllPhongCoTheDat(obj.IDLoaiPhong, obj);
 
-
             if (obj.TrangThai == "1")
             {
                 foreach(var i in listphong1)

@@ -15,7 +15,7 @@ namespace DAL
         public void DatPhong(FormDatPhong form)
         {
             DateTime dt = DateTime.Now;
-            string query = "insert into DatPhong (IDTK,IDLoaiPhong,BatDau,KetThuc,TrangThai,DonGia,SoDT,TinNhan , NgayGui) values ('"+form.IDTK+"','"+form.IDLoaiPhong+"','"+form.CheckIn.ToString("MM/dd/yyyy")+"' ,'"+ form.CheckOut.ToString("MM/dd/yyyy") + "', '0', '"+form.DonGia+"','"+form.SoDT+"',N'"+form.Message+"','"+dt.ToString()+"')";
+            string query = "insert into DatPhong (IDTK,IDLoaiPhong,BatDau,KetThuc,TrangThai,DonGia,SoDT,TinNhan , NgayGui , TenLoaiPhong) values ('"+form.IDTK+"','"+form.IDLoaiPhong+"','"+form.CheckIn.ToString("MM/dd/yyyy")+"' ,'"+ form.CheckOut.ToString("MM/dd/yyyy") + "', '0', '"+form.DonGia+"','"+form.SoDT+"',N'"+form.Message+"','"+dt.ToString()+"' , N'"+form.TenLoaiPhong+"')";
             dbHelper.ExcutedDB(query);
         }
 
@@ -41,6 +41,7 @@ namespace DAL
             dbHelper.ExcutedDB(query2);
             dbHelper.ExcutedDB("UPDATE DatPhong SET TrangThai = '2' WHERE IDDatPhong = "+form.ID+" ");
             dbHelper.ExcutedDB("insert into HoaDon values ('"+IDNV+"' ,'0' ,'"+form.ID+"')");
+            dbHelper.ExcutedDB("UPDATE ChiTietHoaDon SET TenPhong = '"+form.TenPhong+"' ");
 
             int IDHoaDon = 0;
             foreach(DataRow i in dbHelper.GetRecord("select HoaDon.IDHoaDon from HoaDon where HoaDon.IDDatPhong = "+form.ID+" ").Rows)

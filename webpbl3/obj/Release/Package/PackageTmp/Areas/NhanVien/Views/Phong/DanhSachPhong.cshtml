@@ -1,0 +1,119 @@
+﻿@model List<DTO.DSLoaiPhongView>
+@{
+    ViewBag.Title = "Danh Sách Phòng";
+    Layout = "~/Areas/NhanVien/Views/Shared/Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/assets-admin/css/styles2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="order-container__header">
+        <h2>
+            DANH SÁCH PHÒNG
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+
+        <form class="order-container__content-header" action="/NhanVien/Phong/Search" method="post">
+
+            <div class="">
+                <label for="">
+                    Rooms
+                    <select class="padding-5-20" name="IDLoaiPhong" id="">
+                        
+                        @{ foreach (var i in Model)
+                            {
+                                <option value="@i.IDLoaiPhong">@i.TenLoaiPhong</option>
+                            }}
+                    </select>
+
+                </label>
+            </div>
+
+            <div class="margin-left-70">
+                <label for="">
+                    Check In
+                    <input required class="padding-5-20" type="date" name="CheckIn">
+                </label>
+            </div>
+
+            <div class="margin-left-70">
+                <label for="">
+                    Check Out
+                    <input required class="padding-5-20" type="date" name="CheckOut">
+                </label>
+            </div>
+
+            <button type="submit" class="add-class-btn margin-left-70"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+
+        </form>
+
+        <div class="col margin-bottop-10">
+
+            <div class="header-order">
+                <div class="font-18 text-center header-order__item">Tên Phòng</div>
+                <div class="font-18 text-center header-order__item">Trạng Thái</div>
+                <div class="font-18 text-center header-order__item"></div>
+            </div>
+
+
+            <div class="drop-down white-background"></div>
+            <div class="text-center content-order">
+                <div class="col">101</div>
+                <div class="col">Trống</div>
+
+                <div class="row">
+                    <button class="admin-order-btn">Sửa</button>
+                    <button class="admin-order-btn">Xóa</button>
+                </div>
+
+            </div>
+
+            <div class="drop-down white-background"></div>
+            <div class="text-center content-order">
+                <div class="col">102</div>
+                <div class="col">Đã Đặt</div>
+
+                <div class="row">
+                    <button class="admin-order-btn">Sửa</button>
+                    <button class="admin-order-btn">Xóa</button>
+                </div>
+
+            </div>
+
+            <div class="drop-down white-background"></div>
+            <div class="text-center content-order">
+                <div class="col">103</div>
+                <div class="col">Trống</div>
+
+                <div class="row">
+                    <button class="admin-order-btn">Sửa</button>
+                    <button class="admin-order-btn">Xóa</button>
+                </div>
+
+            </div>
+
+            <div class="drop-down white-background"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+

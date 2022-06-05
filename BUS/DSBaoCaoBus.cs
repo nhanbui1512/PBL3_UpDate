@@ -18,15 +18,37 @@ namespace BUS
             foreach (DataRow i in dao.GetAllBaoCao().Rows)
             {
                 var obj = new DSBaoCaoView();
-                obj.ID = Convert.ToInt32(i["IDThongTinHD"]);
-                obj.NgayTT = Convert.ToDateTime(i["ThoiGianGD"]);
-                obj.HoVaTen = i["HoTen"].ToString();
+                obj.IDHoaDon = Convert.ToInt32(i["IDHoaDon"]);
+                obj.HoVaTen = i["HoVaTen"].ToString();
+                obj.SoDT = i["SDT"].ToString();
+                obj.CMND = i["CMND"].ToString();
+                obj.BatDau = Convert.ToDateTime(i["BatDau"]);
+                obj.KetThuc = Convert.ToDateTime(i["KetThuc"]);
+                obj.ThoiGianGiaoDich = Convert.ToDateTime(i["ThoiGianGiaoDich"]);
+                obj.GiaHoaDonPhong = Convert.ToDouble(i["GiaHDPhong"]);
+                obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                 obj.TenPhong = i["TenPhong"].ToString();
-                obj.TenDV = i["TenDichVu"].ToString();
-                obj.TongTien = Convert.ToDouble(i["TongTien"]);
+                obj.TongThu = Convert.ToDouble(i["TongTien"]);
+                obj.IDNhanVien = Convert.ToInt32(i["IDNhanVien"]);
                 lst.Add(obj);
             }
             return lst;
+        }
+
+        public DSBaoCaoView GetBaoCaoByIDHoaDon(int IDHoaDon)
+        {
+            DSBaoCaoView obj = new DSBaoCaoView();
+            foreach(var i in GetDSBaoCao())
+            {
+                if(i.IDHoaDon == IDHoaDon)
+                {
+                    obj = i;
+                    break;
+                }
+            }
+            TimeSpan Temp = obj.KetThuc - obj.BatDau;
+            obj.TongThoiGian = Temp.Days;
+            return obj;
         }
     }
 }

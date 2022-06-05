@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Thêm Mới Loại Phòng";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/assets-admin/css/styles2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            THÊM MỚI LOẠI PHÒNG
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+
+        <form class="form-horizontal" action="/LoaiPhong/AddPhong" method="post">
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Tên Loại Phòng</label>
+                <input placeholder="Phòng Gia Đình" class="form-group__input" type="text" name="TenLoaiPhong">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Giá Phòng</label>
+                <input placeholder="" class="form-group__input" type="text" name="GiaPhong">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Ghi Chú</label>
+                <input placeholder="" class="form-group__input" type="text" name="GhiChu">
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Ảnh Đại Diện</label>
+                <input placeholder="URL" class="form-group__input" type="text" name="URLAnhDaiDien">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Ảnh WC</label>
+                <input placeholder="URL" class="form-group__input" type="text" name="URLAnhWC">
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for=""></label>
+                <div class="form-group__input">
+                    <button type="submit" class="button--modify padding-8">Xác Nhận</button>
+                    <a href="/admin/LoaiPhong/DanhSachLoaiPhong" class="button--modify padding-8">Quay Lại</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
+

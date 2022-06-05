@@ -165,7 +165,7 @@ namespace webpbl3.Controllers
                     }
                 }
 
-                helper.ExcutedDB("INSERT INTO ThongTinTK VALUES ('" + acc.NgaySinh + "' , '" + acc.SoDT + "' , N'" + acc.DiaChi + "', '" + acc.CMND + "' , N'" + acc.HoVaTen + "' , '" +id+"', '' , '')");
+                helper.ExcutedDB("INSERT INTO ThongTinTK VALUES ('" + acc.NgaySinh + "' , '" + acc.SoDT + "' , N'" + acc.DiaChi + "', '" + acc.CMND + "' , N'" + acc.HoVaTen + "' , '" +id+"', '' , '"+acc.GioiTinh+"')");
 
                 return View("DangKyThanhCong");
 

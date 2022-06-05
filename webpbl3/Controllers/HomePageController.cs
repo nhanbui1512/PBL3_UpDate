@@ -9,6 +9,10 @@ namespace webpbl3.Controllers
 
         public ActionResult Index()
         {
+            DatPhongHelper datPhongHelper = new DatPhongHelper();
+            datPhongHelper.CheckThoiGianVaoO();
+
+
             var ListPhong = new DSLoaiPhongBus().GetDSLoaiPhong();
             var tong = ListPhong.Count;
             ViewBag.tong = tong;

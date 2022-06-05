@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SQL_HotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DatPhong">
+    <Key>
+      <PropertyRef Name="IDDatPhong" />
+    </Key>
+    <Property Name="IDDatPhong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTK" Type="Int32" />
+    <Property Name="BatDau" Type="DateTime" Precision="3" />
+    <Property Name="KetThuc" Type="DateTime" Precision="3" />
+    <Property Name="TrangThai" Type="Int32" />
+    <Property Name="DonGia" Type="Int64" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="IDNhanVien" Type="Int32" />
+    <Property Name="TenNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TaiKhoan" Relationship="Self.FK_DatPhong_TaiKhoan" FromRole="DatPhong" ToRole="TaiKhoan" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_DatPhong" FromRole="DatPhong" ToRole="HoaDon" />
+  </EntityType>
+  <EntityType Name="DichVu">
+    <Key>
+      <PropertyRef Name="IDDV" />
+    </Key>
+    <Property Name="IDDV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDichVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GiaTien" Type="Int64" />
+    <Property Name="TrangThai" Type="Boolean" />
+    <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="IDHoaDon" />
+    </Key>
+    <Property Name="IDHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="ThoiGianGD" Type="DateTime" Precision="3" />
+    <Property Name="TongTien" Type="Int64" />
+    <Property Name="GiaPhong" Type="Int64" />
+    <Property Name="GiaDichVu" Type="Int64" />
+    <Property Name="TrangThai" Type="Boolean" />
+    <Property Name="IDDatPhong" Type="Int32" />
+    <NavigationProperty Name="DatPhong" Relationship="Self.FK_HoaDon_DatPhong" FromRole="HoaDon" ToRole="DatPhong" />
+    <NavigationProperty Name="ThongTinHoaDons" Relationship="Self.FK_ThongTinHoaDon_HoaDon" FromRole="HoaDon" ToRole="ThongTinHoaDon" />
+  </EntityType>
+  <EntityType Name="LoaiPhong">
+    <Key>
+      <PropertyRef Name="IDLoaiPhong" />
+    </Key>
+    <Property Name="IDLoaiPhong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiaPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LienKetAnh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Phongs" Relationship="Self.FK_Phong_LoaiPhong" FromRole="LoaiPhong" ToRole="Phong" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="IDPhong" />
+    </Key>
+    <Property Name="IDPhong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenPhong" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KhongGian" Type="Int32" />
+    <Property Name="TrangThai" Type="Boolean" />
+    <Property Name="IDLoaiPhong" Type="Int32" />
+    <Property Name="GiaKM" Type="Int64" />
+    <Property Name="TenViTri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LoaiPhong" Relationship="Self.FK_Phong_LoaiPhong" FromRole="Phong" ToRole="LoaiPhong" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="IDTK" />
+    </Key>
+    <Property Name="IDTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTaiKhoan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Quyen" Type="Int32" />
+    <NavigationProperty Name="DatPhongs" Relationship="Self.FK_DatPhong_TaiKhoan" FromRole="TaiKhoan" ToRole="DatPhong" />
+    <NavigationProperty Name="ThongTinTKs" Relationship="Self.FK_ThongTinTK_TaiKhoan" FromRole="TaiKhoan" ToRole="ThongTinTK" />
+  </EntityType>
+  <EntityType Name="ThongTinHoaDon">
+    <Key>
+      <PropertyRef Name="IDThongTinHD" />
+    </Key>
+    <Property Name="IDThongTinHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDHoaDon" Type="Int32" />
+    <NavigationProperty Name="HoaDon" Relationship="Self.FK_ThongTinHoaDon_HoaDon" FromRole="ThongTinHoaDon" ToRole="HoaDon" />
+  </EntityType>
+  <EntityType Name="ThongTinTK">
+    <Key>
+      <PropertyRef Name="IDTTTK" />
+    </Key>
+    <Property Name="IDTTTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IDTaiKhoan" Type="Int32" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <NavigationProperty Name="TaiKhoan" Relationship="Self.FK_ThongTinTK_TaiKhoan" FromRole="ThongTinTK" ToRole="TaiKhoan" />
+  </EntityType>
+  <Association Name="FK_DatPhong_TaiKhoan">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="IDTK" />
+      </Principal>
+      <Dependent Role="DatPhong">
+        <PropertyRef Name="IDTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_DatPhong">
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatPhong">
+        <PropertyRef Name="IDDatPhong" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="IDDatPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThongTinHoaDon_HoaDon">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="0..1" />
+    <End Role="ThongTinHoaDon" Type="Self.ThongTinHoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="IDHoaDon" />
+      </Principal>
+      <Dependent Role="ThongTinHoaDon">
+        <PropertyRef Name="IDHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phong_LoaiPhong">
+    <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="0..1" />
+    <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiPhong">
+        <PropertyRef Name="IDLoaiPhong" />
+      </Principal>
+      <Dependent Role="Phong">
+        <PropertyRef Name="IDLoaiPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThongTinTK_TaiKhoan">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <End Role="ThongTinTK" Type="Self.ThongTinTK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="IDTK" />
+      </Principal>
+      <Dependent Role="ThongTinTK">
+        <PropertyRef Name="IDTaiKhoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SQL_HotelEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DatPhongs" EntityType="Self.DatPhong" />
+    <EntitySet Name="DichVus" EntityType="Self.DichVu" />
+    <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+    <EntitySet Name="LoaiPhongs" EntityType="Self.LoaiPhong" />
+    <EntitySet Name="Phongs" EntityType="Self.Phong" />
+    <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+    <EntitySet Name="ThongTinHoaDons" EntityType="Self.ThongTinHoaDon" />
+    <EntitySet Name="ThongTinTKs" EntityType="Self.ThongTinTK" />
+    <AssociationSet Name="FK_DatPhong_TaiKhoan" Association="Self.FK_DatPhong_TaiKhoan">
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+      <End Role="DatPhong" EntitySet="DatPhongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_DatPhong" Association="Self.FK_HoaDon_DatPhong">
+      <End Role="DatPhong" EntitySet="DatPhongs" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThongTinHoaDon_HoaDon" Association="Self.FK_ThongTinHoaDon_HoaDon">
+      <End Role="HoaDon" EntitySet="HoaDons" />
+      <End Role="ThongTinHoaDon" EntitySet="ThongTinHoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
+      <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
+      <End Role="Phong" EntitySet="Phongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThongTinTK_TaiKhoan" Association="Self.FK_ThongTinTK_TaiKhoan">
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+      <End Role="ThongTinTK" EntitySet="ThongTinTKs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

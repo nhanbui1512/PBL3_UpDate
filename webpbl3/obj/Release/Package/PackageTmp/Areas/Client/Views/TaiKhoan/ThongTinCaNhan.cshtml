@@ -1,0 +1,87 @@
+﻿@model DTO.DSKhachHangView
+@{
+    Layout = "~/Areas/Client/Views/Shared/LayoutClient.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/assets-admin/css/styles2.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Layout</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            CHỈNH SỬA THÔNG TIN CÁ NHÂN
+        </h2>
+    </div>
+
+    <div class="order-container__content">
+        <form class="form-horizontal" action="/CaNhan/UpDate" method="post">
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Họ Và Tên</label>
+                <input class="form-group__input" type="text" required value="@Model.HoVaTen" name="HoVaTen">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Giới tính</label>
+                @{
+                    if (Model.GioiTinh == "True")
+                    {
+                        @Html.DropDownListFor(model => model.GioiTinh, new List<SelectListItem> { new SelectListItem { Text = "Nam", Value = "1" }, new SelectListItem { Text = "Nữ", Value = "0" } },
+                           new { @class = " form-group__input" })
+                    }
+                    else
+                    {
+                        @Html.DropDownListFor(model => model.GioiTinh, new List<SelectListItem> { new SelectListItem { Text = "Nữ", Value = "0" }, new SelectListItem { Text = "Nam", Value = "1" } },
+                                                   new { @class = " form-group__input" })
+                    }
+                }
+
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Số chứng minh nhân dân</label>
+                <input class="form-group__input" type="text" required value="@Model.CMND" name="CMND">
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Ngày sinh</label>
+                <input disabled class="form-group__input" type="datetime" required value="@Model.NgaySinh.ToString("dd/MM/yyyy")">
+            </div>
+
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Số điện thoại</label>
+                <input class="form-group__input" type="text" required value="@Model.SDT" name="SDT">
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for="">Ghi chú</label>
+                @*<input class="form-group__input" type="text" value="@Model.GhiChu" name="GhiChu">*@
+            </div>
+
+            <div class="form-group">
+                <label class="margin-right-20 text-right form-group__label" for=""></label>
+                <div class="form-group__input">
+                    <button type="submit" class="form-group__button button--modify">Hoàn Thành</button>
+                    <a href="/Client" class="form-group__button button--modify">Quay Lại</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

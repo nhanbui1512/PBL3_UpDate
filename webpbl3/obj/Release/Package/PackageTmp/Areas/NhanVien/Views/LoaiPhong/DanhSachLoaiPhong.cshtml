@@ -1,0 +1,90 @@
+﻿@model List<DTO.DSLoaiPhongView>
+@{
+    ViewBag.Title = "Loại Phòng";
+    Layout = "~/Areas/NhanVien/Views/Shared/Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/assets-admin/css/styles2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            DANH SÁCH LOẠI PHÒNG
+        </h2>
+       
+    </div>
+
+    <div class="order-container__content">
+
+
+        <form class="order-container__content-header" action="/NhanVien/LoaiPhong/Search" method="post">
+            <div class="">
+                <label for="">
+                    Show
+                    <select class="padding-5-20" name="ID">
+                        <option value="1">Giá Thấp Đến Cao</option>
+                        <option value="2">Giá Cao Đến Thấp</option>
+                    </select>
+                    entries
+                </label>
+            </div>
+            <div class="margin-left-70">
+                <label for="">
+                    Search:
+                    <input name="Input" class="padding-5-20" type="text">
+                </label>
+            </div>
+
+            <button type="submit" class="add-class-btn margin-left-70"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+
+        </form>
+
+        <div class="col margin-bottop-10">
+
+            <div class="header-order">
+                <div class="font-18 text-center header-order__item">Tên Loại Phòng</div>
+                <div class="font-18 text-center header-order__item">Giá Phòng</div>
+                <div class="font-18 text-center header-order__item"></div>
+            </div>
+            <div class="drop-down white-background"></div>
+
+
+            @{
+                foreach (var i in Model)
+                {
+                    <div class="text-center content-order">
+                        <div class="col">@i.TenLoaiPhong</div>
+                        <div class="col">@i.GiaPhong VNĐ</div>
+
+                        <div class="row">
+
+                            @Html.ActionLink("Sửa", "Sua", new { ID = i.IDLoaiPhong }, new { @class = "admin-order-btn button--modify" })
+                            <button class="admin-order-btn button--modify">Xóa</button>
+                        </div>
+
+                    </div>
+                    <div class="drop-down white-background"></div>
+
+                }
+            }
+
+        </div>
+
+    </div>
+</body>
+</html>
+

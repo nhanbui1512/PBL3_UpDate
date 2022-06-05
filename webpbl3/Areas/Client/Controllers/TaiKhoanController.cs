@@ -24,19 +24,59 @@ namespace webpbl3.Areas.Client.Controllers
             return View();
         }
 
-        public ActionResult ThongTinDatPhong()
+        public ActionResult ThongTinDatPhong(int ID)
         {
             var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
+
             var danhsach = new DSDatPhongBus().DSDatPhong();
             DSDatPhongView data = new DSDatPhongView();
-            foreach(var i in danhsach)
+            foreach (var i in danhsach)
             {
-                if(i.TenTaiKhoan == sess.UserName)
+                if (i.TenTaiKhoan == sess.UserName && i.ID == ID)
                 {
                     data = i;
                     break;
                 }
             }
+
+            var obj = new DSDatPhongBus().GetIDDatPhong(ID);
+
+            var listphong1 = new DSPhongBUS().GetDSPhongByIDLoaiPhong(obj.IDLoaiPhong);
+            var listphong = new DatPhongHelper().GetAllPhongCoTheDat(obj.IDLoaiPhong, obj);
+
+
+            if (obj.TrangThai == "1")
+            {
+                foreach (var i in listphong1)
+                {
+                    if (Convert.ToInt32(obj.IDPhong) == i.IDPhong)
+                    {
+                        obj.TenPhong = i.TenPhong;
+                    }
+                }
+
+            }
+
+            obj.DSPhongTrong = listphong;
+
+            return View(obj);
+        }
+
+
+        public ActionResult DanhSachDatPhong()
+        {
+            List<DSDatPhongView> data = new List<DSDatPhongView>();
+            var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
+            var list = new DSDatPhongBus().DSDatPhong();
+
+            foreach(var i in list)
+            {
+                if(i.TenTaiKhoan == sess.UserName)
+                {
+                    data.Add(i);
+                }
+            }
+
             return View(data);
         }
     }

@@ -32,6 +32,22 @@ namespace BUS
             }
             return lst;
         } 
+
+        public DSTaiKhoanNVView GetTKNVByID(int IDTK)
+        {
+            DSTaiKhoanNVView dSTaiKhoanNVView = new DSTaiKhoanNVView();
+
+            foreach(var i in DSTaiKhoan())
+            {
+                if(IDTK == i.ID)
+                {
+                    dSTaiKhoanNVView = i;
+                    break;
+                }
+            }
+
+            return dSTaiKhoanNVView;
+        }
         
         public void UpDateThongTinTK( DSTaiKhoanNVView form)
         {
