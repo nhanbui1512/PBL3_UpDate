@@ -66,18 +66,18 @@
             @{
                 foreach (var i in Model)
                 {
-                    <div class="text-center content-order">
-                        <div class="col">@i.TenLoaiPhong</div>
-                        <div class="col">@i.GiaPhong VNĐ</div>
+                        <div class="text-center content-order">
+                            <div class="col">@i.TenLoaiPhong</div>
+                            <div class="col">@string.Format("{0:#,##}", i.GiaPhong) VNĐ</div>
 
-                        <div class="row">
+                            <div class="row">
 
-                            @Html.ActionLink("Sửa", "Sua", new { ID = i.IDLoaiPhong }, new { @class = "admin-order-btn button--modify" })
-                            @Html.ActionLink("Xóa", "Delete", new { ID = i.IDLoaiPhong }, new { @class = "admin-order-btn button--modify" })
-                            @*<button class="admin-order-btn button--modify">Xóa</button>*@
+                                @Html.ActionLink("Sửa", "Sua", new { ID = i.IDLoaiPhong }, new { @class = "admin-order-btn button--modify" })
+                                @Html.ActionLink("Xóa", "Delete", new { ID = i.IDLoaiPhong }, new { @class = "admin-order-btn button--modify" })
+                                @*<button class="admin-order-btn button--modify">Xóa</button>*@
+                            </div>
+
                         </div>
-
-                    </div>
                     <div class="drop-down white-background"></div>
 
                 }

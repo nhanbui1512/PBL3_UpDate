@@ -107,9 +107,9 @@
                     <tbody>
                         <tr>
                             <td>@Model.TenLoaiPhong</td>
-                            <td>@Model.GiaPhong VNĐ</td>
-                            <td>@Model.TongTG</td>
-                            <td>@(Model.TongTG*Model.GiaPhong) VNĐ</td>
+                            <td>@string.Format("{0:#,##}",Model.GiaPhong) VNĐ</td>
+                            <td>@Model.TongTG Ngày</td>
+                            <td>@string.Format("{0:#,##}", (Model.TongTG * Model.GiaPhong))  VNĐ</td>
                             <td></td>
 
                         </tr>
@@ -118,9 +118,9 @@
                         {
                     <tr>
                         <td>@i.TenDV</td>
-                        <td>@i.GiaDV VNĐ</td>
+                        <td>@string.Format("{0:#,##}", i.GiaDV) VNĐ</td>
                         <td>@i.SoLuong</td>
-                        <td>@i.ThanhTien VNĐ</td>
+                        <td>@string.Format("{0:#,##}", i.ThanhTien) VNĐ</td>
                         <td>@Html.ActionLink("Xóa", "XoaHoaDonDV", new { IDDV = i.IDDV , IDHoaDon = i.IDHD }, new { @class = "padding-8 button--modify" })</td>
 
                     </tr>
@@ -130,7 +130,7 @@
                         <td></td>
                         <td></td>
                         <td>Tổng Tiền</td>
-                        <td>@ViewBag.TongTien VNĐ</td>
+                        <td>@string.Format("{0:#,##}", ViewBag.TongTien) VNĐ</td>
                         <td></td>
 
                     </tr>

@@ -111,9 +111,9 @@
                     <tbody>
                         <tr>
                             <td>@Model.TenLoaiPhong</td>
-                            <td>@Model.GiaHoaDonPhong VNĐ</td>
-                            <td>@Model.TongThoiGian</td>
-                            <td>@(Model.TongThoiGian * Model.GiaHoaDonPhong) VNĐ</td>
+                            <td>@string.Format("{0:#,##}",Model.GiaHoaDonPhong) VNĐ</td>
+                            <td>@Model.TongThoiGian Ngày</td>
+                            <td>@string.Format("{0:#,##}", (Model.TongThoiGian * Model.GiaHoaDonPhong)) VNĐ</td>
 
                         </tr>
 
@@ -121,9 +121,9 @@
                         {
                             <tr>
                                 <td>@i.TenDV</td>
-                                <td>@i.GiaDV VNĐ</td>
+                                <td>@string.Format("{0:#,##}",i.GiaDV) VNĐ</td>
                                 <td>@i.SoLuong</td>
-                                <td>@i.ThanhTien VNĐ</td>
+                                <td>@string.Format("{0:#,##}", i.ThanhTien) VNĐ</td>
                                
 
                             </tr>
@@ -133,7 +133,7 @@
                             <td></td>
                             <td></td>
                             <td>Tổng Tiền</td>
-                            <td>@Model.TongThu VNĐ</td>
+                            <td>@string.Format("{0:#,##}", Model.TongThu) VNĐ</td>
 
                         </tr>
 

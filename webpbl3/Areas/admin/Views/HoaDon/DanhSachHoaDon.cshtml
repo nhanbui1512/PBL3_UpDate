@@ -65,7 +65,7 @@
                             <div class="col">@i.BatDau.ToString("dd/MM/yyyy")</div>
                             <div class="col">@i.KetThuc.ToString("dd/MM/yyyy")</div>
                             <div class="col">@i.HoVaTen</div>
-                            <div class="col">@i.TongTien VNĐ</div>
+                            <div class="col">@string.Format("{0:#,##}", i.TongTien) VNĐ</div>
                             @if (i.TrangThai == true)
                             {
 

@@ -64,7 +64,7 @@
                         <div class="col">@i.TenLoaiPhong</div>
                         <div class="col">@i.TenPhong</div>
                         <div class="col">@i.ThoiGianGiaoDich.ToString()</div>
-                        <div class="col">@i.TongThu VNĐ</div>
+                        <div class="col">@string.Format("{0:#,##}", i.TongThu) VNĐ</div>
                         <div class="row">
                             @Html.ActionLink("Xem Chi Tiết" , "Xem" , new {IDHoaDon = i.IDHoaDon} , new {@class = "button"})
                         </div>
