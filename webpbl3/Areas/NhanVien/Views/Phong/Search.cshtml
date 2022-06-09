@@ -1,7 +1,7 @@
 ﻿@model List<DTO.Phong>
 @{
     ViewBag.Title = "Danh Sách Phòng";
-    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+    Layout = "~/Areas/NhanVien/Views/Shared/Layout.cshtml";
 
 }
 
@@ -30,16 +30,12 @@
 
     <div class="order-container__content">
 
-        <form class="order-container__content-header" action="/admin/Phong/Search" method="post">
+        <form class="order-container__content-header" action="/NhanVien/Phong/Search" method="post">
 
             <div class="">
                 <label for="">
                     Rooms
                     <select class="padding-5-20" name="IDLoaiPhong" id="">
-                        @*<option value="1">Double Rooms</option>
-                            <option value="1">Delexe Rooms</option>
-                            <option value="1">Luxury Rooms</option>
-                            <option value="1">Family Rooms</option>*@
 
                         @{ foreach (var i in ViewBag.ListLoaiPhong)
                             {

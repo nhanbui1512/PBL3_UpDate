@@ -14,8 +14,9 @@ namespace webpbl3.Areas.admin.Controllers
         public ActionResult DanhSachPhong()
         {
             List<DSLoaiPhongView> list = new DSLoaiPhongBus().GetDSLoaiPhong();
-
-            return View(list);
+            var listPhong = new DSPhongBUS().GetAllPhong();
+            ViewBag.ListLoaiPhong = list;
+            return View(listPhong);
         }
 
         [HttpPost]

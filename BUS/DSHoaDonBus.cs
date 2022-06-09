@@ -30,6 +30,7 @@ namespace BUS
                 obj.TenPhong = i["TenPhong"].ToString();
                 obj.TrangThai = Convert.ToBoolean(i["TrangThai"]);
                 obj.TongTien = Convert.ToDouble(i["TongTien"]);
+                obj.IDPhong = Convert.ToInt32(i["IDPhong"]);
                 TimeSpan Temp = Convert.ToDateTime(i["KetThuc"]) - Convert.ToDateTime(i["BatDau"]);
                 obj.TongTG = Temp.Days;
                 list.Add(obj);
@@ -53,6 +54,7 @@ namespace BUS
                     obj.GiaPhong = Convert.ToDouble(i["GiaHDPhong"]);
                     obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                     obj.TrangThai = Convert.ToBoolean(i["TrangThai"]);
+                    obj.IDPhong = Convert.ToInt32(i["IDPhong"]);
                     obj.TenPhong = i["TenPhong"].ToString();
                     obj.TongTien = Convert.ToDouble(i["TongTien"]);
                     TimeSpan Temp = Convert.ToDateTime(i["KetThuc"]) - Convert.ToDateTime(i["BatDau"]);
@@ -103,10 +105,11 @@ namespace BUS
             dao.UpDateHoaDon();
         }
 
-        public void ThanhToanHoaDon(int IDHoaDon , int UserID, double TongTien)
+        public void ThanhToanHoaDon(int IDHoaDon,int IDPhong , int UserID, double TongTien)
         {
             DSHoaDonDao dao = new DSHoaDonDao();
-            dao.ThanhToanHoaDon(IDHoaDon , UserID, TongTien);
+
+            dao.ThanhToanHoaDon(IDHoaDon,IDPhong , UserID, TongTien);
         }
 
         public void XoaHoaDonDV(int IDDV, int IDHoaDon)

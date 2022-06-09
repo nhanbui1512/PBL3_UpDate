@@ -11,9 +11,10 @@ namespace BUS
 {
     public class DSPhongBUS
     {
+        private DSPhongDao dao = new DSPhongDao();
+
         public List<Phong> GetDSPhongByIDLoaiPhong(int ID)
         {
-            DSPhongDao dao = new DSPhongDao();
             List<Phong> phongList = new List<Phong>();
 
             foreach( DataRow i in dao.GetDSPhongByIDLoaiPhong(ID).Rows)
@@ -29,6 +30,22 @@ namespace BUS
             return phongList;
 
 
+        }
+
+        public List<Phong> GetAllPhong()
+        {
+            List<Phong> phongList = new List<Phong>();
+            foreach(DataRow i in dao.GetAllPhong().Rows)
+            {
+                Phong phong = new Phong();
+                phong.IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]);
+                phong.TenLoaiPhong = i["TenLoaiPhong"].ToString();
+                phong.IDPhong = Convert.ToInt32(i["IDPhong"]);
+                phong.TenPhong = i["TenPhong"].ToString();
+                phong.TrangThai = i["TrangThai"].ToString();
+                phongList.Add(phong);
+            }
+            return phongList;
         }
     }
 }

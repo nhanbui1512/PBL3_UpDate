@@ -18,5 +18,14 @@ namespace DAL
             data = dbHelper.GetRecord(query);
             return data;
         }
+
+        public DataTable GetAllPhong()
+        {
+            DataTable data = new DataTable();
+            string query = "select LoaiPhong.IDLoaiPhong , LoaiPhong.TenLoaiPhong , Phong.IDPhong , Phong.TenPhong , Phong.TrangThai"
+                + " from Phong, LoaiPhong where LoaiPhong.IDLoaiPhong = Phong.IDLoaiPhong";
+            data = dbHelper.GetRecord(query);
+            return data;
+        }
     }
 }

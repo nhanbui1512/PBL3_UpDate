@@ -14,7 +14,18 @@ namespace webpbl3.Areas.admin.Controllers
         // GET: admin/HoaDon
         public ActionResult DanhSachHoaDon()
         {
-            var list = new DSHoaDonBus().DSHoaDon();
+            List<DSHoaDonView> list = new List<DSHoaDonView>();
+
+            var listhoadon = new DSHoaDonBus().DSHoaDon();
+            foreach (var item in listhoadon)
+            {
+                if (item.TrangThai == false)
+                {
+                    list.Add(item);
+                }
+            }
+
+
             return View(list);
         }
 
@@ -103,8 +114,9 @@ namespace webpbl3.Areas.admin.Controllers
 
             TongTien += (hoadonphong.TongTG * hoadonphong.GiaPhong);
 
+            
 
-            new DSHoaDonBus().ThanhToanHoaDon(ID, sess.UserID , TongTien);
+            new DSHoaDonBus().ThanhToanHoaDon(ID,hoadonphong.IDPhong, sess.UserID , TongTien);
 
             return Redirect("/admin/HoaDon/DanhSachHoaDon");
         }

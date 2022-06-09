@@ -79,5 +79,18 @@ namespace webpbl3.Areas.Client.Controllers
 
             return View(data);
         }
+
+        [HttpPost]
+        public ActionResult UpDate(DSTaiKhoanNVView form)
+        {
+            var obj = new DSTaiKhoanNVBus();
+            var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
+            form.ID = sess.UserID;
+            form.Quyen = sess.Quyen.ToString();
+            obj.UpDateThongTinTK(form);
+            return Redirect("/Client");
+        }
+
+
     }
 }

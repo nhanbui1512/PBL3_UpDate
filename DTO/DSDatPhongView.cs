@@ -21,7 +21,7 @@ namespace DTO
         public DateTime ThoiGianBD { get; set; }
         public DateTime ThoiGianKT { get; set; }
         public string TrangThai { get; set; }
-        public string TenLoaiPhong { get; set; } = string.Empty;
+        public string TenLoaiPhong { get; set; }
         public double DonGia { get; set; } = 0;
         public string TenPhong {get; set;}
         public List<Phong> DSPhongTrong { get; set; }

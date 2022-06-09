@@ -13,7 +13,7 @@ namespace DAL
         public DataTable GetAllDSHoaDon()
         {
             dbHelper dbHelper = new dbHelper();
-            var query = "SELECT cthd.IDHoaDon, cthd.HoVaTen, cthd.SDT, cthd.CMND, cthd.BatDau, cthd.KetThuc, tt.HoTen, cthd.GiaHDPhong, hd.TrangThai, dp.TenLoaiPhong, P.TenPhong, cthd.TongTien " +
+            var query = "SELECT cthd.IDHoaDon, cthd.HoVaTen, cthd.SDT, cthd.CMND, cthd.BatDau, cthd.KetThuc, tt.HoTen, cthd.GiaHDPhong, hd.TrangThai, dp.TenLoaiPhong,P.IDPhong, P.TenPhong, cthd.TongTien " +
                  "FROM ChiTietHoaDon cthd " +
                  "INNER JOIN HoaDon hd " +
                  "ON cthd.IDHoaDon = hd.IDHoaDon " +
@@ -54,12 +54,13 @@ namespace DAL
         }
 
 
-        public void ThanhToanHoaDon(int IDHoaDon , int IDUser , double TongTien)
+        public void ThanhToanHoaDon(int IDHoaDon,int IDPhong , int IDUser , double TongTien)
         {
             dbHelper dbHelper = new dbHelper();
             DateTime date = DateTime.Now;
             dbHelper.ExcutedDB("UPDATE HoaDon set TrangThai = 1 where IDHoaDon = "+IDHoaDon+"");
             dbHelper.ExcutedDB("UPDATE ChiTietHoaDon set IDNhanVien = "+IDUser+" , TongTien = '"+TongTien+"', ThoiGianGiaoDich = '"+date+"' where IDHoaDon = "+IDHoaDon+" ");
+            dbHelper.ExcutedDB("UPDATE Phong set TrangThai = '0' WHERE IDPhong = " + IDPhong + "");
         }
 
         public void XoaHoaDonDV(int IDDV, int IDHoaDon)

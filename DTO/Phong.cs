@@ -12,6 +12,7 @@ namespace DTO
         public string TenPhong { get; set; }
         public string TrangThai { get; set; }
         public int IDLoaiPhong { get; set; }
+        public string TenLoaiPhong { get; set; }
 
     }
 }

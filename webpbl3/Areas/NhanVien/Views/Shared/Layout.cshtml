@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
     <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
     <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
-
+    <link rel="icon" href="~/Content/assets/icon/booking.png" />
     <meta name="viewport" content="width=device-width" />
     <title>Booking Hotel</title>
 </head>
@@ -54,7 +54,7 @@
             <div class="admin-nav">
                 <div class="admin-nav__list">
                     <div class="admin-nav__list-item">
-                        <a href="">
+                        <a href="#">
                             <i class="admin-nav__list-icon fa-solid fa-hotel"></i>
                             Khách sạn
                         </a>
@@ -69,15 +69,10 @@
                     </a>
 
 
-                    @*<li class="admin-nav__list-item">
-                            <a href="/admin/KhachHang/DanhSachKhachHang">
-                                <i class="admin-nav__list-icon fa-solid fa-user"></i>
-                                Khách hàng
-                            </a>
-                        </li>*@
+           
 
                     <div class="admin-nav__list-item">
-                        <a href="">
+                        <a href="#">
                             <i class="admin-nav__list-icon fa-solid fa-house"></i>
                             Đặt phòng
                         </a>
@@ -91,7 +86,7 @@
                     </div>
 
                     <div class="admin-nav__list-item">
-                        <a href="">
+                        <a href="#">
                             <i class="admin-nav__list-icon fa-solid fa-list"></i>
                             Danh mục
                         </a>
@@ -112,16 +107,15 @@
                         <div class="drop-down white-background"></div>
 
                         <ul class="admin-nav-level2">
-                            <li class="nav-second-level2__item"><a href="/NhanVien/DoanhThu/Xem"><i class="nav-second-level2__item-icon fa-solid fa-money-bill-1"></i>Doanh thu</a></li>
                             <li class="nav-second-level2__item"><a href="/NhanVien/HoaDon/DanhSachHoaDon"><i class="nav-second-level2__item-icon fa-solid fa-money-bill"></i>Danh sách hóa đơn</a></li>
-                            <li class="nav-second-level2__item"><a href=""><i class="nav-second-level2__item-icon fa fa-envelope"></i>Đặt phòng qua email</a></li>
+                            
                         </ul>
                     </div>
 
                 </div>
             </div>
 
-            <div class="admin-content js-admin-content">
+            <div class="admin-content js-admin-content height-full">
                 @RenderBody()
             </div>
         </div>

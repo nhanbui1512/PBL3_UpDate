@@ -37,10 +37,7 @@
                 <label for="">
                     Rooms
                     <select class="padding-5-20" name="IDLoaiPhong" id="">
-                        @*<option value="1">Double Rooms</option>
-                            <option value="1">Delexe Rooms</option>
-                            <option value="1">Luxury Rooms</option>
-                            <option value="1">Family Rooms</option>*@
+                        
 
                         @{ foreach (var i in ViewBag.ListLoaiPhong)
                             {
@@ -72,6 +69,7 @@
         <div class="col margin-bottop-10">
 
             <div class="header-order">
+                <div class="font-18 text-center header-order__item">Loại Phòng</div>
                 <div class="font-18 text-center header-order__item">Tên Phòng</div>
                 <div class="font-18 text-center header-order__item">Trạng Thái</div>
                 <div class="font-18 text-center header-order__item"></div>
@@ -82,6 +80,8 @@
                 foreach (var i in Model)
                 {
                         <div class="text-center content-order">
+                            <div class="col">@i.TenLoaiPhong</div>
+
                             <div class="col">@i.TenPhong</div>
                             @{
                                 if (i.TrangThai == "0")

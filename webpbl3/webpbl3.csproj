@@ -144,11 +144,14 @@
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Areas\Client\Controllers\BaseController.cs" />
     <Compile Include="Areas\Client\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Client\Controllers\MatKhauController.cs" />
     <Compile Include="Areas\Client\Controllers\TaiKhoanController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\BaseController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\CaNhanController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\DatPhongController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\DichVuController.cs" />
+    <Compile Include="Areas\NhanVien\Controllers\HoaDonController.cs" />
+    <Compile Include="Areas\NhanVien\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\LoaiPhongController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\MatKhauController.cs" />
     <Compile Include="Areas\NhanVien\Controllers\NhanVienPageController.cs" />
@@ -4649,6 +4652,8 @@
     <Content Include="Content\assets\fonts\themify-icons-font\themify-icons\SVG\zoom-in.svg" />
     <Content Include="Content\assets\fonts\themify-icons-font\themify-icons\SVG\zoom-out.svg" />
     <Content Include="Content\assets\fonts\themify-icons-font\themify-icons\themify-icons.css" />
+    <Content Include="Content\assets\icon\hotel %281%29.png" />
+    <Content Include="Content\assets\icon\hotel.png" />
     <Content Include="Content\assets\img\11765_1529573146_nepn9282_%281%29.jpg" />
     <Content Include="Content\assets\img\19168732.png" />
     <Content Include="Content\assets\img\206744855.jpg" />
@@ -4929,6 +4934,12 @@
     <Content Include="Areas\Client\Views\TaiKhoan\DanhSachDatPhong.cshtml" />
     <Content Include="Areas\admin\Views\DoanhThu\BaoCaoDoanhThu.cshtml" />
     <Content Include="Areas\admin\Views\DoanhThu\Xem.cshtml" />
+    <Content Include="Areas\admin\Views\DichVu\Search.cshtml" />
+    <Content Include="Areas\NhanVien\Views\HoaDon\DanhSachHoaDon.cshtml" />
+    <Content Include="Areas\NhanVien\Views\HoaDon\XemHoaDon.cshtml" />
+    <Content Include="Areas\Client\Views\MatKhau\ThayDoi.cshtml" />
+    <Content Include="Areas\NhanVien\Views\KhachHang\DanhSachKhachHang.cshtml" />
+    <Content Include="Areas\NhanVien\Views\KhachHang\XemThongTin.cshtml" />
     <None Include="Models\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.min.js" />

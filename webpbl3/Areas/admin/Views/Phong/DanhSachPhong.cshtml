@@ -1,4 +1,4 @@
-﻿@model List<DTO.DSLoaiPhongView>
+﻿@model List<DTO.Phong>
 @{
     ViewBag.Title = "Danh Sách Phòng";
     Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
@@ -37,12 +37,8 @@
                 <label for="">
                     Rooms
                     <select class="padding-5-20" name="IDLoaiPhong" id="">
-                        @*<option value="1">Double Rooms</option>
-                        <option value="1">Delexe Rooms</option>
-                        <option value="1">Luxury Rooms</option>
-                        <option value="1">Family Rooms</option>*@
-
-                        @{ foreach(var i in Model){
+                        
+                        @{ foreach(var i in ViewBag.ListLoaiPhong){
                                 <option value="@i.IDLoaiPhong">@i.TenLoaiPhong</option>
                         }}
                     </select>
@@ -71,51 +67,39 @@
         <div class="col margin-bottop-10">
 
             <div class="header-order">
+                <div class="font-18 text-center header-order__item">Loại Phòng</div>
                 <div class="font-18 text-center header-order__item">Tên Phòng</div>
                 <div class="font-18 text-center header-order__item">Trạng Thái</div>
                 <div class="font-18 text-center header-order__item"></div>
             </div>
 
-
             <div class="drop-down white-background"></div>
-            <div class="text-center content-order">
-                <div class="col">101</div>
-                <div class="col">Trống</div>
+            @{
+                foreach (var i in Model)
+                {
+                    <div class="text-center content-order">
+                        <div class="col">@i.TenLoaiPhong</div>
+                        <div class="col">@i.TenPhong</div>
+                        @if (i.TrangThai == "0")
+                        {
+                            <div class="col">Trống</div>
 
-                <div class="row">
-                    <button class="admin-order-btn">Sửa</button>
-                    <button class="admin-order-btn">Xóa</button>
-                </div>
+                        }
+                        else
+                        {
+                            <div class="col">Đang Ở</div>
 
-            </div>
+                        }
 
-            <div class="drop-down white-background"></div>
-            <div class="text-center content-order">
-                <div class="col">102</div>
-                <div class="col">Đã Đặt</div>
+                        <div class="row">
+                            <button class="admin-order-btn">Sửa</button>
+                            <button class="admin-order-btn">Xóa</button>
+                        </div>
 
-                <div class="row">
-                    <button class="admin-order-btn">Sửa</button>
-                    <button class="admin-order-btn">Xóa</button>
-                </div>
-
-            </div>
-
-            <div class="drop-down white-background"></div>
-            <div class="text-center content-order">
-                <div class="col">103</div>
-                <div class="col">Trống</div>
-
-                <div class="row">
-                    <button class="admin-order-btn">Sửa</button>
-                    <button class="admin-order-btn">Xóa</button>
-                </div>
-
-            </div>
-
-            <div class="drop-down white-background"></div>
-
-
+                    </div>
+                    <div class="drop-down white-background"></div>
+                }
+            }
 
 
         </div>

@@ -51,10 +51,10 @@ namespace BUS
             datphongdao.XacNhanDon(form);
 
         }
-        public void XacNhanVaoO(DSDatPhongView from , int IDNV)
+        public void XacNhanVaoO(DSDatPhongView form , int IDNV)
         {
             var xacnhandao = new DAL.DatPhongHelper();
-            xacnhandao.XacNhanVaoO(from , IDNV);
+            xacnhandao.XacNhanVaoO(form , IDNV);
         }
 
         public List<PhongDaDat> GetAllPhongDaDat(int ID){
@@ -97,8 +97,8 @@ namespace BUS
 
         public List<DSDatPhongView> GetAllDatPhongByIDPhong(int ID)
         {
-            //string query = "SELECT DatPhong.BatDau , DatPhong.KetThuc, DatPhong.IDPhong FROM DatPhong WHERE DatPhong.IDPhong = "+ID+" ";
-            string query = "SELECT DatPhong.BatDau , DatPhong.KetThuc, DatPhong.IDPhong , Phong.TenPhong FROM DatPhong , Phong WHERE DatPhong.IDPhong = " +ID+ " and DatPhong.IDPhong = Phong.IDPhong";
+            
+            string query = "SELECT DatPhong.BatDau , DatPhong.KetThuc, DatPhong.IDPhong , DatPhong.TenLoaiPhong , Phong.TrangThai , Phong.TenPhong FROM DatPhong , Phong WHERE DatPhong.IDPhong = " +ID+ " and DatPhong.IDPhong = Phong.IDPhong";
 
 
             List<DSDatPhongView> data = new List<DSDatPhongView>();
@@ -109,7 +109,9 @@ namespace BUS
                 data.Add(new DSDatPhongView { ThoiGianBD = Convert.ToDateTime(i["BatDau"]) ,
                     ThoiGianKT = Convert.ToDateTime(i["KetThuc"]),
                     IDPhong = i["IDPhong"].ToString(),
-                    TenPhong = i["TenPhong"].ToString()
+                    TenPhong = i["TenPhong"].ToString(),
+                    TrangThai = i["TrangThai"].ToString(),
+                    TenLoaiPhong = i["TenLoaiPhong"].ToString()
                 });
             }
             return data;
@@ -119,12 +121,14 @@ namespace BUS
         {
             List<Phong> phongList = new List<Phong>();
             dbHelper dbHelper = new dbHelper();
-            string query = "select Phong.IDPhong , Phong.TenPhong from Phong where Phong.IDLoaiPhong = "+IDLoaiPhong+" and Phong.TrangThai = 0";
+            string query = "select Phong.IDPhong , Phong.TenPhong,Phong.TrangThai from Phong where Phong.IDLoaiPhong = "+IDLoaiPhong+" and Phong.TrangThai = 0";
             
             foreach(DataRow i in dbHelper.GetRecord(query).Rows)
             {
                 phongList.Add(new Phong { IDPhong = Convert.ToInt32(i["IDPhong"]),
-                TenPhong = i["TenPhong"].ToString()}
+                TenPhong = i["TenPhong"].ToString(),
+                TrangThai = i["TrangThai"].ToString()
+                }
                 );
             }
 
@@ -136,14 +140,9 @@ namespace BUS
         {
             List<Phong> data = new List<Phong>();
 
-            //foreach(var i in DSPhongTrongByLoaiPhong(IDLoaiPhong))
-            //{
-            //    data.Add(i);
-            //}
-
             PhongHelper phongHelper = new PhongHelper();
             
-            foreach(var i in /*AllPhongDaDatOfLoaiPhong(IDLoaiPhong)*/ phongHelper.DSPhongByLoaiPhong(IDLoaiPhong) )
+            foreach(var i in phongHelper.DSPhongByLoaiPhong(IDLoaiPhong) )
             {
 
                 if(GetAllDatPhongByIDPhong(i.IDPhong).Count() == 0)
@@ -163,7 +162,7 @@ namespace BUS
 
                     if (dem >= GetAllDatPhongByIDPhong(i.IDPhong).Count)
                     {
-                        data.Add(new Phong { IDPhong =  Convert.ToInt32( j.IDPhong) , TenPhong = j.TenPhong });
+                        data.Add(new Phong { IDPhong =  Convert.ToInt32( j.IDPhong) , TenPhong = j.TenPhong,TrangThai = j.TrangThai, IDLoaiPhong = j.IDLoaiPhong , TenLoaiPhong = j.TenLoaiPhong });
                     }
 
                 }

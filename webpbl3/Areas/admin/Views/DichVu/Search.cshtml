@@ -1,0 +1,90 @@
+﻿@model List<DTO.DSDichVuView>
+@{
+    ViewBag.Title = "Dịch Vụ";
+    Layout = "~/Areas/admin/Views/Shared/Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/Content/assets-admin/css/styles2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-embedded.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7-codes.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontello-71dcf3ae/css/fontawesome-ie7.css">
+    <link rel="stylesheet" href="~/Content/assets-admin/fonts/fontawesome-free-6.0.0-web/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="order-container__header">
+        <h2>
+            DANH SÁCH DỊCH VỤ
+        </h2>
+        <a href="/admin/DichVu/ThemDichVu" class="add-class-btn"><i class="fa-solid fa-plus"></i>Thêm mới</a>
+    </div>
+
+    <div class="order-container__content">
+
+        <div class="order-container__content-header">
+
+            <form action="/admin/DichVu/Search" class="">
+                <label for="">
+                    Search:
+                    <input name="Input" class="padding-5-20" type="text">
+                </label>
+                <button type="submit" class="add-class-btn margin-left-70"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+            </form>
+
+        </div>
+
+        <div class="col margin-bottop-10">
+
+            <div class="header-order">
+                <div class="font-18 text-center header-order__item">Tên Dịch Vụ</div>
+                <div class="font-18 text-center header-order__item">Trạng Thái</div>
+                <div class="font-18 text-center header-order__item">Giá Tiền</div>
+                <div class="font-18 text-center header-order__item"></div>
+            </div>
+            <div class="drop-down white-background"></div>
+
+
+            @{
+                foreach (var i in Model)
+                {
+                    <div class="text-center content-order">
+                        <div class="col">@i.TenDV</div>
+                        @if (i.TrangThai == "True")
+                        {
+                            <div class="col">Sử dụng</div>
+                        }
+                        else
+                        {
+                            <div class="col">Tạm dừng</div>
+                        }
+
+                        <div class="col">@string.Format("{0:#,##}", i.GiaDV) VNĐ/ @i.DonVi</div>
+
+                        <div class="row">
+                            @Html.ActionLink("Sửa", "Sua", new { ID = i.IDDV }, new { @class = "admin-order-btn button--modify" })
+                            @Html.ActionLink("Xóa", "Delete", new { ID = i.IDDV }, new { @class = "admin-order-btn button--modify" })
+                            @*<button class="admin-order-btn button--modify">Xóa</button>*@
+                        </div>
+
+                    </div>
+                    <div class="drop-down white-background"></div>
+
+                }
+            }
+
+
+        </div>
+
+    </div>
+</body>
+</html>
+

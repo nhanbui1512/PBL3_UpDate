@@ -30,7 +30,7 @@ namespace BUS
         public List<Phong> DSPhongByLoaiPhong(int IDLoaiPhong)
         {
             List<Phong> Data = new List<Phong>();
-            string query = "SELECT Phong.IDLoaiPhong , Phong.TenPhong , Phong.IDPhong FROM Phong WHERE Phong.IDLoaiPhong = "+IDLoaiPhong+"";
+            string query = "SELECT LoaiPhong.TenLoaiPhong, Phong.IDLoaiPhong , Phong.TenPhong , Phong.IDPhong, Phong.TrangThai FROM Phong,LoaiPhong WHERE Phong.IDLoaiPhong = "+IDLoaiPhong+ " and Phong.IDLoaiPhong = LoaiPhong.IDLoaiPhong";
             
 
             if(dbHelper.GetRecord(query).Rows.Count > 0)
@@ -41,8 +41,10 @@ namespace BUS
                     {
                         TenPhong = i["TenPhong"].ToString(),
                         IDPhong = Convert.ToInt32(i["IDPhong"]),
-                        IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"])
-                    });
+                        IDLoaiPhong = Convert.ToInt32(i["IDLoaiPhong"]),
+                        TrangThai = i["TrangThai"].ToString(),
+                        TenLoaiPhong = i["TenLoaiPhong"].ToString()
+                    }) ;
                 }
             }
             

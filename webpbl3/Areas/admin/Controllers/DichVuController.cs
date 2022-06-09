@@ -66,5 +66,23 @@ namespace webpbl3.Areas.admin.Controllers
             return Redirect("/admin/DichVu/DanhSachDichVu");
         }
 
+        public ActionResult Search(string Input)
+        {
+            var list = new DSDichVuBus().GetDSDichVu();
+
+            List<DSDichVuView> ListSearch = new List<DSDichVuView>();
+
+            foreach(DSDichVuView i in list)
+            {
+                if (i.TenDV.Contains(Input) == true)
+                {
+                    ListSearch.Add(i);
+                }
+                    
+            }
+
+            return View(ListSearch);
+        }
+
     }
 }
