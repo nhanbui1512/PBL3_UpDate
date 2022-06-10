@@ -62,5 +62,34 @@ namespace webpbl3.Areas.admin.Controllers
             }
             return View();
         }
+
+        public ActionResult XoaPhong(int IDPhong)
+        {
+
+            return Redirect("");
+        }
+
+
+        public ActionResult ChinhSuaPhong(int ID)
+        {
+            var listPhongAll = new DSPhongBUS().GetAllPhong();
+            Phong data = new Phong();
+            foreach(var i in listPhongAll)
+            {
+                if(i.IDPhong == ID)
+                {
+                    data = i;
+                    break;
+                }
+            }
+            return View(data);
+        }
+
+        [HttpPost]
+        public ActionResult UpDatePhong(Phong form)
+        {
+            new PhongHelper().Update(form); 
+            return Redirect("/admin/Phong/DanhSachPhong");
+        }
     }
 }

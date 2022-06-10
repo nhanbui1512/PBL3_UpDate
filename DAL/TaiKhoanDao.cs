@@ -14,5 +14,11 @@ namespace DAL
             string query = "UPDATE TaiKhoan SET MatKhau = '"+MatKhauMoi+"' WHERE IDTK = "+IDTK+"";
             dbHelper.ExcutedDB(query);
         }
+
+        public void XoaTaiKhoan(int ID)
+        {
+            dbHelper.ExcutedDB("DELETE FROM DatPhong WHERE IDTK = " + ID + "");
+            dbHelper.ExcutedDB("DELETE FROM ThongTinTK WHERE IDTaiKhoan = " + ID + "");
+        }
     }
 }

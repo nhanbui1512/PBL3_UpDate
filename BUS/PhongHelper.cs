@@ -51,6 +51,8 @@ namespace BUS
             return Data;
         }
 
+
+        // kiểm tra tên phòng đã tồn tại trong loại phòng đó hay chưa
         public bool CheckPhong(FormThemPhong form)
         {
             int dem = 0;
@@ -71,6 +73,18 @@ namespace BUS
                 result = true;
             }
             return result;
+        }
+
+        public void XoaPhong(int IDPhong)
+        {
+            string query = "DELETE FROM PHONG WHERE IDPhong = "+IDPhong+"";
+            dbHelper.ExcutedDB(query);
+        }
+
+        public void Update (Phong phong)
+        {
+            string query = "UPDATE Phong SET TenPhong = '"+phong.TenPhong+"' , TrangThai = '"+phong.TrangThai+"' WHERE IDPhong = "+phong.IDPhong+" ";
+            dbHelper.ExcutedDB(query);
         }
     }
 }
