@@ -18,18 +18,18 @@ namespace BUS
             foreach (DataRow i in dao.GetAllBaoCao().Rows)
             {
                 var obj = new DSBaoCaoView();
-                obj.IDHoaDon = Convert.ToInt32(i["IDHoaDon"]);
+                obj.IDHoaDon = Convert.ToInt32(i["IDHoaDonThanhToan"]);
                 obj.HoVaTen = i["HoVaTen"].ToString();
-                obj.SoDT = i["SDT"].ToString();
+                obj.SoDT = i["SoDT"].ToString();
                 obj.CMND = i["CMND"].ToString();
                 obj.BatDau = Convert.ToDateTime(i["BatDau"]);
                 obj.KetThuc = Convert.ToDateTime(i["KetThuc"]);
                 obj.ThoiGianGiaoDich = Convert.ToDateTime(i["ThoiGianGiaoDich"]);
-                obj.GiaHoaDonPhong = Convert.ToDouble(i["GiaHDPhong"]);
+                obj.GiaHoaDonPhong = Convert.ToDouble(i["GiaPhong"]);
                 obj.TenLoaiPhong = i["TenLoaiPhong"].ToString();
                 obj.TenPhong = i["TenPhong"].ToString();
                 obj.TongThu = Convert.ToDouble(i["TongTien"]);
-                obj.IDNhanVien = Convert.ToInt32(i["IDNhanVien"]);
+                obj.TenNhanVien = i["NhanVienThanhToan"].ToString();
                 lst.Add(obj);
             }
             return lst;

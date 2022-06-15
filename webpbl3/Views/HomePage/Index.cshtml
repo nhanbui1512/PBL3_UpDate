@@ -296,9 +296,6 @@
 
             <div onclick="document.getElementById('id03').style.display='none'" class="w3-modal-close-btn"><i class="fa-solid fa-xmark"></i></div>
 
-            <!-- <div class="center">
-              <img src="./assets/img/img_avatar4.png" alt="Avatar" style="width:20%" class="w3-circle login-img">
-            </div> -->
 
             <form class="w3-container" action="/Account/CheckSignIn" method="post">
                 <div class="w3-section">
@@ -307,8 +304,8 @@
 
                     <label class=""> <b>Giới Tính</b> </label>
 
-                    <select name="GioiTinh" class="w3-input w3-border w3-margin-bottom" >
-                        <option value="1" >Nam</option>
+                    <select name="GioiTinh" class="w3-input w3-border w3-margin-bottom">
+                        <option value="1">Nam</option>
                         <option value="0">Nữ</option>
                     </select>
 
@@ -322,17 +319,19 @@
                     <input class="w3-input w3-border w3-margin-bottom" type="date" placeholder="1/1/2020" name="NgaySinh" required>
 
                     <label><b>Username</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="TenTaiKhoan" required pattern="[A-Za-z0-9]{5,15}" title="Tên đăng nhập phải có tối thiểu 5 ký tự và không có ký tự đặc biệt" >
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="TenTaiKhoan" required pattern="[A-Za-z0-9]{5,15}" title="Tên đăng nhập phải có tối thiểu 5 ký tự và không có ký tự đặc biệt">
 
 
                     <label><b>Password</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Password" name="MatKhau" required>
+                    <input id="password" class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Password" name="MatKhau" required>
 
 
                     <label><b>Confirm Password</b></label>
-                    <input class="w3-input w3-border" type="password" placeholder="Confirm Password" name="XacNhanMatKhau" required>
+                    <input onkeyup='check();' id="confirm_password" class="w3-input w3-border" type="password" placeholder="Confirm Password" name="XacNhanMatKhau" required>
 
-                    <button class="modal-login-btn" type="submit">Đăng ký</button>
+                    <label style="text-align: center" ><span id='message'></span></label>
+
+                    <button id="submit" class="modal-login-btn" type="submit">Đăng ký</button>
                 </div>
 
             </form>
@@ -440,8 +439,26 @@
         document.getElementById("img01").src = element.src;
         document.getElementById("modal01").style.display = "block";
         var captionText = document.getElementById("caption");
-        captionText.innerHTML = element.alt;
-    }
+            captionText.innerHTML = element.alt;
+
+        }
+
+
+        var check = function () {
+            if (document.getElementById('password').value ==
+                document.getElementById('confirm_password').value) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'Mật Khẩu Trùng Khớp';
+                document.getElementById('submit').disabled = false;
+
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'Mật Khẩu Không Trùng Khớp';
+                document.getElementById('submit').disabled = true;
+
+            }
+        }
+
     </script>
 
 </body>

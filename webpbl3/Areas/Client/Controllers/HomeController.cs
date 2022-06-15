@@ -54,7 +54,7 @@ namespace webpbl3.Areas.Client.Controllers
 
             datphong.DatPhong(form);
             
-            return Redirect("/Client");
+            return Redirect("/Client/TaiKhoan/DanhSachDatPhong");
         }
     }
 }

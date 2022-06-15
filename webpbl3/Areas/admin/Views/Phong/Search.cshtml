@@ -96,10 +96,10 @@
                                 }
                             }
 
-                            <div class="row">
-                                <button class="admin-order-btn">Sửa</button>
-                                <button class="admin-order-btn">Xóa</button>
-                            </div>
+                        <div class="row">
+                            @Html.ActionLink("Sửa", "ChinhSuaPhong", new { ID = i.IDPhong }, new { @class = "admin-order-btn button--modify" })
+                            @Html.ActionLink("Xóa", "Xoa", new { ID = i.IDPhong }, new { @class = "admin-order-btn button--modify", onclick = "return confirm('Are sure wants to delete?');" })
+                        </div>
 
                         </div>
                     <div class="drop-down white-background"></div>

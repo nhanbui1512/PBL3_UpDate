@@ -75,7 +75,7 @@ namespace BUS
                 data.Add(new HoaDonDichVu
                 {
                     IDDV = Convert.ToInt32(i["IDDV"]),
-                    IDHD = Convert.ToInt32(i["IDHoaDon"]),
+                    IDHD = Convert.ToInt32(i["IDHoaDonThanhToan"]),
                     TenDV = i["TenDichVu"].ToString(),
                     GiaDV = Convert.ToDouble(i["GiaDichVu"]),
                     SoLuong = Convert.ToInt32(i["SoLuong"]),
@@ -83,6 +83,29 @@ namespace BUS
 
                 });
                 
+            }
+            return data;
+        }
+
+
+        public List<HoaDonDichVu> GetAllDSDichVuByIDHoaDonThanhToan(int ID)
+        {
+            DSHoaDonDao dao = new DSHoaDonDao();
+            List<HoaDonDichVu> data = new List<HoaDonDichVu>();
+
+            foreach (DataRow i in dao.GetAllDSDichVuByIDHoaDonThanhToan(ID).Rows)
+            {
+                data.Add(new HoaDonDichVu
+                {
+                    IDDV = Convert.ToInt32(i["IDDV"]),
+                    IDHD = Convert.ToInt32(i["IDHoaDonThanhToan"]),
+                    TenDV = i["TenDichVu"].ToString(),
+                    GiaDV = Convert.ToDouble(i["GiaDichVu"]),
+                    SoLuong = Convert.ToInt32(i["SoLuong"]),
+                    ThanhTien = Convert.ToDouble(i["ThanhTien"])
+
+                });
+
             }
             return data;
         }
@@ -108,14 +131,29 @@ namespace BUS
         public void ThanhToanHoaDon(int IDHoaDon,int IDPhong , int UserID, double TongTien)
         {
             DSHoaDonDao dao = new DSHoaDonDao();
+            DSHoaDonView HoaDonPhong = new DSHoaDonBus().GetIDDSHoaDon(IDHoaDon);
+            var TenNhanVienThanhToan = new DSTaiKhoanNVBus().GetTKNVByID(UserID).HoVaTen;
 
-            dao.ThanhToanHoaDon(IDHoaDon,IDPhong , UserID, TongTien);
+            dao.ThanhToanHoaDon(IDHoaDon,IDPhong , UserID,TenNhanVienThanhToan , TongTien, HoaDonPhong);
+
+
+
         }
 
         public void XoaHoaDonDV(int IDDV, int IDHoaDon)
         {
             DSHoaDonDao dao = new DSHoaDonDao();
-            dao.XoaHoaDonDV(IDDV, IDHoaDon);
+            var listhoadondv = new DSHoaDonBus().GetAllDSDichVuByIDHoaDon(IDHoaDon);
+            double TongTienDV = 0;
+            foreach(var i in listhoadondv)
+            {
+                if(i.IDDV == IDDV)
+                {
+                    TongTienDV = i.GiaDV * i.SoLuong;
+                    break;
+                }
+            }
+            dao.XoaHoaDonDV(IDDV, IDHoaDon, TongTienDV);
         }
     }
 }

@@ -16,11 +16,9 @@ namespace webpbl3.Areas.admin.Controllers
         {
 
             DSBaoCaoView HoaDonPhong = new DSBaoCaoBus().GetBaoCaoByIDHoaDon(IDHoaDon);
-            var listhoadondv = new DSHoaDonBus().GetAllDSDichVuByIDHoaDon(IDHoaDon);
-            var NhanVien = new DSTaiKhoanNVBus().GetTKNVByID(HoaDonPhong.IDNhanVien);
+            var listhoadondv = new DSHoaDonBus().GetAllDSDichVuByIDHoaDonThanhToan(IDHoaDon);
 
             ViewBag.listhoadon = listhoadondv;
-            ViewBag.TenNhanVien = NhanVien.HoVaTen;
 
             return View(HoaDonPhong);
         }

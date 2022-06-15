@@ -66,8 +66,8 @@
 
                             <div class="row">
                                 @Html.ActionLink("Sửa", "XemTaiKhoan", new { ID = i.ID }, new { @class = "admin-order-btn button--modify" })
-                                @Html.ActionLink("Khôi Phục", "ResetMatKhau", new { ID = i.ID }, new { @class = "admin-order-btn button--modify" })
-                                <button class="admin-order-btn button--modify">Xóa</button>
+                                @Html.ActionLink("Khôi Phục", "ResetMatKhau", new { ID = i.ID }, new { @class = "admin-order-btn button--modify", onclick = "return confirm('Are sure wants to reset password ?');" })
+                                @Html.ActionLink("Xóa", "XoaTaiKhoan", new { ID = i.ID }, new { @class = "button", onclick = "return confirm('Are sure wants to delete?');" })
                             </div>
                         </div>
                         <div class="drop-down white-background"></div>

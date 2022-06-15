@@ -50,8 +50,7 @@ namespace webpbl3.Areas.admin.Controllers
 
         public ActionResult Delete(int ID)
         {
-            string query = "DELETE FROM LoaiPhong WHERE IDLoaiPhong = "+ID+"";
-            dbHelper.ExcutedDB(query);
+            new DSLoaiPhongBus().DeleteLoaiPhong(ID);
             return Redirect("/admin/LoaiPhong/DanhSachLoaiPhong");
         }
 

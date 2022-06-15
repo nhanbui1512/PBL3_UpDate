@@ -93,7 +93,7 @@
 
                     <div class="row">
                         @Html.ActionLink("Sửa", "ChinhSuaPhong", new { ID = i.IDPhong }, new { @class = "admin-order-btn button--modify" })
-                        @Html.ActionLink("Xóa", "Delete", new { ID = i.IDPhong }, new { @class = "admin-order-btn button--modify", onclick = "return confirm('Are sure wants to delete?');" })
+                        @Html.ActionLink("Xóa", "Xoa", new { ID = i.IDPhong }, new { @class = "admin-order-btn button--modify", onclick = "return confirm('Are sure wants to delete?');" })
                     </div>
 
                     </div>

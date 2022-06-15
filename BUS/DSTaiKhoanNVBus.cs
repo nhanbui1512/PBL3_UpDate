@@ -28,6 +28,7 @@ namespace BUS
                 obj.SDT = i["SDT"].ToString();
                 obj.GioiTinh = (i["GioiTinh"]).ToString();
                 obj.GhiChu = i["GhiChu"].ToString();
+                obj.DiaChi = i["DiaChi"].ToString();
                 lst.Add(obj);
             }
             return lst;

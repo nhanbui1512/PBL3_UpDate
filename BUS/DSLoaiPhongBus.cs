@@ -64,5 +64,22 @@ namespace BUS
             }
             return list; 
         }
+
+        public void DeleteLoaiPhong(int IDLoaiPhong)
+        {
+            dbHelper db = new dbHelper();
+
+            foreach(DataRow i in db.GetRecord("select DatPhong.IDDatPhong from DatPhong where IDLoaiPhong = "+IDLoaiPhong+"").Rows)
+            {
+                db.ExcutedDB("delete from ChiTietHoaDon where IDHoaDon = (select HoaDon.IDHoaDon from HoaDon where IDDatPhong = "+i["IDDatPhong"].ToString()+"  )");
+                db.ExcutedDB("update ThongTinHoaDonDV set IDHoaDon = null where IDHoaDon = ( select HoaDon.IDHoaDon from HoaDon where HoaDon.IDDatPhong = "+i["IDDatPhong"].ToString()+" ) ");
+                db.ExcutedDB("delete from HoaDon where IDDatPhong = " + i["IDDatPhong"].ToString() + "");
+           
+            }
+
+            db.ExcutedDB("delete from DatPhong where IDLoaiPhong = " + IDLoaiPhong + "");
+            db.ExcutedDB("delete from Phong where IDLoaiPhong = " + IDLoaiPhong + "");
+            db.ExcutedDB("delete from LoaiPhong where IDLoaiPhong = " + IDLoaiPhong + "");
+        }
     }
     }

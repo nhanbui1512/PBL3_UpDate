@@ -56,5 +56,12 @@ namespace webpbl3.Areas.admin.Controllers
             new TaiKhoanBUS().DeleleTaiKhoan(ID);
             return Redirect("/admin/KhachHang/DanhSachKhachHang");
         }
+
+        public ActionResult ResetMatKhau(int ID)
+        {
+            var obj = new DSTaiKhoanNVBus();
+            obj.ResetMatKhau(ID);
+            return Redirect("/admin");
+        }
     }
 }

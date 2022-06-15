@@ -90,6 +90,12 @@ namespace webpbl3.Areas.admin.Controllers
             return Redirect("/admin/TaiKhoan/DanhSachTaiKhoan");
         }
 
+        public ActionResult XoaTaiKhoan(int ID)
+        {
+            new TaiKhoanBUS().DeleleTaiKhoan(ID);
+            return Redirect("/admin/TaiKhoan/DanhSachTaiKhoan");
+        }
+
 
 
     }

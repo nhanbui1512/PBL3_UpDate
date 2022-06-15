@@ -63,12 +63,7 @@ namespace webpbl3.Areas.admin.Controllers
             return View();
         }
 
-        public ActionResult XoaPhong(int IDPhong)
-        {
-
-            return Redirect("");
-        }
-
+    
 
         public ActionResult ChinhSuaPhong(int ID)
         {
@@ -89,6 +84,12 @@ namespace webpbl3.Areas.admin.Controllers
         public ActionResult UpDatePhong(Phong form)
         {
             new PhongHelper().Update(form); 
+            return Redirect("/admin/Phong/DanhSachPhong");
+        }
+
+        public ActionResult Xoa(int ID)
+        {
+            new PhongHelper().DeletePhong(ID);
             return Redirect("/admin/Phong/DanhSachPhong");
         }
     }

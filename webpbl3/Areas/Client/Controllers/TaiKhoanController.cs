@@ -15,7 +15,17 @@ namespace webpbl3.Areas.Client.Controllers
         public ActionResult ThongTinCaNhan()
         {
             var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
-            var Client = new DSTaiKhoanNVBus().GetTKByTenTk(sess.UserName);
+            var list = new DSTaiKhoanNVBus().DSTaiKhoan();
+            DSTaiKhoanNVView Client = new DSTaiKhoanNVView();
+            foreach (var item in list)
+            {
+                if(item.ID == sess.UserID)
+                {
+                    Client = item;
+                    break;
+                }
+            }
+
             return View(Client);
         }
 

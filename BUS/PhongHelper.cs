@@ -75,10 +75,20 @@ namespace BUS
             return result;
         }
 
-        public void XoaPhong(int IDPhong)
+        public void DeletePhong(int IDPhong)
         {
-            string query = "DELETE FROM PHONG WHERE IDPhong = "+IDPhong+"";
-            dbHelper.ExcutedDB(query);
+            dbHelper db = new dbHelper();
+
+            foreach (DataRow i in db.GetRecord("select DatPhong.IDDatPhong from DatPhong where IDPhong = " + IDPhong + "").Rows)
+            {
+                db.ExcutedDB("delete from ChiTietHoaDon where IDHoaDon = (select HoaDon.IDHoaDon from HoaDon where IDDatPhong = " + i["IDDatPhong"].ToString() + "  )");
+                db.ExcutedDB("update ThongTinHoaDonDV set IDHoaDon = null where IDHoaDon = ( select HoaDon.IDHoaDon from HoaDon where HoaDon.IDDatPhong = " + i["IDDatPhong"].ToString() + " ) ");
+                db.ExcutedDB("delete from HoaDon where IDDatPhong = " + i["IDDatPhong"].ToString() + "");
+
+            }
+            db.ExcutedDB("delete from DatPhong where IDPhong = " + IDPhong + "");
+            db.ExcutedDB("delete from Phong where IDPhong = " + IDPhong + "");
+
         }
 
         public void Update (Phong phong)

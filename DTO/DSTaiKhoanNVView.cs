@@ -18,5 +18,7 @@ namespace DTO
         public string GhiChu { get; set; }
         public string TenTaiKhoan { get; set; }
 
+        public string DiaChi { get; set; }
+
     }
 }

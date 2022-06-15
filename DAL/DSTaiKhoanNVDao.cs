@@ -15,7 +15,7 @@ namespace DAL
         public DataTable GetAllDS()
         {
             dbHelper db = new dbHelper();
-            string query = "SELECT TK.IDTK, TK.TenTaiKhoan, TT.HoTen, TK.Quyen, TT.CMT, TT.NgaySinh, TT.SDT, TT.GioiTinh, TT.GhiChu" +
+            string query = "SELECT TK.IDTK, TK.TenTaiKhoan, TT.HoTen ,TT.DiaChi, TK.Quyen, TT.CMT, TT.NgaySinh, TT.SDT, TT.GioiTinh, TT.GhiChu" +
                 " FROM TaiKhoan TK " +
                 "INNER JOIN  ThongTinTK TT " +
                 "ON TK.IDTK = TT.IDTaiKhoan ";
@@ -24,7 +24,7 @@ namespace DAL
 
         public void UpDateThongTinTK( DSTaiKhoanNVView form)
         {
-            string query = "UPDATE ThongTinTK SET SDT = '" + form.SDT + "', GhiChu = '"+form.GhiChu+"' , CMT = '" + form.CMND + "', HoTen = N'" + form.HoVaTen + "', GioiTinh = '" + form.GioiTinh + "' WHERE IDTaiKhoan = " + form.ID + ""; 
+            string query = "UPDATE ThongTinTK SET DiaChi = N'"+form.DiaChi+"', SDT = '" + form.SDT + "', GhiChu = N'"+form.GhiChu+"' , CMT = '" + form.CMND + "', HoTen = N'" + form.HoVaTen + "', GioiTinh = '" + form.GioiTinh + "' WHERE IDTaiKhoan = " + form.ID + ""; 
             dbHelper.ExcutedDB(query);
             string query2 = "UPDATE TaiKhoan SET Quyen = '" + form.Quyen + "' WHERE IDTK = " + form.ID + "";
             dbHelper.ExcutedDB(query2);

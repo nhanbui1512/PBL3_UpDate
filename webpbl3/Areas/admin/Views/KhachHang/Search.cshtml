@@ -72,7 +72,7 @@
 
                         <div class="row">
                             @Html.ActionLink("Xem", "XemThongTin", new { ID = i.ID }, new { @class = "button" })
-                            <button class="button">Xóa</button>
+                            @Html.ActionLink("Xóa", "XoaTaiKhoan", new { ID = i.ID }, new { @class = "button", onclick = "return confirm('Are sure wants to delete?');" })
                         </div>
 
                     </div>

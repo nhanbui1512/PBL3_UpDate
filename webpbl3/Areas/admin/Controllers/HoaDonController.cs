@@ -118,6 +118,9 @@ namespace webpbl3.Areas.admin.Controllers
 
             new DSHoaDonBus().ThanhToanHoaDon(ID,hoadonphong.IDPhong, sess.UserID , TongTien);
 
+            
+
+
             return Redirect("/admin/HoaDon/DanhSachHoaDon");
         }
 

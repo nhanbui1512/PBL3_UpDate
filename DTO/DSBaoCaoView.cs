@@ -19,7 +19,7 @@ namespace DTO
         public string TenLoaiPhong { get; set; }
         public string TenPhong { get; set; }
         public double TongThu { get; set; }
-        public int IDNhanVien { get; set; }
+        public string TenNhanVien { get; set; }
         public int TongThoiGian { get; set; }
 
 

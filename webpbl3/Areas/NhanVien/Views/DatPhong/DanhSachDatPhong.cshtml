@@ -75,7 +75,7 @@
                         }
                         <div class="row">
                             @Html.ActionLink("Xem", "XemDon", new { ID = i.ID }, new { @class = "button" })
-                            @Html.ActionLink("Xóa", "Xoa", new { ID = i.ID }, new { @class = "button" })
+                            @Html.ActionLink("Xóa", "Xoa", new { ID = i.ID }, new { @class = "button", onclick = "return confirm('Are sure wants to delete?');" })
                             
                         </div>
                     </div>

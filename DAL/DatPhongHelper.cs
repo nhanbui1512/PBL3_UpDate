@@ -48,8 +48,10 @@ namespace DAL
             {
                 IDHoaDon = Convert.ToInt32(i["IDHoaDon"]);
             }
-            
-            dbHelper.ExcutedDB("insert into ChiTietHoaDon (IDHoaDon , BatDau , KetThuc , GiaHDPhong , HoVaTen , SDT , CMND , TongTien) values ('" +IDHoaDon+ "' , '"+form.ThoiGianBD+ "', '" + form.ThoiGianKT + "' , '" + form.DonGia+ "', N'" + form.HoVaTen + "' , '" + form.SDT + "' , '"+form.CMND+"', '"+form.DonGia+"' )");
+
+            TimeSpan TongTG = form.ThoiGianKT - form.ThoiGianBD;
+            double TongTienPhong = form.DonGia * TongTG.Days;
+            dbHelper.ExcutedDB("insert into ChiTietHoaDon (IDHoaDon , BatDau , KetThuc , GiaHDPhong , HoVaTen , SDT , CMND , TongTien) values ('" +IDHoaDon+ "' , '"+form.ThoiGianBD+ "', '" + form.ThoiGianKT + "' , '" + form.DonGia+ "', N'" + form.HoVaTen + "' , '" + form.SDT + "' , '"+form.CMND+"', '"+TongTienPhong+"' )");
 
         }
 
