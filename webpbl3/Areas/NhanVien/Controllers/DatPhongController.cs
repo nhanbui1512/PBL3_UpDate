@@ -26,6 +26,21 @@ namespace webpbl3.Areas.NhanVien.Controllers
                 }
             }
 
+            DSDatPhongView temp = new DSDatPhongView();
+
+            for (int i = 0; i < data.Count - 1; i++)
+            {
+                for (int j = i + 1; j < data.Count; j++)
+                {
+                    if (DateTime.Compare(data[i].NgayGui, data[j].NgayGui) < 0)
+                    {
+                        temp = data[j];
+                        data[j] = data[i];
+                        data[i] = temp;
+                    }
+                }
+            }
+
             return View(data);
         }
 
@@ -106,6 +121,21 @@ namespace webpbl3.Areas.NhanVien.Controllers
                     list.Add(i);
                 }
 
+            }
+
+            DSDatPhongView temp = new DSDatPhongView();
+
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                for (int j = i + 1; j < list.Count; j++)
+                {
+                    if (DateTime.Compare(list[i].NgayGui, list[j].NgayGui) < 0)
+                    {
+                        temp = list[j];
+                        list[j] = list[i];
+                        list[i] = temp;
+                    }
+                }
             }
 
             return View(list);

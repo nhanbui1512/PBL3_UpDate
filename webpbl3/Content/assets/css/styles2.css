@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300&family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 /* reset CSS */
 
 * {
@@ -15,7 +16,7 @@ html, body {
     position: relative;
     font-size: 15px;
     line-height: 1.8;
-    font-family: "Lato", sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 #main {
@@ -216,8 +217,8 @@ html, body {
     display: flex;
     flex-direction: column;
     padding: 0px 8px;
-    /* margin-bottom: 16px; */
     background-color: #f1f1f1;
+    font-family: 'Raleway', sans-serif !important;
 }
 
 .room-description {
@@ -225,6 +226,7 @@ html, body {
     padding: 0px 16px;
     display:flex;
     flex-direction:column;
+    font-weight:600;
 }
 
 .room-img {

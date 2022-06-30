@@ -11,7 +11,7 @@ using System.Data;
 
 namespace webpbl3.Areas.Client.Controllers
 {
-    public class MatKhauController : Controller
+    public class MatKhauController : BaseController
     {
         [HttpPost]
         public ActionResult ThayDoi(FormDoiMK form)

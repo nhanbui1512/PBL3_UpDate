@@ -32,6 +32,7 @@ namespace BUS
                 obj.TongTien = Convert.ToDouble(i["TongTien"]);
                 obj.IDPhong = Convert.ToInt32(i["IDPhong"]);
                 TimeSpan Temp = Convert.ToDateTime(i["KetThuc"]) - Convert.ToDateTime(i["BatDau"]);
+                obj.IDDatPhong = Convert.ToInt32(i["IDDatPhong"]);
                 obj.TongTG = Temp.Days;
                 list.Add(obj);
             }
@@ -58,6 +59,7 @@ namespace BUS
                     obj.TenPhong = i["TenPhong"].ToString();
                     obj.TongTien = Convert.ToDouble(i["TongTien"]);
                     TimeSpan Temp = Convert.ToDateTime(i["KetThuc"]) - Convert.ToDateTime(i["BatDau"]);
+                    obj.IDDatPhong = Convert.ToInt32(i["IDDatPhong"]);
                     obj.TongTG = Temp.Days;
                     break;
                 }

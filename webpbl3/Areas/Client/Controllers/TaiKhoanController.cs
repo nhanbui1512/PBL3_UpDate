@@ -87,6 +87,20 @@ namespace webpbl3.Areas.Client.Controllers
                 }
             }
 
+            DSDatPhongView temp = new DSDatPhongView();
+            for(int i = 0; i < data.Count -1 ; i++)
+            {
+                for(int j = i +1; j < data.Count; j++)
+                {
+                    if(DateTime.Compare(data[i].NgayGui,data[j].NgayGui) < 0)
+                    {
+                        temp = data[j];
+                        data[j] = data[i];
+                        data[i] = temp;
+                    }
+                }
+            }
+
             return View(data);
         }
 

@@ -20,6 +20,7 @@ namespace DTO
         public bool TrangThai { get; set; }
         public string TenLoaiPhong { get; set; }
         public int IDPhong { get; set; }
+        public int IDDatPhong { get; set; }
         public string TenPhong { get; set; }
         public double TongTien { get; set; }
 

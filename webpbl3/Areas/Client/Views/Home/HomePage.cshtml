@@ -7,7 +7,7 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="~/Content/assets/css/styles2.css">
+    <link rel="stylesheet" href="~/Content/assets/css/styles3.css">
     <meta name="viewport" content="width=device-width" />
     <title>Booking Hotel</title>
     <link rel="stylesheet" href="~/Content/assets/fonts/themify-icons-font/themify-icons/themify-icons.css">
@@ -179,34 +179,31 @@
                         if (j < ViewBag.tong)
                         {
                             <div class="booking-container__rooms-item">
-                                <img class="room-img" src="~/Content/assets/img/@Model[j].LienKetAnhDaiDien" alt="">
-
-                                <div class="room-description">
-                                    <h3 class="margin-bottop-10 font-24">
-                                        @Model[j].TenLoaiPhong
-                                    </h3>
-                                    <h6 class="margin-bottop-10 font-16">
-                                        From @Model[j].GiaPhong
-                                    </h6>
-                                    <p class="margin-bottop-15">15m2</p>
-                                    <p class="margin-bottop-15">Single bed</p>
-                                    <p class="margin-bottop-15">
-                                        <i class="fa-solid fa-bath"></i>
-                                        <i class="fa-solid fa-phone"></i>
-                                        <i class="fa-solid fa-wifi"></i>
-                                        <i class="fa-solid fa-tv"></i>
-                                        <i class="fa-solid fa-utensils"></i>
-                                    </p>
-                                    @Html.ActionLink("Choose Room", "XemPhong", new { ID = Model[j].IDLoaiPhong }, new { @class = "choose-room-btn button-hover" })
-                                    @*<a href="/HomePage/XemPhong">
-                                        <div class="choose-room-btn button-hover">
-                                            Choose Room
-                                        </div>
-                                    </a>*@
-
+                                <div class="shadow col">
+                                    <img class="room-img" src="~/Content/assets/img/@Model[j].LienKetAnhDaiDien" alt="">
+                                    <div class="room-description">
+                                        <h3 class="margin-bottop-10 font-24">
+                                            @Model[j].TenLoaiPhong
+                                        </h3>
+                                        <h6 class="margin-bottop-10 font-16">
+                                            From @string.Format("{0:#,##}", Model[j].GiaPhong) VNĐ
+                                        </h6>
+                                        <p class="margin-bottop-15">15m2</p>
+                                        <p class="margin-bottop-15">@Model[j].GhiChu</p>
+                                        <p class="margin-bottop-15">
+                                            <i class="fa-solid fa-bath"></i>
+                                            <i class="fa-solid fa-phone"></i>
+                                            <i class="fa-solid fa-wifi"></i>
+                                            <i class="fa-solid fa-tv"></i>
+                                            <i class="fa-solid fa-utensils"></i>
+                                        </p>
+                                        @Html.ActionLink("Choose Room", "XemPhong", new { ID = Model[j].IDLoaiPhong }, new { @class = "choose-room-btn button-hover" })
+                                       
+                                    </div>
 
 
                                 </div>
+
                             </div>
                         }
                         else

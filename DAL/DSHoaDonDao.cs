@@ -13,7 +13,7 @@ namespace DAL
         public DataTable GetAllDSHoaDon()
         {
             dbHelper dbHelper = new dbHelper();
-            var query = "SELECT cthd.IDHoaDon, cthd.HoVaTen, cthd.SDT, cthd.CMND, cthd.BatDau, cthd.KetThuc, tt.HoTen, cthd.GiaHDPhong, hd.TrangThai, dp.TenLoaiPhong,P.IDPhong, P.TenPhong, cthd.TongTien " +
+            var query = "SELECT cthd.IDHoaDon, cthd.HoVaTen, cthd.SDT, cthd.CMND, cthd.BatDau, cthd.KetThuc, tt.HoTen, cthd.GiaHDPhong, hd.TrangThai,hd.IDDatPhong, dp.TenLoaiPhong,P.IDPhong, P.TenPhong, cthd.TongTien " +
                  "FROM ChiTietHoaDon cthd " +
                  "INNER JOIN HoaDon hd " +
                  "ON cthd.IDHoaDon = hd.IDHoaDon " +
@@ -75,8 +75,15 @@ namespace DAL
             DateTime date = DateTime.Now;
             dbHelper.ExcutedDB("UPDATE HoaDon set TrangThai = 1 where IDHoaDon = "+IDHoaDon+"");
             dbHelper.ExcutedDB("UPDATE ChiTietHoaDon set IDNhanVien = "+IDUser+" , TongTien = '"+TongTien+"', ThoiGianGiaoDich = '"+date+"' where IDHoaDon = "+IDHoaDon+" ");
+            dbHelper.ExcutedDB("UPDATE ThongTinHoaDonDV set IDHoaDon = NULL where IDHoaDon = "+IDHoaDon+"");
             dbHelper.ExcutedDB("UPDATE Phong set TrangThai = '0' WHERE IDPhong = " + IDPhong + "");
+            
             dbHelper.ExcutedDB("INSERT INTO HoaDonThanhToan (IDHoaDonThanhToan, HoVaTen , SoDT, CMND ,TenLoaiPhong, TenPhong , BatDau , KetThuc , NhanVienThanhToan, ThoiGianGiaoDich, GiaPhong, TongTien) VALUES ('"+hoadonphong.ID+ "', N'" + hoadonphong.HoVaTen + "' , '" + hoadonphong.SDT + "' , '" + hoadonphong.CMND + "' , '" + hoadonphong.TenLoaiPhong + "' , '" + hoadonphong.TenPhong + "', '" + hoadonphong.BatDau + "' , '" + hoadonphong.KetThuc + "' , N'" + UserName + "' , '" + DateTime.Now + "' , '" + hoadonphong.GiaPhong + "' , '" + hoadonphong.TongTien + "') ");
+            
+            dbHelper.ExcutedDB("delete ChiTietHoaDon where IDHoaDon = "+IDHoaDon+"");
+            dbHelper.ExcutedDB("delete HoaDon where IDHoaDon  = " + IDHoaDon+"");
+            dbHelper.ExcutedDB("delete DatPhong where IDDatPhong = " + hoadonphong.IDDatPhong+"");
+
         }
 
         public void XoaHoaDonDV(int IDDV, int IDHoaDon, double TongTienDV)

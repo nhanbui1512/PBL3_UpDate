@@ -32,6 +32,15 @@ namespace webpbl3.Areas.admin.Controllers
         public ActionResult XemHoaDon(int id)
         {
             var listdichvu = new DSDichVuBus().GetDSDichVu();
+            List<DSDichVuView> listdichvusudung = new List<DSDichVuView>();
+
+            foreach(var item in listdichvu)
+            {
+                if(item.TrangThai == "True")
+                {
+                    listdichvusudung.Add(item);
+                }
+            }
             var hoadonphong = new DSHoaDonBus().GetIDDSHoaDon(id);
             var listhoadondv = new DSHoaDonBus().GetAllDSDichVuByIDHoaDon(id);
             double TongTien = 0;
@@ -47,7 +56,7 @@ namespace webpbl3.Areas.admin.Controllers
 
             ViewBag.listhoadon = listhoadondv;
            
-            ViewBag.DSDichVu = listdichvu;
+            ViewBag.DSDichVu = listdichvusudung;
             return View (hoadonphong);
         }
 

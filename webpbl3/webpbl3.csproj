@@ -2498,6 +2498,7 @@
     <Content Include="Content\assets\css\solid.css" />
     <Content Include="Content\assets\css\styles.css" />
     <Content Include="Content\assets\css\styles2.css" />
+    <Content Include="Content\assets\css\styles3.css" />
     <Content Include="Content\assets\css\w3.css" />
     <Content Include="Content\assets\fonts\fontawesome-free-6.0.0-web\css\all.css" />
     <Content Include="Content\assets\fonts\fontawesome-free-6.0.0-web\css\all.min.css" />
@@ -4943,6 +4944,7 @@
     <Content Include="Areas\NhanVien\Views\KhachHang\DanhSachKhachHang.cshtml" />
     <Content Include="Areas\NhanVien\Views\KhachHang\XemThongTin.cshtml" />
     <Content Include="Areas\admin\Views\Phong\ChinhSuaPhong.cshtml" />
+    <Content Include="Areas\admin\Views\DoanhThu\Search.cshtml" />
     <None Include="Models\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.js" />
     <Content Include="Models\Scripts\jquery-3.4.1.min.js" />
@@ -4973,8 +4975,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Success.cshtml" />
     <Content Include="Views\Account\Error.cshtml" />
-    <Content Include="Views\Account\DangKyThanhCong.cshtml" />
     <Content Include="Views\HomePage\XemPhong.cshtml" />
+    <Content Include="Views\Account\CheckSignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

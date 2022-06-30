@@ -5,6 +5,7 @@ using webpbl3.Common;
 using System.Data;
 using System;
 using System.Web.Services.Description;
+using BUS;
 
 namespace webpbl3.Controllers
 {
@@ -151,13 +152,12 @@ namespace webpbl3.Controllers
 
 
             }
-            
 
             if (ketqua == false && acc.MatKhau.ToString() == acc.XacNhanMatKhau.ToString())
             {
-                helper.ExcutedDB("INSERT INTO TaiKhoan VALUES ('"+acc.TenTaiKhoan+"' , '"+acc.MatKhau+"' , '"+acc.Quyen+"')");
+                helper.ExcutedDB("INSERT INTO TaiKhoan VALUES ('" + acc.TenTaiKhoan + "' , '" + acc.MatKhau + "' , '" + acc.Quyen + "')");
                 int id = 0;
-                foreach(DataRow i in helper.GetAllTK().Rows)
+                foreach (DataRow i in helper.GetAllTK().Rows)
                 {
                     if (acc.TenTaiKhoan == i["TenTaiKhoan"].ToString())
                     {
@@ -165,17 +165,34 @@ namespace webpbl3.Controllers
                     }
                 }
 
-                helper.ExcutedDB("INSERT INTO ThongTinTK VALUES ('" + acc.NgaySinh + "' , '" + acc.SoDT + "' , N'" + acc.DiaChi + "', '" + acc.CMND + "' , N'" + acc.HoVaTen + "' , '" +id+"', '' , '"+acc.GioiTinh+"')");
+                helper.ExcutedDB("INSERT INTO ThongTinTK VALUES ('" + acc.NgaySinh + "' , '" + acc.SoDT + "' , N'" + acc.DiaChi + "', '" + acc.CMND + "' , N'" + acc.HoVaTen + "' , '" + id + "', '' , '" + acc.GioiTinh + "')");
 
-                return View("DangKyThanhCong");
+                ViewBag.Ketqua = "Dangkythanhcong";
 
             }
             else
             {
-                return Redirect("/HomePage");
+                ViewBag.Ketqua = "Datontaitaikhoan";
 
             }
 
+
+            DatPhongHelper datPhongHelper = new DatPhongHelper();
+            datPhongHelper.CheckThoiGianVaoO();
+
+
+            var ListPhong = new DSLoaiPhongBus().GetDSLoaiPhong();
+            var tong = ListPhong.Count;
+            ViewBag.tong = tong;
+            if (tong % 3 > 0)
+            {
+                ViewBag.Dem = 3 * (tong / 3) + 1;
+            }
+            else
+            {
+                ViewBag.Dem = 3 * (tong / 3);
+            }
+            return View(ListPhong);
 
         }
 
