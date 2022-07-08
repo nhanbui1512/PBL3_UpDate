@@ -13,20 +13,27 @@ namespace webpbl3.Areas.admin.Controllers
     public class CaNhanController : BaseController
     {
         private DBHelper db = new DBHelper();
-        // GET: admin/CaNhan
         public ActionResult UpDateThongTinCaNhan()
         {
             var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
             DSTaiKhoanNVView view = new DSTaiKhoanNVView();
             var list = new DSTaiKhoanNVBus().DSTaiKhoan();
-            foreach (var item in list)
-            {
-                if(item.ID == sess.UserID)
-                {
-                    view = item;
-                    break;
-                }
 
+            if (sess == null)
+            {
+                return Redirect("/admin/adminPage/LoginPage");
+            }
+            else
+            {
+                foreach (var item in list)
+                {
+                    if (item.ID == sess.UserID)
+                    {
+                        view = item;
+                        break;
+                    }
+
+                }
             }
             
 

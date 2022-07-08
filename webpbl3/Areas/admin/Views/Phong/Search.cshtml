@@ -69,6 +69,7 @@
         <div class="col margin-bottop-10">
 
             <div class="header-order">
+                <div class="font-18 text-center header-order__item"></div>
                 <div class="font-18 text-center header-order__item">Loại Phòng</div>
                 <div class="font-18 text-center header-order__item">Tên Phòng</div>
                 <div class="font-18 text-center header-order__item">Trạng Thái</div>
@@ -77,9 +78,12 @@
             <div class="drop-down white-background"></div>
 
             @{
+                int cout = 1;
                 foreach (var i in Model)
                 {
                         <div class="text-center content-order">
+                            <div class="col">@cout</div>
+
                             <div class="col">@i.TenLoaiPhong</div>
 
                             <div class="col">@i.TenPhong</div>
@@ -96,13 +100,14 @@
                                 }
                             }
 
-                        <div class="row">
-                            @Html.ActionLink("Sửa", "ChinhSuaPhong", new { ID = i.IDPhong }, new { @class = "admin-order-btn button--modify" })
-                            @Html.ActionLink("Xóa", "Xoa", new { ID = i.IDPhong }, new { @class = "admin-order-btn button--modify", onclick = "return confirm('Are sure wants to delete?');" })
-                        </div>
+                            <div class="row">
+                                @Html.ActionLink("Sửa", "ChinhSuaPhong", new { ID = i.IDPhong }, new { @class = "admin-order-btn button--modify" })
+                                @Html.ActionLink("Xóa", "Xoa", new { ID = i.IDPhong }, new { @class = "admin-order-btn button--modify", onclick = "return confirm('Are sure wants to delete?');" })
+                            </div>
 
                         </div>
                     <div class="drop-down white-background"></div>
+                    cout++;
 
                 }
             }

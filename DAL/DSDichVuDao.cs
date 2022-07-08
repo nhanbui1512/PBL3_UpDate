@@ -30,5 +30,7 @@ namespace DAL
             string query = "DELETE FROM DichVu WHERE IDDV = " + ID + "";
             db.ExcutedDB(query);
         }
+
+        
     }
 }

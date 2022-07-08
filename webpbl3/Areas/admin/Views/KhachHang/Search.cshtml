@@ -51,8 +51,7 @@
 
             <div class="header-order">
                 <div class="font-18 text-center header-order__item">Họ Và Tên</div>
-                <div class="font-18 text-center header-order__item">Địa Chỉ</div>
-                <div class="font-18 text-center header-order__item">Ngày Sinh</div>
+                <div class="font-18 text-center header-order__item">Tên Tài Khoản</div>
                 <div class="font-18 text-center header-order__item">Số Điện Thoại</div>
                 <div class="font-18 text-center header-order__item">CMND</div>
                 <div class="font-18 text-center header-order__item"></div>
@@ -65,13 +64,13 @@
                 {
                     <div class="text-center content-order">
                         <div class="col">@i.HoVaTen</div>
-                        <div class="col">@i.DiaChi</div>
-                        <div class="col">@i.NgaySinh.ToString("dd/MM/yyyy")</div>
+                        <div class="col">@i.TenTaiKhoan</div>
                         <div class="col">@i.SDT</div>
                         <div class="col">@i.CMND</div>
 
                         <div class="row">
                             @Html.ActionLink("Xem", "XemThongTin", new { ID = i.ID }, new { @class = "button" })
+                            @Html.ActionLink("Khôi Phục", "ResetMatKhau", new { ID = i.ID }, new { @class = "button", onclick = "return confirm('Are sure wants to reset password ?');" })
                             @Html.ActionLink("Xóa", "XoaTaiKhoan", new { ID = i.ID }, new { @class = "button", onclick = "return confirm('Are sure wants to delete?');" })
                         </div>
 

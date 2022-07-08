@@ -56,6 +56,8 @@
         <div class="col margin-bottop-10">
 
             <div class="header-order">
+                <div class="font-18 text-center header-order__item">Số Thứ Tự</div>
+
                 <div class="font-18 text-center header-order__item">Tên Loại Phòng</div>
                 <div class="font-18 text-center header-order__item">Giá Phòng</div>
                 <div class="font-18 text-center header-order__item"></div>
@@ -64,21 +66,26 @@
 
 
             @{
+                int cout = 1;
+
                 foreach (var i in Model)
                 {
                         <div class="text-center content-order">
+                            <div class="col">@cout</div>
+
                             <div class="col">@i.TenLoaiPhong</div>
                             <div class="col">@string.Format("{0:#,##}", i.GiaPhong) VNĐ</div>
 
                             <div class="row">
 
                                 @Html.ActionLink("Sửa", "Sua", new { ID = i.IDLoaiPhong }, new { @class = "admin-order-btn button--modify" })
-                                @Html.ActionLink("Xóa", "Delete", new { ID = i.IDLoaiPhong }, new { @class = "admin-order-btn button--modify" , onclick = "return confirm('Are sure wants to delete?');" })
+                                @Html.ActionLink("Xóa", "Delete", new { ID = i.IDLoaiPhong }, new { @class = "admin-order-btn button--modify", onclick = "return confirm('Are sure wants to delete?');" })
                                 @*<button class="admin-order-btn button--modify">Xóa</button>*@
                             </div>
 
                         </div>
                     <div class="drop-down white-background"></div>
+                    cout++;
 
                 }
             }

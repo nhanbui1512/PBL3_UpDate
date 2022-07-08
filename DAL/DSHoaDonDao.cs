@@ -93,5 +93,13 @@ namespace DAL
             db.ExcutedDB("Update ChiTietHoaDon set TongTien = TongTien - " + TongTienDV + "");
         }
 
+        public void DeleteHoaDon(DSHoaDonView HoaDon)
+        {
+            dbHelper db = new dbHelper();
+            db.ExcutedDB("DELETE FROM ThongTinHoaDonDV WHERE IDHoaDon = " + HoaDon.ID + "");
+            db.ExcutedDB("DELETE FROM ChiTietHoaDon WHERE IDHoaDon = " + HoaDon.ID + "");
+            db.ExcutedDB("DELETE FROM HoaDon WHERE IDHoaDon = " + HoaDon.ID + "");
+            db.ExcutedDB("DELETE FROM DatPhong WHERE IDDatPhong = " + HoaDon.IDDatPhong + "");
+        }
     }
 }

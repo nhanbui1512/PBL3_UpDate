@@ -18,17 +18,24 @@ namespace webpbl3.Areas.NhanVien.Controllers
             var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
             DSTaiKhoanNVView view = new DSTaiKhoanNVView();
             var list = new DSTaiKhoanNVBus().DSTaiKhoan();
-            foreach (var item in list)
+
+            if(sess == null)
             {
-                if (item.ID == sess.UserID)
-                {
-                    view = item;
-                    break;
-                }
-
+                return Redirect("/admin/adminPage/LoginPage");
             }
+            else
+            {
+                foreach (var item in list)
+                {
+                    if (item.ID == sess.UserID)
+                    {
+                        view = item;
+                        break;
+                    }
 
-
+                }
+            }
+            
             return View(view);
         }
         [HttpPost]

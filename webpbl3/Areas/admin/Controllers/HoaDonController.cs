@@ -140,6 +140,30 @@ namespace webpbl3.Areas.admin.Controllers
             return Redirect("/admin/HoaDon/XemHoaDon/"+IDHoaDon+ "/#DichVu");
         }
 
+        public ActionResult Xoa(int ID)
+        {
+            DSHoaDonBus bus = new DSHoaDonBus();
+            DSHoaDonView HoaDon = bus.GetIDDSHoaDon(ID);
+            bus.XoaHoaDon(HoaDon);
+            return Redirect("/admin/HoaDon/DanhSachHoaDon");
+        }
+
+        public ActionResult Search(string Input)
+        {
+            var listhoadon = new DSHoaDonBus().DSHoaDon();
+            List<DSHoaDonView> list = new List<DSHoaDonView>();
+
+            foreach (var i in listhoadon)
+            {
+                if (i.HoVaTen.Contains(Input) == true)
+                {
+                    list.Add(i);
+                }
+            }
+
+            return View(list);
+        }
+
 
 
     }

@@ -29,20 +29,18 @@
 
     <div class="order-container__content">
 
-        <div class="order-container__content-header">
+        <form class="order-container__content-header" action="/admin/HoaDon/Search">
 
             <div class="">
                 <label for="">
                     Search:
-                    <input class="padding-5-20" type="text">
+                    <input class="padding-5-20" type="text" name="Input">
                 </label>
             </div>
 
-            <button class="add-class-btn margin-left-70"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+            <button type="submit" class="add-class-btn margin-left-70"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
 
-
-
-        </div>
+        </form>
 
         <div class="col margin-bottop-10">
 
@@ -77,9 +75,10 @@
                                 <div class="col">Chưa Thanh Toán</div>
 
                             }
-                            <div class="row">
-                               <a class="button" href="/admin/HoaDon/XemHoaDon/@i.ID">Xem Hóa Đơn</a>
-                            </div>
+                        <div class="row">
+                            <a class="button" href="/admin/HoaDon/XemHoaDon/@i.ID">Xem </a>
+                            @Html.ActionLink("Xóa", "Xoa", new { ID = i.ID }, new { @class = "button", onclick = "return confirm('Are sure wants to delete?');" })
+                        </div>
                         </div>
 
                     <div class="drop-down white-background"></div>

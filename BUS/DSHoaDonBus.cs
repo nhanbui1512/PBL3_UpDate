@@ -138,8 +138,6 @@ namespace BUS
 
             dao.ThanhToanHoaDon(IDHoaDon,IDPhong , UserID,TenNhanVienThanhToan , TongTien, HoaDonPhong);
 
-
-
         }
 
         public void XoaHoaDonDV(int IDDV, int IDHoaDon)
@@ -156,6 +154,11 @@ namespace BUS
                 }
             }
             dao.XoaHoaDonDV(IDDV, IDHoaDon, TongTienDV);
+        }
+
+        public void XoaHoaDon(DSHoaDonView HoaDon)
+        {
+            dao.DeleteHoaDon(HoaDon);
         }
     }
 }

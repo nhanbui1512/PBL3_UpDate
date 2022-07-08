@@ -18,7 +18,9 @@ namespace webpbl3.Areas.admin.Controllers
 
         // GET: admin/DatPhong
         public ActionResult DanhSachDatPhong()
-        {   
+        {
+            new DatPhongHelper().CheckThoiGianVaoO();
+
             var list = new DSDatPhongBus().DSDatPhong();
 
             List<DSDatPhongView> data = new List<DSDatPhongView>();

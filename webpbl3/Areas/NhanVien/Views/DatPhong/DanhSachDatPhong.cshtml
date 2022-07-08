@@ -48,7 +48,7 @@
             <div class="header-order">
                 <div class="font-18 text-center header-order__item">Thời gian gửi mail</div>
                 <div class="font-18 text-center header-order__item">Họ và tên</div>
-                <div class="font-18 text-center header-order__item">Email</div>
+                <div class="font-18 text-center header-order__item">Tên Loại Phòng</div>
                 <div class="font-18 text-center header-order__item">Số điện thoại</div>
                 <div class="font-18 text-center header-order__item">Thời gian thuê phòng</div>
                 <div class="font-18 text-center header-order__item">Tình trạng</div>
@@ -62,7 +62,7 @@
                     <div class="text-center content-order">
                         <div class="col">@i.NgayGui.ToString("dd/MM/yyyy")</div>
                         <div class="col">@i.HoVaTen</div>
-                        <div class="col">@i.TenTaiKhoan</div>
+                        <div class="col">@i.TenLoaiPhong</div>
                         <div class="col">@i.SDT</div>
                         <div class="col">@i.ThoiGianBD.ToString("dd/MM") - @i.ThoiGianKT.ToString("dd/MM")</div>
                         @if (i.TrangThai == "1")

@@ -17,12 +17,21 @@ namespace webpbl3.Areas.Client.Controllers
             var sess = (UserLogin)Session[CommonConstant.USER_SESSION];
             var list = new DSTaiKhoanNVBus().DSTaiKhoan();
             DSTaiKhoanNVView Client = new DSTaiKhoanNVView();
-            foreach (var item in list)
+            
+            if (sess == null)
             {
-                if(item.ID == sess.UserID)
+                return Redirect("/admin/adminPage/LoginPage");
+            }
+            else
+            {
+                foreach (var item in list)
                 {
-                    Client = item;
-                    break;
+                    if (item.ID == sess.UserID)
+                    {
+                        Client = item;
+                        break;
+                    }
+
                 }
             }
 

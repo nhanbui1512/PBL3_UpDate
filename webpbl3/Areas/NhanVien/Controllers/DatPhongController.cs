@@ -14,6 +14,8 @@ namespace webpbl3.Areas.NhanVien.Controllers
         // GET: NhanVien/DatPhong
         public ActionResult DanhSachDatPhong()
         {
+
+            new DatPhongHelper().CheckThoiGianVaoO();
             var list = new DSDatPhongBus().DSDatPhong();
 
             List<DSDatPhongView> data = new List<DSDatPhongView>();

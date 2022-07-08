@@ -6,6 +6,8 @@ using System.Data;
 using System;
 using System.Web.Services.Description;
 using BUS;
+using Facebook;
+using System.Configuration;
 
 namespace webpbl3.Controllers
 {
@@ -202,8 +204,69 @@ namespace webpbl3.Controllers
             return Redirect("/");
         }
 
+        private Uri RedirectURi
+        {
+            get
+            {
+                var uriBuilder = new UriBuilder(Request.Url);
+                uriBuilder.Query = null;
+                uriBuilder.Fragment = null;
+                uriBuilder.Path = Url.Action("FacebookCallback");
+                return uriBuilder.Uri;  
+            }
+        }
+
+        public ActionResult LoginByFaceBook()
+        {
+            var fb = new FacebookClient();
+            
+            var loginURL = fb.GetLoginUrl(new
+            {
+                client_id = ConfigurationManager.AppSettings["FbAppID"],
+                client_secret = ConfigurationManager.AppSettings["AppSecret"],
+                redirect_uri = RedirectURi.AbsolutePath,
+                response_type = "code",
+                scope = "email",
+
+            });
+
+            return Redirect(loginURL.AbsoluteUri);
+        }
+
+        public ActionResult FacebookCallback(string code)
+        {
+            var fb = new FacebookClient();
+            dynamic result = fb.Post("oauth/access_token", new
+            {
+                client_id = ConfigurationManager.AppSettings["FbAppID"],
+                client_secret = ConfigurationManager.AppSettings["AppSecret"],
+                redirect_uri = RedirectURi.AbsolutePath,
+                code = code
+            });
+
+            var accessToken = result.AccessToken;
+            if (!string.IsNullOrEmpty(accessToken))
+            {
+                dynamic me = fb.Get("me?fields = first_name, middle_name,last_name,id,email");
+                string email = me.email;
+                string username = me.email;
+                string FirstName = me.first_name;
+                string MiddleName = me.middle_name;
+                string LastName = me.last_name;
+
+                var userSession = new UserLogin();
+                userSession.UserName = username;
+                userSession.Quyen = 3;
+                Session.Add(CommonConstant.USER_SESSION, userSession);
 
 
+                return Redirect("/admin");
+            }
+            else
+            {
+                return Redirect("/admin");
+            }
 
+        }
     }
 }

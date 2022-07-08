@@ -59,11 +59,11 @@
                 foreach (var i in Model)
                 {
                     <div class="text-center content-order">
-                        <div class="col">@i.BatDau.ToString("dd/MM") - @i.KetThuc.ToString("dd/MM") </div>
+                        <div class="col">@i.BatDau.ToString("dd/MM/yy") - @i.KetThuc.ToString("dd/MM/yy") </div>
                         <div class="col">@i.HoVaTen</div>
                         <div class="col">@i.TenLoaiPhong</div>
                         <div class="col">@i.TenPhong</div>
-                        <div class="col">@i.ThoiGianGiaoDich.ToString()</div>
+                        <div class="col">@i.ThoiGianGiaoDich.ToString("dd/MM/yyyy h:m:ss tt")</div>
                         <div class="col">@string.Format("{0:#,##}", i.TongThu) VNĐ</div>
                         <div class="row">
                             @Html.ActionLink("Xem Chi Tiết", "Xem", new { IDHoaDon = i.IDHoaDon }, new { @class = "button" })

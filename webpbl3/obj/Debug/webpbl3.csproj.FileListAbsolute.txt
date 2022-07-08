@@ -87,3 +87,5 @@ G:\webpbl3\webpbl3\bin\DTO.dll
 G:\webpbl3\webpbl3\bin\DAL.dll
 G:\webpbl3\webpbl3\bin\DTO.pdb
 G:\webpbl3\webpbl3\bin\DAL.pdb
+G:\webpbl3\webpbl3\bin\Facebook.dll
+G:\webpbl3\webpbl3\bin\Facebook.xml

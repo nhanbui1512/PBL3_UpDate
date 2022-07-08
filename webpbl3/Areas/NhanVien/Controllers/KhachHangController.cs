@@ -51,5 +51,12 @@ namespace webpbl3.Areas.NhanVien.Controllers
 
             return View(view);
         }
+
+        public ActionResult ResetMatKhau(int ID)
+        {
+            var obj = new DSTaiKhoanNVBus();
+            obj.ResetMatKhau(ID);
+            return Redirect("/NhanVien");
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace webpbl3.Areas.NhanVien.Controllers
 {
     public class HoaDonController : BaseController
     {
-        // GET: admin/HoaDon
+       
         public ActionResult DanhSachHoaDon()
         {
             List<DSHoaDonView> list = new List<DSHoaDonView>();
@@ -124,6 +124,24 @@ namespace webpbl3.Areas.NhanVien.Controllers
             new DSHoaDonBus().XoaHoaDonDV(IDDV, IDHoaDon);
             return Redirect("/NhanVien/HoaDon/XemHoaDon/" + IDHoaDon + "/#DichVu");
         }
+
+        public ActionResult Search(string Input)
+        {
+            var listhoadon = new DSHoaDonBus().DSHoaDon();
+            List<DSHoaDonView> list = new List<DSHoaDonView>();
+
+            foreach(var i in listhoadon)
+            {
+                if(i.HoVaTen.Contains(Input) == true)
+                {
+                    list.Add(i);
+                }
+            }
+
+            return View(list);
+        }
+
+
 
 
 

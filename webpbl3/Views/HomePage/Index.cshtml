@@ -268,7 +268,7 @@
                 <img src="~/Content/assets/img/img_avatar4.png" alt="Avatar" style="width:20%" class="w3-circle login-img">
             </div>
             
-            <form action="/Account/CheckDangNhap"  class="w3-container"  method="post">
+            <form action="/Account/CheckDangNhap" class="w3-container" method="post">
                 <div class="w3-section">
 
                     <label><b>Username</b></label>
@@ -278,6 +278,7 @@
                     <button class="modal-login-btn" type="submit">Login</button>
                 </div>
 
+                
                 <div class="form-remember">
                     <input class="w3-check" type="checkbox" checked="checked"> Remember me
                 </div>
@@ -461,6 +462,24 @@
 
             }
         }
+
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '577006667355039',
+                xfbml: true,
+                version: 'v14.0'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
 
     </script>
 
